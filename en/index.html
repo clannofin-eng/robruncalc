@@ -28,6 +28,7 @@
 <link rel="icon" href="../favicon.ico" sizes="48x48">
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "ROB RUN Jail Time Calculator: how many years you get after a raid", "url": "https://robruncalc.com/en/", "description": "ROB RUN jail time calculator: mark Lenny’s shipments, enter your money and assets, and see how many years you get after the raid. All 171 shipments with prices.", "inLanguage": "en", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
+<script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "How many years do I get for $1,000,000?", "acceptedAnswer": {"@type": "Answer", "text": "If it’s money, shipment research or cargo, 2 years. If it’s the price of property you bought (a house, a car, land), $400,000 counts, which is less than a year."}}, {"@type": "Question", "name": "How much do I need for 40 years?", "acceptedAnswer": {"@type": "Answer", "text": "$20,000,000 counted. That’s $20,000,000 in money or $50,000,000 in the price of bought property, and usually a mix of both."}}, {"@type": "Question", "name": "Does my car count toward the sentence?", "acceptedAnswer": {"@type": "Answer", "text": "Yes, at 40% of its purchase price, on the “Vehicles” line. A Fukurou Tensa bought for $200,000 shows up in the ruling as $80,000."}}, {"@type": "Question", "name": "Does anything under $500,000 count?", "acceptedAnswer": {"@type": "Answer", "text": "No. $999,999 counted gives 1 year; $1,000,000 already gives 2."}}, {"@type": "Question", "name": "What does Lenny’s debt give?", "acceptedAnswer": {"@type": "Answer", "text": "Paying the $1,000,000 debt in clean money gives a one-time +10 years above the 40-year cap."}}, {"@type": "Question", "name": "What is the longest sentence?", "acceptedAnswer": {"@type": "Answer", "text": "40 years per state plus 10 for Lenny’s debt. On top of that, no more than 40 years per 24 hours and no more than 1,200 years per character."}}, {"@type": "Question", "name": "How do I calculate my sentence quickly?", "acceptedAnswer": {"@type": "Answer", "text": "Use the calculator at robruncalc.com: mark the shipments you’ve unlocked, choose your house, car and the rest in “Your base”, and enter your money. It counts by the same rules as the game."}}]}</script>
 <script src="/ga.9a42d2d2.js" defer></script>
 <meta name="theme-color" content="#1c2024">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -190,7 +191,7 @@ h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1;letter-spaci
 
 /* inventory */
 .inv{display:grid;border-top:1px solid var(--seam)}
-.inv-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(150px,.75fr) 118px minmax(170px,.9fr);gap:10px 18px;align-items:center;padding:13px 0;border-bottom:1px solid var(--seam)}
+.inv-row{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(150px,.75fr) minmax(170px,.9fr);gap:10px 18px;align-items:center;padding:13px 0;border-bottom:1px solid var(--seam)}
 .inv-head{padding:8px 0;color:var(--dust);font-size:13px}
 .inv-head span:nth-child(n+2){text-align:right}
 .inv-label{display:grid;gap:2px;min-width:0}
@@ -200,10 +201,6 @@ h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1;letter-spaci
 .money-in{width:100%;min-height:42px;padding:8px 12px;border-radius:8px;border:1px solid #4a525b;background:#15191d;color:var(--chalk);font-weight:600;font-size:16px;font-variant-numeric:tabular-nums;text-align:right}
 .money-in:focus{border-color:var(--jumpsuit);outline:none;box-shadow:0 0 0 3px rgba(244,125,48,.25)}
 .money-in[readonly]{background:transparent;border-style:dashed}
-.coef{display:flex;align-items:center;justify-content:flex-end;gap:5px;flex-wrap:wrap}
-.coef input{width:62px;min-height:42px;padding:8px;border-radius:8px;border:1px solid #4a525b;background:#15191d;color:var(--chalk);font-weight:600;font-size:15px;text-align:right;font-variant-numeric:tabular-nums}
-.coef input.changed{border-color:var(--warn)}
-.coef .reset{background:none;border:0;padding:0;color:var(--warn);font-size:12px;text-decoration:underline;cursor:pointer}
 .counted{display:grid;gap:6px;justify-items:end}
 .counted b{font-weight:600;font-size:17px;font-variant-numeric:tabular-nums}
 .bar{width:100%;height:5px;border-radius:3px;background:#343b42;overflow:hidden}
@@ -271,6 +268,15 @@ h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1;letter-spaci
 .from-base{font-size:12.5px;line-height:1.3;color:var(--dust);text-align:right;font-variant-numeric:tabular-nums}
 .from-base:empty{display:none}
 
+/* menu and FAQ */
+.head-nav{order:3;flex-basis:100%;display:flex;flex-wrap:wrap;gap:4px 20px;font-size:14.5px;margin-top:-4px}
+.head-nav a{color:var(--dust);text-decoration:none;padding:4px 0}
+.head-nav a:hover,.head-nav a[aria-current]{color:var(--chalk)}
+.head-nav a:hover,.head-nav a[aria-current]{text-decoration:underline;text-decoration-color:var(--jumpsuit);text-underline-offset:6px}
+.faq{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px 36px;margin-bottom:14px}
+.faq h3{font:600 17px/1.35 var(--f-body);margin:0 0 4px}
+.faq p{margin:0;color:var(--dust);max-width:70ch}
+
 /* rules */
 .rules{display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);gap:28px}
 .rules ul{margin:0;padding-left:20px;display:grid;gap:8px;max-width:70ch}
@@ -295,7 +301,7 @@ h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1;letter-spaci
 .linkish{background:none;border:0;padding:0;color:var(--dust);text-decoration:underline;cursor:pointer;font-size:13.5px}
 .linkish:hover{color:var(--chalk)}
 .foot-links{display:flex;gap:18px;align-items:flex-start}
-[data-sup][hidden]{display:none}
+[data-sup][hidden],[data-pages][hidden]{display:none}
 .sup{width:min(520px,calc(100vw - 24px));max-height:calc(100dvh - 24px);overflow:auto;padding:22px 22px 18px;border:1px solid var(--seam);border-radius:12px;background:var(--slab);color:var(--chalk);box-shadow:0 18px 50px rgba(0,0,0,.5)}
 .sup::backdrop{background:rgba(10,12,14,.6)}
 .sup h2{margin:0 28px 10px 0;font:800 26px/1 var(--f-display)}
@@ -371,13 +377,12 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
   .brand{font-size:28px}
   .block-head h2{font-size:36px}
   .inv-head{display:none}
-  .inv-row{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"label label" "input coef" "counted counted";gap:8px 10px}
+  .inv-row{grid-template-columns:minmax(0,1fr);grid-template-areas:"label" "input" "counted";gap:8px 10px}
   .inv-label{grid-area:label}
   .inv-row .money-cell{grid-area:input}
-  .inv-row .coef{grid-area:coef}
   .inv-row .counted{grid-area:counted;grid-template-columns:auto minmax(0,1fr);align-items:center;justify-items:stretch;gap:12px}
-  .inv-total{grid-template-areas:"label counted"}
-  .inv-total .money-cell,.inv-total .coef{display:none}
+  .inv-total{grid-template-columns:minmax(0,1fr) auto;grid-template-areas:"label counted"}
+  .inv-total .money-cell{display:none}
   .inv-total .counted{grid-area:counted;grid-template-columns:1fr}
   .viewport{height:60vh}
   .stat b{font-size:26px}
@@ -391,6 +396,7 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
 <div class="wrap">
   <header class="site-head">
     <h1 class="brand"><span class="brand-name">ROB RUN</span> <span class="brand-sub" data-i18n="brandSub">jail time calculator</span></h1>
+    <nav class="head-nav" data-pages data-i18n-label="navLabel" aria-label="Sections"><a href="./" aria-current="page" data-i18n="navCalc">Calculator</a><a href="jail-time/" data-i18n="navGuide">How jail time works</a><a href="prices/" data-i18n="navPrices">Prices</a><a href="shipments/" data-i18n="navShips">Shipments</a></nav>
     <div class="head-actions">
       <div class="seg" role="group" aria-label="Язык / Language / Idioma" title="Язык / Language / Idioma" translate="no">
         <span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg></span>
@@ -506,16 +512,16 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
     </div>
     <div class="b-tabs" id="bTabs" role="tablist" aria-labelledby="baseTitle"></div>
     <div id="bPanel" role="tabpanel"></div>
-    <div class="b-foot"><p data-i18n="bSource">Prices: robrun-wiki.com (community, 16–21 November 2026) and in-game screenshots (22 November 2026). Black-market prices can change every week.</p><button type="button" class="linkish" data-sup data-sup-open data-i18n="bPriceLink">See a different price in the game? Tell us</button></div>
+    <div class="b-foot"><p data-i18n="bSource">Prices: robrun-wiki.com (community, 16–21 November 2026) and in-game screenshots (22 November 2026). Black-market prices can change every week.</p><p class="more" data-pages><a href="prices/" data-i18n="toPrices">All black-market prices</a></p><button type="button" class="linkish" data-sup data-sup-open data-i18n="bPriceLink">See a different price in the game? Tell us</button></div>
   </section>
 
   <section class="block" id="inventory" aria-labelledby="invTitle">
     <div class="block-head">
       <h2 id="invTitle" data-i18n="invTitle">Seizure inventory</h2>
-      <p class="lede" data-i18n="invLede">Everything marked in “Your base” is already here. Enter the rest: money and whatever isn’t on the list. Some property only partly counts toward the sentence, as the “Counts” column shows.</p>
+      <p class="lede" data-i18n="invLede">Everything marked in “Your base” is already here. Enter the rest: money and whatever isn’t on the list. Property you bought counts at 40% of its purchase price; money, research, bushes and cargo count in full.</p>
     </div>
     <div class="inv" id="inv">
-      <div class="inv-row inv-head" aria-hidden="true"><span data-i18n="hWhat">What gets seized</span><span data-i18n="hValue">Value, $</span><span data-i18n="hCoef">Counts</span><span data-i18n="hCounted">Counted</span></div>
+      <div class="inv-row inv-head" aria-hidden="true"><span data-i18n="hWhat">What gets seized</span><span data-i18n="hValue">Value, $</span><span data-i18n="hCounted">Counted</span></div>
     </div>
     <div class="extras">
       <div class="panel">
@@ -549,11 +555,18 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
     </div>
     <div class="sources"><strong data-i18n="srcTitle">Where the data comes from</strong><ul id="srcList"><li>Formula, the 40-year cap and the limits since 17 November: <a href="https://robrun.info/mechanics/police/" target="_blank" rel="noopener">robrun.info, police and prison</a></li><li>What gets seized: KEFIR’s 11 November 2026 post as summarised by game guides.</li><li>Lenny’s debt bonus: <a href="https://tposegaming.com/?p=25199" target="_blank" rel="noopener">Lenny’s debt guide</a></li><li>Shipment prices: in-game tooltips.</li><li>Prices of property, vehicles, tuning, bushes and cargo (community, 16–21 November 2026) and room in each house: <a href="https://robrun-wiki.com/en/wiki/" target="_blank" rel="noopener">robrun-wiki.com</a></li><li>Shipments hidden behind “?” in the game (prices and settlement level) and the total jail time they need: <a href="https://robrun-wiki.com/en/tools/shipments-planner/" target="_blank" rel="noopener">robrun-wiki.com Shipments planner</a></li><li>The 40% and 100% shares aren’t officially published, but an in-game court ruling of 22 November 2026 confirms 40% for vehicles, real estate and land: a $200,000 car gave $80,000, a trailer with a mesh fence ($25,000) gave $10,000 and a $100,000 plot title gave $40,000.</li><li>Shipments tree: taken from game screenshots, versions 0.7.0.4049–4052, 171 shipments.</li><li>Pictures of shipments, property, branches and Lenny, English, Spanish and Portuguese names: from the game files, 20 November 2026 build.</li></ul></div>
   </section>
+
+  <section class="block" id="faq" aria-labelledby="faqTitle">
+    <div class="block-head"><h2 id="faqTitle" data-i18n="faqTitle">Frequently asked questions</h2></div>
+    <div class="faq" id="faqList"><div class="qa"><h3>How many years do I get for $1,000,000?</h3><p>If it’s money, shipment research or cargo, 2 years. If it’s the price of property you bought (a house, a car, land), $400,000 counts, which is less than a year.</p></div><div class="qa"><h3>How much do I need for 40 years?</h3><p>$20,000,000 counted. That’s $20,000,000 in money or $50,000,000 in the price of bought property, and usually a mix of both.</p></div><div class="qa"><h3>Does my car count toward the sentence?</h3><p>Yes, at 40% of its purchase price, on the “Vehicles” line. A Fukurou Tensa bought for $200,000 shows up in the ruling as $80,000.</p></div><div class="qa"><h3>Does anything under $500,000 count?</h3><p>No. $999,999 counted gives 1 year; $1,000,000 already gives 2.</p></div><div class="qa"><h3>What does Lenny’s debt give?</h3><p>Paying the $1,000,000 debt in clean money gives a one-time +10 years above the 40-year cap.</p></div><div class="qa"><h3>What is the longest sentence?</h3><p>40 years per state plus 10 for Lenny’s debt. On top of that, no more than 40 years per 24 hours and no more than 1,200 years per character.</p></div><div class="qa"><h3>How do I calculate my sentence quickly?</h3><p>Use the calculator at robruncalc.com: mark the shipments you’ve unlocked, choose your house, car and the rest in “Your base”, and enter your money. It counts by the same rules as the game.</p></div></div>
+    <p class="more" data-pages><a href="jail-time/" data-i18n="toGuide">In detail: how jail time is calculated</a></p>
+    <p class="more" data-pages><a href="prices/" data-i18n="toPrices">All black-market prices</a></p>
+  </section>
 </main>
 
 <footer class="wrap">
   <div class="site-foot">
-    <p><span data-i18n="foot1">Unofficial fan-made calculator, not affiliated with KEFIR. ROB RUN and the in-game images belong to KEFIR and are used with their permission.</span> <span data-i18n="foot2">Data as of 20 November 2026. The game is in early access and the rules change.</span></p>
+    <p><span data-i18n="foot1">Unofficial fan-made calculator, not affiliated with KEFIR. ROB RUN and the in-game images belong to KEFIR and are used with their permission.</span> <span data-i18n="foot2">Data as of 22 November 2026. The game is in early access and the rules change.</span></p>
     <span class="foot-links"><button type="button" class="linkish" data-sup data-sup-open data-i18n="supBtn">Support</button>
     <button type="button" class="linkish" id="btnEditor" data-i18n="editorLink">Data editor</button></span>
   </div>
@@ -596,7 +609,7 @@ const NODES = [{"b":0,"x":174,"y":482,"p":-1,"t":0,"h":0,"ty":"folder","ru":"Д�
 const EXAMPLE_DONE = [1,2,4,5,7,8,10,11,12,13,14,15,16,20,23,25,33,34,35,36,37,38,40,41,42,44,51,53,54,55,57,60,61,62,63,64,70,79,81,82,84,91,103,104,113,119,121,122,123,124,125,126,128,129,130,131,133,140,141,142,143,144,145,146,147,149,150,151,152,153,155,157,158,160,161,164,166,167];
 // Everything a player can own on a base, with black-market prices; order = picture order in img/base.webp.
 // n is the item's permanent number in saved calculations and links.
-const BASE = [{"n":1,"id":"trailer","g":"home","s":"house","k":"realty","p":10000,"t":1,"one":"house","node":34,"en":"Trailer"},{"n":2,"id":"small_house","g":"home","s":"house","k":"realty","p":600000,"t":2,"one":"house","node":38,"en":"Small House"},{"n":3,"id":"mansion","g":"home","s":"house","k":"realty","p":1500000,"t":3,"one":"house","node":null,"en":"Mansion"},{"n":4,"id":"farm_fence","g":"home","s":"fence","k":"realty","p":600,"t":0,"one":"fence","node":null,"en":"Farm Fence"},{"n":5,"id":"mesh_fence","g":"home","s":"fence","k":"realty","p":15000,"t":1,"one":"fence","node":33,"en":"Mesh Fence"},{"n":6,"id":"metal_fence","g":"home","s":"fence","k":"realty","p":50000,"t":2,"one":"fence","node":37,"en":"Metal Fence"},{"n":7,"id":"concrete_fence","g":"home","s":"fence","k":"realty","p":500000,"t":3,"one":"fence","node":44,"en":"Concrete Fence"},{"n":8,"id":"car_garage","g":"home","s":"build","k":"realty","p":25000,"t":1,"one":null,"node":39,"en":"Car Garage"},{"n":9,"id":"large_car_garage","g":"home","s":"build","k":"realty","p":70000,"t":2,"one":null,"node":45,"en":"Large Car Garage"},{"n":10,"id":"car_lift","g":"home","s":"build","k":"realty","p":10000,"t":1,"one":null,"node":35,"en":"Car Lift"},{"n":11,"id":"workshop","g":"home","s":"build","k":"realty","p":75000,"t":1,"one":null,"node":40,"en":"Workshop"},{"n":12,"id":"warehouse","g":"home","s":"build","k":"realty","p":100000,"t":1,"one":null,"node":46,"en":"Warehouse"},{"n":13,"id":"grow_room","g":"home","s":"build","k":"realty","p":100000,"t":1,"one":null,"node":121,"en":"Grow Room"},{"n":14,"id":"chem_lab","g":"home","s":"build","k":"realty","p":110000,"t":1,"one":null,"node":122,"en":"Chemical Laboratory"},{"n":15,"id":"helipad","g":"home","s":"build","k":"realty","p":500000,"t":2,"one":null,"node":49,"en":"Helipad"},{"n":16,"id":"plot_1","g":"home","s":"docs","k":"land","p":100000,"t":1,"one":null,"node":1,"en":"Land Plot Title (district 1)"},{"n":17,"id":"plot_2","g":"home","s":"docs","k":"land","p":800000,"t":2,"one":null,"node":4,"en":"Land Plot Title (district 2)"},{"n":18,"id":"plot_3","g":"home","s":"docs","k":"land","p":2000000,"t":3,"one":null,"node":7,"en":"Land Plot Title (district 3)"},{"n":19,"id":"settlement_1","g":"home","s":"docs","k":"land","p":200000,"t":1,"one":null,"node":0,"en":"Settlement Title (district 1)"},{"n":20,"id":"settlement_2","g":"home","s":"docs","k":"land","p":2000000,"t":2,"one":null,"node":3,"en":"Settlement Title (district 2)"},{"n":21,"id":"settlement_3","g":"home","s":"docs","k":"land","p":6000000,"t":3,"one":null,"node":6,"en":"Settlement Title (district 3)"},{"n":22,"id":"cargo_workbench","g":"furn","s":"work","k":"realty","p":15000,"t":1,"one":null,"node":53,"en":"Cargo Workbench"},{"n":23,"id":"contraband_workbench","g":"furn","s":"work","k":"realty","p":20000,"t":1,"one":null,"node":52,"en":"Contraband Workbench"},{"n":24,"id":"collection_table","g":"furn","s":"work","k":"realty","p":15000,"t":1,"one":null,"node":56,"en":"Collection Table"},{"n":25,"id":"first_aid","g":"furn","s":"work","k":"realty","p":15000,"t":1,"one":null,"node":50,"en":"First Aid Cabinet"},{"n":26,"id":"grow_table","g":"furn","s":"work","k":"realty","p":40000,"t":1,"one":null,"node":123,"en":"Grow Table"},{"n":27,"id":"lab_table","g":"furn","s":"work","k":"realty","p":15000,"t":1,"one":null,"node":124,"en":"Lab Table"},{"n":28,"id":"reactor_1","g":"furn","s":"work","k":"realty","p":40000,"t":1,"one":null,"node":125,"en":"Chemical Reactor"},{"n":29,"id":"reactor_2","g":"furn","s":"work","k":"realty","p":300000,"t":2,"one":null,"node":128,"en":"Chemical Reactor"},{"n":30,"id":"reactor_3","g":"furn","s":"work","k":"realty","p":700000,"t":3,"one":null,"node":132,"en":"Chemical Reactor"},{"n":31,"id":"rack_s","g":"furn","s":"store","k":"realty","p":3500,"t":1,"one":null,"node":55,"en":"Small Rack"},{"n":32,"id":"rack_m","g":"furn","s":"store","k":"realty","p":26500,"t":2,"one":null,"node":63,"en":"Medium Rack"},{"n":33,"id":"rack_l","g":"furn","s":"store","k":"realty","p":46500,"t":3,"one":null,"node":72,"en":"Large Rack"},{"n":34,"id":"cage_s","g":"furn","s":"store","k":"realty","p":30300,"t":1,"one":null,"node":64,"en":"Small Security Cabinet"},{"n":35,"id":"cage_m","g":"furn","s":"store","k":"realty","p":70000,"t":2,"one":null,"node":73,"en":"Medium Security Cabinet"},{"n":36,"id":"cage_l","g":"furn","s":"store","k":"realty","p":132000,"t":3,"one":null,"node":77,"en":"Large Security Cabinet"},{"n":37,"id":"stand_s","g":"furn","s":"store","k":"realty","p":4000,"t":1,"one":null,"node":54,"en":"Small Nightstand"},{"n":38,"id":"stand_m","g":"furn","s":"store","k":"realty","p":29200,"t":2,"one":null,"node":62,"en":"Medium Nightstand"},{"n":39,"id":"stand_l","g":"furn","s":"store","k":"realty","p":45400,"t":3,"one":null,"node":71,"en":"Large Nightstand"},{"n":40,"id":"safe_s","g":"furn","s":"store","k":"realty","p":32000,"t":1,"one":null,"node":61,"en":"Small Safe"},{"n":41,"id":"safe_m","g":"furn","s":"store","k":"realty","p":68000,"t":2,"one":null,"node":70,"en":"Medium Safe"},{"n":42,"id":"safe_l","g":"furn","s":"store","k":"realty","p":127000,"t":3,"one":null,"node":76,"en":"Large Safe"},{"n":43,"id":"locksmith","g":"upg","s":"open","k":"upgrades","p":15000,"t":1,"one":null,"node":60,"en":"Locksmith Tools"},{"n":44,"id":"cargo_saw","g":"upg","s":"open","k":"upgrades","p":41000,"t":2,"one":null,"node":69,"en":"Cargo Saw"},{"n":45,"id":"vise","g":"upg","s":"open","k":"upgrades","p":250000,"t":3,"one":null,"node":75,"en":"Bench Vise"},{"n":46,"id":"printer_1","g":"upg","s":"exch","k":"upgrades","p":30000,"t":1,"one":null,"node":59,"en":"Label Printer"},{"n":47,"id":"printer_3","g":"upg","s":"exch","k":"upgrades","p":null,"t":3,"one":null,"node":68,"en":"Label Printer"},{"n":48,"id":"toolbox_2","g":"upg","s":"exch","k":"upgrades","p":200000,"t":2,"one":null,"node":58,"en":"Toolbox"},{"n":49,"id":"toolbox_3","g":"upg","s":"exch","k":"upgrades","p":400000,"t":3,"one":null,"node":67,"en":"Toolbox"},{"n":50,"id":"counter_1","g":"upg","s":"cash","k":"upgrades","p":30000,"t":1,"one":null,"node":51,"en":"Banknote Counter"},{"n":51,"id":"counter_2","g":"upg","s":"cash","k":"upgrades","p":65000,"t":2,"one":null,"node":57,"en":"Banknote Counter"},{"n":52,"id":"counter_3","g":"upg","s":"cash","k":"upgrades","p":150000,"t":3,"one":null,"node":66,"en":"Banknote Counter"},{"n":53,"id":"collection_1","g":"upg","s":"coll","k":"upgrades","p":34000,"t":1,"one":null,"node":65,"en":"Additional Collection"},{"n":54,"id":"collection_2","g":"upg","s":"coll","k":"upgrades","p":100000,"t":2,"one":null,"node":74,"en":"Special Collection"},{"n":55,"id":"collection_3","g":"upg","s":"coll","k":"upgrades","p":250000,"t":3,"one":null,"node":78,"en":"Unique Collection"},{"n":56,"id":"fan","g":"upg","s":"grow","k":"upgrades","p":25000,"t":1,"one":null,"node":126,"en":"Fan"},{"n":57,"id":"water_pump","g":"upg","s":"grow","k":"upgrades","p":70000,"t":2,"one":null,"node":131,"en":"Water Pump"},{"n":58,"id":"uv_lamp","g":"upg","s":"grow","k":"upgrades","p":250000,"t":3,"one":null,"node":136,"en":"UV Lamp"},{"n":59,"id":"lab_scales","g":"upg","s":"lab","k":"upgrades","p":15000,"t":2,"one":null,"node":127,"en":"Laboratory Scales"},{"n":60,"id":"engine","g":"upg","s":"lab","k":"upgrades","p":20000,"t":1,"one":null,"node":129,"en":"Industrial Engine"},{"n":61,"id":"freezer_1","g":"upg","s":"lab","k":"upgrades","p":20000,"t":1,"one":null,"node":130,"en":"Industrial Freezer"},{"n":62,"id":"freezer_2","g":"upg","s":"lab","k":"upgrades","p":90000,"t":2,"one":null,"node":134,"en":"Industrial Freezer"},{"n":63,"id":"freezer_3","g":"upg","s":"lab","k":"upgrades","p":250000,"t":3,"one":null,"node":138,"en":"Industrial Freezer"},{"n":64,"id":"evaporator","g":"upg","s":"lab","k":"upgrades","p":100000,"t":2,"one":null,"node":135,"en":"Improved Evaporator"},{"n":65,"id":"thermometer","g":"upg","s":"lab","k":"upgrades","p":120000,"t":2,"one":null,"node":133,"en":"Industrial Thermometer"},{"n":66,"id":"coolant","g":"upg","s":"lab","k":"upgrades","p":250000,"t":3,"one":null,"node":139,"en":"Quality Coolant"},{"n":67,"id":"converter","g":"upg","s":"lab","k":"upgrades","p":300000,"t":3,"one":null,"node":137,"en":"Chemical Converter"},{"n":68,"id":"longhorn_van","g":"car","s":"cars","k":"vehicles","p":180000,"t":1,"one":null,"node":11,"en":"Longhorn Van"},{"n":69,"id":"fukurou_tensa","g":"car","s":"cars","k":"vehicles","p":200000,"t":1,"one":null,"node":10,"en":"Fukurou Tensa"},{"n":70,"id":"longhorn_titan","g":"car","s":"cars","k":"vehicles","p":900000,"t":2,"one":null,"node":16,"en":"Longhorn Titan"},{"n":71,"id":"royal_e","g":"car","s":"cars","k":"vehicles","p":1000000,"t":2,"one":null,"node":15,"en":"Royal E"},{"n":72,"id":"royal_j","g":"car","s":"cars","k":"vehicles","p":4000000,"t":3,"one":null,"node":24,"en":"Royal J"},{"n":73,"id":"longhorn_wild","g":"car","s":"cars","k":"vehicles","p":4500000,"t":3,"one":null,"node":22,"en":"Longhorn Wild"},{"n":74,"id":"buletti","g":"car","s":"cars","k":"vehicles","p":10000000,"t":3,"one":null,"node":29,"en":"Buletti Soltempra"},{"n":75,"id":"romanov_r8","g":"car","s":"cars","k":"vehicles","p":10000000,"t":3,"one":null,"node":9,"en":"Romanov R8"},{"n":76,"id":"ecu_1","g":"car","s":"tune","k":"upgrades","p":14000,"t":1,"one":null,"node":13,"en":"ECU"},{"n":77,"id":"ecu_2","g":"car","s":"tune","k":"upgrades","p":75000,"t":2,"one":null,"node":20,"en":"Improved ECU"},{"n":78,"id":"ecu_3","g":"car","s":"tune","k":"upgrades","p":330000,"t":3,"one":null,"node":28,"en":"High-performance ECU"},{"n":79,"id":"turbo_1","g":"car","s":"tune","k":"upgrades","p":79500,"t":2,"one":null,"node":23,"en":"Turbo Kit"},{"n":80,"id":"turbo_2","g":"car","s":"tune","k":"upgrades","p":238000,"t":3,"one":null,"node":30,"en":"Improved Turbo Kit"},{"n":81,"id":"intercooler_1","g":"car","s":"tune","k":"upgrades","p":72000,"t":2,"one":null,"node":14,"en":"Intercooler"},{"n":82,"id":"intercooler_2","g":"car","s":"tune","k":"upgrades","p":270000,"t":3,"one":null,"node":21,"en":"Improved Intercooler"},{"n":83,"id":"steering_1","g":"car","s":"tune","k":"upgrades","p":68000,"t":2,"one":null,"node":12,"en":"Steering Rack"},{"n":84,"id":"steering_2","g":"car","s":"tune","k":"upgrades","p":270000,"t":3,"one":null,"node":19,"en":"Reinforced Steering Rack"},{"n":85,"id":"racing_rotor","g":"car","s":"tune","k":"upgrades","p":61500,"t":2,"one":null,"node":18,"en":"Racing Rotor"},{"n":86,"id":"trunk_1","g":"car","s":"tune","k":"upgrades","p":1200,"t":1,"one":null,"node":17,"en":"Trunk Bags"},{"n":87,"id":"trunk_2","g":"car","s":"tune","k":"upgrades","p":70500,"t":2,"one":null,"node":27,"en":"Large Trunk Bags"},{"n":88,"id":"trunk_3","g":"car","s":"tune","k":"upgrades","p":270000,"t":3,"one":null,"node":32,"en":"Spacious Trunk Bags"},{"n":89,"id":"cargo_rack_1","g":"car","s":"tune","k":"upgrades","p":86500,"t":2,"one":null,"node":25,"en":"Cargo Rack"},{"n":90,"id":"cargo_rack_2","g":"car","s":"tune","k":"upgrades","p":350000,"t":3,"one":null,"node":31,"en":"Reinforced Cargo Rack"},{"n":91,"id":"police_radio","g":"car","s":"tune","k":"upgrades","p":300000,"t":3,"one":null,"node":26,"en":"Police Radio (car)"},{"n":92,"id":"fuse_1","g":"def","s":"fuse","k":"fuses","p":20000,"t":1,"one":null,"node":36,"en":"Electronic Fuse (protection 1)"},{"n":93,"id":"fuse_2","g":"def","s":"fuse","k":"fuses","p":100000,"t":2,"one":null,"node":41,"en":"Electronic Fuse (protection 3)"},{"n":94,"id":"fuse_3","g":"def","s":"fuse","k":"fuses","p":250000,"t":3,"one":null,"node":47,"en":"Electronic Fuse (protection 5)"},{"n":95,"id":"alarm_location","g":"def","s":"alarm","k":"upgrades","p":30000,"t":1,"one":null,"node":43,"en":"Alarm System (whole location)"},{"n":96,"id":"alarm_owner","g":"def","s":"alarm","k":"upgrades","p":60000,"t":2,"one":null,"node":42,"en":"Alarm System (owner only)"},{"n":97,"id":"alarm_clan","g":"def","s":"alarm","k":"upgrades","p":200000,"t":2,"one":null,"node":48,"en":"Clan Alarm System"},{"n":98,"id":"bush_growing_1","g":"cargo","s":"bush","k":"bushes","p":20000,"t":1,"one":null,"node":null,"en":"Growing Bush"},{"n":99,"id":"bush_growing_2","g":"cargo","s":"bush","k":"bushes","p":30000,"t":2,"one":null,"node":null,"en":"Growing Bush"},{"n":100,"id":"bush_growing_3","g":"cargo","s":"bush","k":"bushes","p":40000,"t":3,"one":null,"node":null,"en":"Growing Bush"},{"n":101,"id":"bush_mature_1","g":"cargo","s":"bush","k":"bushes","p":30000,"t":1,"one":null,"node":null,"en":"Mature Bush"},{"n":102,"id":"bush_mature_2","g":"cargo","s":"bush","k":"bushes","p":45000,"t":2,"one":null,"node":null,"en":"Mature Bush"},{"n":103,"id":"bush_mature_3","g":"cargo","s":"bush","k":"bushes","p":60000,"t":3,"one":null,"node":null,"en":"Mature Bush"},{"n":104,"id":"collection_crate","g":"cargo","s":"goods","k":"containers","p":50000,"t":1,"one":null,"node":null,"en":"Collection Crate"},{"n":105,"id":"rare_collection_crate","g":"cargo","s":"goods","k":"containers","p":150000,"t":2,"one":null,"node":null,"en":"Rare Collection Crate"},{"n":106,"id":"unique_collection_crate","g":"cargo","s":"goods","k":"containers","p":500000,"t":3,"one":null,"node":null,"en":"Unique Collection Crate"},{"n":107,"id":"golden_statue","g":"cargo","s":"goods","k":"containers","p":250000,"t":3,"one":null,"node":null,"en":"Golden Statue"},{"n":108,"id":"portable_safe","g":"cargo","s":"goods","k":"containers","p":100000,"t":2,"one":null,"node":null,"en":"Portable Safe"},{"n":109,"id":"expensive_safe","g":"cargo","s":"goods","k":"containers","p":200000,"t":3,"one":null,"node":null,"en":"Expensive Safe"},{"n":110,"id":"valuable_cargo","g":"cargo","s":"goods","k":"containers","p":150000,"t":0,"one":null,"node":null,"en":"Valuable Cargo"},{"n":111,"id":"bank_money_bag","g":"cargo","s":"goods","k":"containers","p":60000,"t":0,"one":null,"node":null,"en":"Bank Money Bag"},{"n":112,"id":"powder_bag","g":"cargo","s":"goods","k":"containers","p":25000,"t":1,"one":null,"node":null,"en":"Powder Bag"},{"n":113,"id":"pure_powder_bag","g":"cargo","s":"goods","k":"containers","p":40000,"t":2,"one":null,"node":null,"en":"Pure Powder Bag"},{"n":114,"id":"perfect_powder_bag","g":"cargo","s":"goods","k":"containers","p":60000,"t":3,"one":null,"node":null,"en":"Perfect Powder Bag"},{"n":115,"id":"contraband_cargo","g":"cargo","s":"goods","k":"containers","p":10000,"t":1,"one":null,"node":null,"en":"Contraband Cargo"},{"n":116,"id":"premium_cargo","g":"cargo","s":"goods","k":"containers","p":35000,"t":2,"one":null,"node":null,"en":"Premium Cargo"},{"n":117,"id":"rarity_cargo","g":"cargo","s":"goods","k":"containers","p":40000,"t":3,"one":null,"node":null,"en":"Rarity Cargo"},{"n":118,"id":"suitcase","g":"cargo","s":"goods","k":"containers","p":25000,"t":0,"one":null,"node":null,"en":"Suitcase (white, blue or red)"},{"n":119,"id":"reagent_canisters","g":"cargo","s":"goods","k":"containers","p":20000,"t":0,"one":null,"node":null,"en":"Reagent Canisters"},{"n":120,"id":"quality_reagents","g":"cargo","s":"goods","k":"containers","p":30000,"t":0,"one":null,"node":null,"en":"Quality Reagents"},{"n":121,"id":"soft_crystal_1","g":"cargo","s":"goods","k":"containers","p":10000,"t":1,"one":null,"node":null,"en":"Crystalline Concentrate"},{"n":122,"id":"soft_crystal_2","g":"cargo","s":"goods","k":"containers","p":15000,"t":2,"one":null,"node":null,"en":"Crystalline Concentrate"},{"n":123,"id":"soft_crystal_3","g":"cargo","s":"goods","k":"containers","p":25000,"t":3,"one":null,"node":null,"en":"Crystalline Concentrate"},{"n":124,"id":"hard_crystal_1","g":"cargo","s":"goods","k":"containers","p":30000,"t":1,"one":null,"node":null,"en":"Hard Crystals"},{"n":125,"id":"hard_crystal_2","g":"cargo","s":"goods","k":"containers","p":45000,"t":2,"one":null,"node":null,"en":"Hard Crystals"},{"n":126,"id":"hard_crystal_3","g":"cargo","s":"goods","k":"containers","p":75000,"t":3,"one":null,"node":null,"en":"Hard Crystals"},{"n":127,"id":"weapon_parts_1","g":"cargo","s":"goods","k":"containers","p":25000,"t":1,"one":null,"node":null,"en":"Weapon Parts Box"},{"n":128,"id":"weapon_parts_2","g":"cargo","s":"goods","k":"containers","p":40000,"t":2,"one":null,"node":null,"en":"Weapon Parts Box"},{"n":129,"id":"weapon_parts_3","g":"cargo","s":"goods","k":"containers","p":120000,"t":3,"one":null,"node":null,"en":"Weapon Parts Box"}];
+const BASE = [{"n":1,"id":"trailer","g":"home","s":"house","k":"realty","p":10000,"t":1,"one":"house","node":34,"en":"Trailer"},{"n":2,"id":"small_house","g":"home","s":"house","k":"realty","p":600000,"t":2,"one":"house","node":38,"en":"Small House"},{"n":3,"id":"mansion","g":"home","s":"house","k":"realty","p":1500000,"t":3,"one":"house","node":null,"en":"Mansion"},{"n":4,"id":"farm_fence","g":"home","s":"fence","k":"realty","p":600,"t":0,"one":"fence","node":null,"en":"Farm Fence"},{"n":5,"id":"mesh_fence","g":"home","s":"fence","k":"realty","p":15000,"t":1,"one":"fence","node":33,"en":"Mesh Fence"},{"n":6,"id":"metal_fence","g":"home","s":"fence","k":"realty","p":50000,"t":2,"one":"fence","node":37,"en":"Metal Fence"},{"n":7,"id":"concrete_fence","g":"home","s":"fence","k":"realty","p":500000,"t":3,"one":"fence","node":44,"en":"Concrete Fence"},{"n":8,"id":"car_garage","g":"home","s":"build","k":"realty","p":25000,"t":1,"one":null,"node":39,"en":"Car Garage"},{"n":9,"id":"large_car_garage","g":"home","s":"build","k":"realty","p":70000,"t":2,"one":null,"node":45,"en":"Large Car Garage"},{"n":10,"id":"car_lift","g":"home","s":"build","k":"realty","p":10000,"t":1,"one":null,"node":35,"en":"Car Lift"},{"n":11,"id":"workshop","g":"home","s":"build","k":"realty","p":75000,"t":1,"one":null,"node":40,"en":"Workshop"},{"n":12,"id":"warehouse","g":"home","s":"build","k":"realty","p":100000,"t":1,"one":null,"node":46,"en":"Warehouse"},{"n":13,"id":"grow_room","g":"home","s":"build","k":"realty","p":100000,"t":1,"one":null,"node":121,"en":"Grow Room"},{"n":14,"id":"chem_lab","g":"home","s":"build","k":"realty","p":110000,"t":1,"one":null,"node":122,"en":"Chemical Laboratory"},{"n":15,"id":"helipad","g":"home","s":"build","k":"realty","p":500000,"t":2,"one":null,"node":49,"en":"Helipad"},{"n":16,"id":"plot_1","g":"home","s":"docs","k":"land","p":100000,"t":1,"one":null,"node":1,"en":"Land Plot Title (district 1)"},{"n":17,"id":"plot_2","g":"home","s":"docs","k":"land","p":800000,"t":2,"one":null,"node":4,"en":"Land Plot Title (district 2)"},{"n":18,"id":"plot_3","g":"home","s":"docs","k":"land","p":2000000,"t":3,"one":null,"node":7,"en":"Land Plot Title (district 3)"},{"n":19,"id":"settlement_1","g":"home","s":"docs","k":"land","p":200000,"t":1,"one":null,"node":0,"en":"Settlement Title (district 1)"},{"n":20,"id":"settlement_2","g":"home","s":"docs","k":"land","p":2000000,"t":2,"one":null,"node":3,"en":"Settlement Title (district 2)"},{"n":21,"id":"settlement_3","g":"home","s":"docs","k":"land","p":6000000,"t":3,"one":null,"node":6,"en":"Settlement Title (district 3)"},{"n":22,"id":"cargo_workbench","g":"furn","s":"work","k":"realty","p":15000,"t":1,"one":null,"node":53,"en":"Cargo Workbench"},{"n":23,"id":"contraband_workbench","g":"furn","s":"work","k":"realty","p":20000,"t":1,"one":null,"node":52,"en":"Contraband Workbench"},{"n":24,"id":"collection_table","g":"furn","s":"work","k":"realty","p":15000,"t":1,"one":null,"node":56,"en":"Collection Table"},{"n":25,"id":"first_aid","g":"furn","s":"work","k":"realty","p":15000,"t":1,"one":null,"node":50,"en":"First Aid Cabinet"},{"n":26,"id":"grow_table","g":"furn","s":"work","k":"realty","p":40000,"t":1,"one":null,"node":123,"en":"Grow Table"},{"n":27,"id":"lab_table","g":"furn","s":"work","k":"realty","p":15000,"t":1,"one":null,"node":124,"en":"Lab Table"},{"n":28,"id":"reactor_1","g":"furn","s":"work","k":"realty","p":40000,"t":1,"one":null,"node":125,"en":"Chemical Reactor"},{"n":29,"id":"reactor_2","g":"furn","s":"work","k":"realty","p":300000,"t":2,"one":null,"node":128,"en":"Chemical Reactor"},{"n":30,"id":"reactor_3","g":"furn","s":"work","k":"realty","p":700000,"t":3,"one":null,"node":132,"en":"Chemical Reactor"},{"n":31,"id":"rack_s","g":"furn","s":"store","k":"realty","p":3500,"t":1,"one":null,"node":55,"en":"Small Rack"},{"n":32,"id":"rack_m","g":"furn","s":"store","k":"realty","p":26500,"t":2,"one":null,"node":63,"en":"Medium Rack"},{"n":33,"id":"rack_l","g":"furn","s":"store","k":"realty","p":46500,"t":3,"one":null,"node":72,"en":"Large Rack"},{"n":34,"id":"cage_s","g":"furn","s":"store","k":"realty","p":30300,"t":1,"one":null,"node":64,"en":"Small Security Cabinet"},{"n":35,"id":"cage_m","g":"furn","s":"store","k":"realty","p":70000,"t":2,"one":null,"node":73,"en":"Medium Security Cabinet"},{"n":36,"id":"cage_l","g":"furn","s":"store","k":"realty","p":132000,"t":3,"one":null,"node":77,"en":"Large Security Cabinet"},{"n":37,"id":"stand_s","g":"furn","s":"store","k":"realty","p":4000,"t":1,"one":null,"node":54,"en":"Small Nightstand"},{"n":38,"id":"stand_m","g":"furn","s":"store","k":"realty","p":29200,"t":2,"one":null,"node":62,"en":"Medium Nightstand"},{"n":39,"id":"stand_l","g":"furn","s":"store","k":"realty","p":45400,"t":3,"one":null,"node":71,"en":"Large Nightstand"},{"n":40,"id":"safe_s","g":"furn","s":"store","k":"realty","p":32000,"t":1,"one":null,"node":61,"en":"Small Safe"},{"n":41,"id":"safe_m","g":"furn","s":"store","k":"realty","p":68000,"t":2,"one":null,"node":70,"en":"Medium Safe"},{"n":42,"id":"safe_l","g":"furn","s":"store","k":"realty","p":127000,"t":3,"one":null,"node":76,"en":"Large Safe"},{"n":43,"id":"locksmith","g":"upg","s":"open","k":"upgrades","p":15000,"t":1,"one":null,"node":60,"en":"Locksmith Tools"},{"n":44,"id":"cargo_saw","g":"upg","s":"open","k":"upgrades","p":41000,"t":2,"one":null,"node":69,"en":"Cargo Saw"},{"n":45,"id":"vise","g":"upg","s":"open","k":"upgrades","p":250000,"t":3,"one":null,"node":75,"en":"Bench Vise"},{"n":46,"id":"printer_1","g":"upg","s":"exch","k":"upgrades","p":30000,"t":1,"one":null,"node":59,"en":"Label Printer"},{"n":47,"id":"printer_3","g":"upg","s":"exch","k":"upgrades","p":null,"t":3,"one":null,"node":68,"en":"Label Printer"},{"n":48,"id":"toolbox_2","g":"upg","s":"exch","k":"upgrades","p":200000,"t":2,"one":null,"node":58,"en":"Toolbox"},{"n":49,"id":"toolbox_3","g":"upg","s":"exch","k":"upgrades","p":400000,"t":3,"one":null,"node":67,"en":"Toolbox"},{"n":50,"id":"counter_1","g":"upg","s":"cash","k":"upgrades","p":30000,"t":1,"one":null,"node":51,"en":"Banknote Counter"},{"n":51,"id":"counter_2","g":"upg","s":"cash","k":"upgrades","p":65000,"t":2,"one":null,"node":57,"en":"Banknote Counter"},{"n":52,"id":"counter_3","g":"upg","s":"cash","k":"upgrades","p":150000,"t":3,"one":null,"node":66,"en":"Banknote Counter"},{"n":53,"id":"collection_1","g":"upg","s":"coll","k":"upgrades","p":34000,"t":1,"one":null,"node":65,"en":"Additional Collection"},{"n":54,"id":"collection_2","g":"upg","s":"coll","k":"upgrades","p":100000,"t":2,"one":null,"node":74,"en":"Special Collection"},{"n":55,"id":"collection_3","g":"upg","s":"coll","k":"upgrades","p":250000,"t":3,"one":null,"node":78,"en":"Unique Collection"},{"n":56,"id":"fan","g":"upg","s":"grow","k":"upgrades","p":25000,"t":1,"one":null,"node":126,"en":"Fan"},{"n":57,"id":"water_pump","g":"upg","s":"grow","k":"upgrades","p":70000,"t":2,"one":null,"node":131,"en":"Water Pump"},{"n":58,"id":"uv_lamp","g":"upg","s":"grow","k":"upgrades","p":250000,"t":3,"one":null,"node":136,"en":"UV Lamp"},{"n":59,"id":"lab_scales","g":"upg","s":"lab","k":"upgrades","p":15000,"t":2,"one":null,"node":127,"en":"Laboratory Scales"},{"n":60,"id":"engine","g":"upg","s":"lab","k":"upgrades","p":20000,"t":1,"one":null,"node":129,"en":"Industrial Engine"},{"n":61,"id":"freezer_1","g":"upg","s":"lab","k":"upgrades","p":20000,"t":1,"one":null,"node":130,"en":"Industrial Freezer"},{"n":62,"id":"freezer_2","g":"upg","s":"lab","k":"upgrades","p":90000,"t":2,"one":null,"node":134,"en":"Industrial Freezer"},{"n":63,"id":"freezer_3","g":"upg","s":"lab","k":"upgrades","p":250000,"t":3,"one":null,"node":138,"en":"Industrial Freezer"},{"n":64,"id":"evaporator","g":"upg","s":"lab","k":"upgrades","p":100000,"t":2,"one":null,"node":135,"en":"Improved Evaporator"},{"n":65,"id":"thermometer","g":"upg","s":"lab","k":"upgrades","p":120000,"t":2,"one":null,"node":133,"en":"Industrial Thermometer"},{"n":66,"id":"coolant","g":"upg","s":"lab","k":"upgrades","p":250000,"t":3,"one":null,"node":139,"en":"Quality Coolant"},{"n":67,"id":"converter","g":"upg","s":"lab","k":"upgrades","p":300000,"t":3,"one":null,"node":137,"en":"Chemical Converter"},{"n":68,"id":"longhorn_van","g":"car","s":"cars","k":"vehicles","p":180000,"t":1,"one":null,"node":11,"en":"Longhorn Van"},{"n":69,"id":"fukurou_tensa","g":"car","s":"cars","k":"vehicles","p":200000,"t":1,"one":null,"node":10,"en":"Fukurou Tensa"},{"n":70,"id":"longhorn_titan","g":"car","s":"cars","k":"vehicles","p":900000,"t":2,"one":null,"node":16,"en":"Longhorn Titan"},{"n":71,"id":"royal_e","g":"car","s":"cars","k":"vehicles","p":1000000,"t":2,"one":null,"node":15,"en":"Royal E"},{"n":72,"id":"royal_j","g":"car","s":"cars","k":"vehicles","p":4000000,"t":3,"one":null,"node":24,"en":"Royal J"},{"n":73,"id":"longhorn_wild","g":"car","s":"cars","k":"vehicles","p":4500000,"t":3,"one":null,"node":22,"en":"Longhorn Wild"},{"n":74,"id":"buletti","g":"car","s":"cars","k":"vehicles","p":10000000,"t":3,"one":null,"node":29,"en":"Buletti Soltempra"},{"n":75,"id":"romanov_r8","g":"car","s":"cars","k":"vehicles","p":10000000,"t":3,"one":null,"node":9,"en":"Romanov R8"},{"n":76,"id":"ecu_1","g":"car","s":"tune","k":"upgrades","p":14000,"t":1,"one":null,"node":13,"en":"ECU"},{"n":77,"id":"ecu_2","g":"car","s":"tune","k":"upgrades","p":75000,"t":2,"one":null,"node":20,"en":"Improved ECU"},{"n":78,"id":"ecu_3","g":"car","s":"tune","k":"upgrades","p":330000,"t":3,"one":null,"node":28,"en":"High-performance ECU"},{"n":79,"id":"turbo_1","g":"car","s":"tune","k":"upgrades","p":79500,"t":2,"one":null,"node":23,"en":"Turbo Kit"},{"n":80,"id":"turbo_2","g":"car","s":"tune","k":"upgrades","p":238000,"t":3,"one":null,"node":30,"en":"Improved Turbo Kit"},{"n":81,"id":"intercooler_1","g":"car","s":"tune","k":"upgrades","p":72000,"t":2,"one":null,"node":14,"en":"Intercooler"},{"n":82,"id":"intercooler_2","g":"car","s":"tune","k":"upgrades","p":270000,"t":3,"one":null,"node":21,"en":"Improved Intercooler"},{"n":83,"id":"steering_1","g":"car","s":"tune","k":"upgrades","p":68000,"t":2,"one":null,"node":12,"en":"Steering Rack"},{"n":84,"id":"steering_2","g":"car","s":"tune","k":"upgrades","p":270000,"t":3,"one":null,"node":19,"en":"Reinforced Steering Rack"},{"n":85,"id":"racing_rotor","g":"car","s":"tune","k":"upgrades","p":61500,"t":2,"one":null,"node":18,"en":"Racing Rotor"},{"n":86,"id":"trunk_1","g":"car","s":"tune","k":"upgrades","p":1200,"t":1,"one":null,"node":17,"en":"Trunk Bags"},{"n":87,"id":"trunk_2","g":"car","s":"tune","k":"upgrades","p":70500,"t":2,"one":null,"node":27,"en":"Large Trunk Bags"},{"n":88,"id":"trunk_3","g":"car","s":"tune","k":"upgrades","p":270000,"t":3,"one":null,"node":32,"en":"Spacious Trunk Bags"},{"n":89,"id":"cargo_rack_1","g":"car","s":"tune","k":"upgrades","p":86500,"t":2,"one":null,"node":25,"en":"Cargo Rack"},{"n":90,"id":"cargo_rack_2","g":"car","s":"tune","k":"upgrades","p":350000,"t":3,"one":null,"node":31,"en":"Reinforced Cargo Rack"},{"n":91,"id":"police_radio","g":"car","s":"tune","k":"upgrades","p":300000,"t":3,"one":null,"node":26,"en":"Police Radio (car)"},{"n":92,"id":"fuse_1","g":"def","s":"fuse","k":"fuses","p":20000,"t":1,"one":null,"node":36,"en":"Electronic Fuse (protection 1)"},{"n":93,"id":"fuse_2","g":"def","s":"fuse","k":"fuses","p":100000,"t":2,"one":null,"node":41,"en":"Electronic Fuse (protection 3)"},{"n":94,"id":"fuse_3","g":"def","s":"fuse","k":"fuses","p":250000,"t":3,"one":null,"node":47,"en":"Electronic Fuse (protection 5)"},{"n":95,"id":"alarm_location","g":"def","s":"alarm","k":"upgrades","p":30000,"t":1,"one":null,"node":43,"en":"Alarm System (whole location)"},{"n":96,"id":"alarm_owner","g":"def","s":"alarm","k":"upgrades","p":60000,"t":2,"one":null,"node":42,"en":"Alarm System (owner only)"},{"n":97,"id":"alarm_clan","g":"def","s":"alarm","k":"upgrades","p":200000,"t":2,"one":null,"node":48,"en":"Clan Alarm System"},{"n":98,"id":"bush_growing_1","g":"cargo","s":"bush","k":"bushes","p":20000,"t":1,"one":null,"node":null,"en":"Growing Bush"},{"n":99,"id":"bush_growing_2","g":"cargo","s":"bush","k":"bushes","p":30000,"t":2,"one":null,"node":null,"en":"Growing Bush"},{"n":100,"id":"bush_growing_3","g":"cargo","s":"bush","k":"bushes","p":40000,"t":3,"one":null,"node":null,"en":"Growing Bush"},{"n":101,"id":"bush_mature_1","g":"cargo","s":"bush","k":"bushes","p":30000,"t":1,"one":null,"node":null,"en":"Mature Bush"},{"n":102,"id":"bush_mature_2","g":"cargo","s":"bush","k":"bushes","p":45000,"t":2,"one":null,"node":null,"en":"Mature Bush"},{"n":103,"id":"bush_mature_3","g":"cargo","s":"bush","k":"bushes","p":60000,"t":3,"one":null,"node":null,"en":"Mature Bush"},{"n":104,"id":"collection_crate","g":"cargo","s":"goods","k":"containers","p":50000,"t":1,"one":null,"node":null,"en":"Collection Crate"},{"n":105,"id":"rare_collection_crate","g":"cargo","s":"goods","k":"containers","p":150000,"t":2,"one":null,"node":null,"en":"Rare Collection Crate"},{"n":106,"id":"unique_collection_crate","g":"cargo","s":"goods","k":"containers","p":500000,"t":3,"one":null,"node":null,"en":"Unique Collection Crate"},{"n":107,"id":"golden_statue","g":"cargo","s":"goods","k":"containers","p":250000,"t":3,"one":null,"node":null,"en":"Golden Statue"},{"n":108,"id":"portable_safe","g":"cargo","s":"goods","k":"containers","p":100000,"t":2,"one":null,"node":null,"en":"Portable Safe"},{"n":109,"id":"expensive_safe","g":"cargo","s":"goods","k":"containers","p":200000,"t":3,"one":null,"node":null,"en":"Expensive Safe"},{"n":110,"id":"valuable_cargo","g":"cargo","s":"goods","k":"containers","p":150000,"t":3,"one":null,"node":null,"en":"Valuable Cargo"},{"n":111,"id":"bank_money_bag","g":"cargo","s":"goods","k":"containers","p":60000,"t":3,"one":null,"node":null,"en":"Bank Money Bag"},{"n":112,"id":"powder_bag","g":"cargo","s":"goods","k":"containers","p":25000,"t":1,"one":null,"node":null,"en":"Powder Bag"},{"n":113,"id":"pure_powder_bag","g":"cargo","s":"goods","k":"containers","p":40000,"t":2,"one":null,"node":null,"en":"Pure Powder Bag"},{"n":114,"id":"perfect_powder_bag","g":"cargo","s":"goods","k":"containers","p":60000,"t":3,"one":null,"node":null,"en":"Perfect Powder Bag"},{"n":115,"id":"contraband_cargo","g":"cargo","s":"goods","k":"containers","p":10000,"t":1,"one":null,"node":null,"en":"Contraband Cargo"},{"n":116,"id":"premium_cargo","g":"cargo","s":"goods","k":"containers","p":35000,"t":2,"one":null,"node":null,"en":"Premium Cargo"},{"n":117,"id":"rarity_cargo","g":"cargo","s":"goods","k":"containers","p":40000,"t":3,"one":null,"node":null,"en":"Rarity Cargo"},{"n":118,"id":"suitcase","g":"cargo","s":"goods","k":"containers","p":25000,"t":1,"one":null,"node":null,"en":"Suitcase (white, blue or red)"},{"n":119,"id":"reagent_canisters","g":"cargo","s":"goods","k":"containers","p":20000,"t":1,"one":null,"node":null,"en":"Reagent Canisters"},{"n":120,"id":"quality_reagents","g":"cargo","s":"goods","k":"containers","p":30000,"t":2,"one":null,"node":null,"en":"Quality Reagents"},{"n":121,"id":"soft_crystal_1","g":"cargo","s":"goods","k":"containers","p":10000,"t":1,"one":null,"node":null,"en":"Crystalline Concentrate"},{"n":122,"id":"soft_crystal_2","g":"cargo","s":"goods","k":"containers","p":15000,"t":2,"one":null,"node":null,"en":"Crystalline Concentrate"},{"n":123,"id":"soft_crystal_3","g":"cargo","s":"goods","k":"containers","p":25000,"t":3,"one":null,"node":null,"en":"Crystalline Concentrate"},{"n":124,"id":"hard_crystal_1","g":"cargo","s":"goods","k":"containers","p":30000,"t":1,"one":null,"node":null,"en":"Hard Crystals"},{"n":125,"id":"hard_crystal_2","g":"cargo","s":"goods","k":"containers","p":45000,"t":2,"one":null,"node":null,"en":"Hard Crystals"},{"n":126,"id":"hard_crystal_3","g":"cargo","s":"goods","k":"containers","p":75000,"t":3,"one":null,"node":null,"en":"Hard Crystals"},{"n":127,"id":"weapon_parts_1","g":"cargo","s":"goods","k":"containers","p":25000,"t":1,"one":null,"node":null,"en":"Weapon Parts Box"},{"n":128,"id":"weapon_parts_2","g":"cargo","s":"goods","k":"containers","p":40000,"t":2,"one":null,"node":null,"en":"Weapon Parts Box"},{"n":129,"id":"weapon_parts_3","g":"cargo","s":"goods","k":"containers","p":120000,"t":3,"one":null,"node":null,"en":"Weapon Parts Box"}];
 const BASE_COLS = 16;
 const N = NODES.length;
 const OX = 60, OY = 56, W = 2500, H = 1335, HALF = 27;
@@ -626,7 +639,6 @@ const ASSETS = [
   {k: 'upgrades',   coef: 40},
   {k: 'fuses',      coef: 40},
   {k: 'vehicles',   coef: 40},
-  {k: 'clan',       coef: 100, unconfirmed: true},
 ];
 
 const TYPES = {
@@ -722,6 +734,17 @@ const STR = {
     resetAll: 'Сбросить всё', armed: 'Нажми ещё раз', vTitle: 'Срок за этот штат', vSplit: '{a} за имущество и {b} за долг Ленни',
     sTotal: 'Имущество в расчёте', sNext: 'До следующего года', sCap: 'До потолка в 40 лет', sCapOver: 'Сверх потолка, лет не даст',
     sAfter: 'Всего на персонаже', sAfterHint: 'впиши текущий срок ниже', capReached: 'потолок взят',
+    navLabel: 'Разделы', navCalc: 'Калькулятор', navGuide: 'Как считается срок', navPrices: 'Цены', navShips: 'Поставки',
+    faqTitle: 'Частые вопросы', toGuide: 'Подробно: как считается срок', toPrices: 'Все цены чёрного рынка',
+    faq: [
+      ['Сколько лет дадут за $1 000 000?', 'Если это деньги, исследования поставок или грузы, то 2 года. Если это цена купленного имущества (дом, машина, земля), в расчёт пойдёт $400 000, а это меньше года.'],
+      ['Сколько нужно имущества на 40 лет?', '$20 000 000 в расчёте. Это $20 000 000 денег или $50 000 000 в цене купленного имущества, а чаще всего смесь того и другого.'],
+      ['Считается ли машина в срок?', 'Да, на 40% цены покупки, строкой «Транспорт». Fukurou Tensa за $200 000 даёт в приговоре $80 000.'],
+      ['Засчитывается ли остаток меньше $500 000?', 'Нет. $999 999 в расчёте дают 1 год, а $1 000 000 дают уже 2.'],
+      ['Что даёт долг Ленни?', 'Оплата долга $1 000 000 чистыми деньгами разово даёт +10 лет сверх потолка в 40.'],
+      ['Какой максимальный срок?', '40 лет за штат и ещё 10 за долг Ленни. Кроме того, не больше 40 лет за сутки и не больше 1200 лет на персонаже.'],
+      ['Как быстро посчитать свой срок?', 'В калькуляторе robruncalc.com: отметь открытые поставки, выбери дом, машину и остальное в «Твоей базе» и впиши деньги. Он считает по тем же правилам, что и игра.'],
+    ],
     baseTitle: 'Твоя база',
     baseLede: 'Отметь, что у тебя есть: дом, постройки, мебель, улучшения, машины, защиту, документы, кусты и грузы. Цены подставятся сами и сразу уйдут в опись ниже.',
     bItems: ['предмет', 'предмета', 'предметов'], bValue: 'стоимость', bCounted: 'идёт в расчёт', bSearchPh: 'Найти предмет', clearBase: 'Очистить базу',
@@ -751,7 +774,7 @@ const STR = {
     bSource: 'Цены: robrun-wiki.com (сообщество, 16–21 ноября 2026) и скриншоты из игры (22 ноября 2026). Цены на чёрном рынке могут меняться каждую неделю.',
     bPriceLink: 'Видишь другую цену в игре? Напиши',
     exampleNote: 'Это пример расчёта: дерево, база и суммы заполнены для наглядности.', exampleReset: 'Начать с нуля', exampleKeep: 'Оставить и править',
-    lennyTip: 'Долг Ленни не оплачен. $1 000 000 чистыми Ленни дадут +10 лет, а при изъятии эти же деньги дадут только 2 года.',
+    lennyTip: 'Долг Ленни не оплачен. $1 000 000 чистыми Ленни дадут +10 лет, а при изъятии эти же деньги дадут только 2 года.',
     tallyBonus: 'Ленни', treeTitle: 'Поставки Ленни',
     treeLede: 'Нажми на поставку, которая у тебя открыта, и вместе с ней отметится вся цепочка до неё. Ещё одно нажатие снимет её и всё, что идёт после. Дерево расположено так же, как в игре.',
     tOpen: 'открыто из {n}', tSum: 'стоимость исследований', tUnknown: 'без цены',
@@ -768,39 +791,37 @@ const STR = {
     tipOpen: 'Нажми: {v} {n} {w}, +{sum}', tipClose: 'Нажми: {v} {n} {w}, −{sum}', tipPartial: 'не считая {n} без цены',
     tipOpenNoSum: 'Нажми: {v} {n} {w}', tipCloseNoSum: 'Нажми: {v} {n} {w}', tipNoPrices: 'цены пока не внесены',
     tipJail: 'Откроется при общем сроке от {n} {w}', tipJailShort: 'Тебе не хватает {n} {w}', tipJailOk: 'Срока на персонаже уже хватает', tipVerify: 'Цена из открытых гайдов, сверь в игре.', unnamed: '{type}: название уточняется',
-    invTitle: 'Опись имущества', invLede: 'Всё, что отмечено в «Твоей базе», уже здесь. Впиши остальное: деньги и то, чего нет в списке. Часть имущества идёт в расчёт не целиком, это видно в колонке «Учёт».',
-    hWhat: 'Что изымут', hValue: 'Стоимость, $', hCoef: 'Учёт', hCounted: 'В расчёте',
+    invTitle: 'Опись имущества', invLede: 'Всё, что отмечено в «Твоей базе», уже здесь. Впиши остальное: деньги и то, чего нет в списке. Купленное имущество идёт в расчёт на 40% цены покупки, деньги, исследования, кусты и грузы — целиком.',
+    hWhat: 'Что изымут', hValue: 'Стоимость, $', hCounted: 'В расчёте',
     inputPh: 'например 1.5m', manualResearch: 'вписать вручную', totalRow: 'Итого в расчёте', unconfirmed: 'доля не подтверждена',
-    coefTitle: 'Какая доля стоимости идёт в срок. Поменяй, если правила изменятся.', coefReset: 'вернуть {v}%',
     assets: {
       research: ['Исследования (поставки)', 'Считается по дереву выше. В судебном приговоре это «Установление преступных связей».'],
       laundered: ['Отмытые деньги', 'Чистые деньги, в приговоре «Банковский счёт». Учитывается ли грязный кэш, не подтверждено.'],
       containers: ['Предметы в контейнерах', 'Оценка вещей в ящиках и хранилищах.'],
       land: ['Земля и поселения', 'Документы на участки и поселения, 40% цены покупки. В приговоре «Землевладение».'],
       bushes: ['Кусты', 'Посаженные кусты по оценочной стоимости.'],
-      realty: ['Недвижимость и постройки', 'Идёт в расчёт на 40%: дом за $1 000 000 даст $400 000. В приговоре «Недвижимость».'],
+      realty: ['Недвижимость и постройки', 'Идёт в расчёт на 40%: дом за $1 000 000 даст $400 000. В приговоре «Недвижимость».'],
       upgrades: ['Установленные улучшения', 'Улучшения, уже поставленные на объекты.'],
       fuses: ['Установленные предохранители', 'Предохранители, уже поставленные на объекты.'],
-      vehicles: ['Транспорт', 'Машины и вертолёт, 40% цены покупки: в приговоре машина за $200 000 дала $80 000.'],
-      clan: ['Траты на клан и взятки', 'Тоже названы разработчиками среди того, что идёт в срок.'],
+      vehicles: ['Транспорт', 'Машины и вертолёт, 40% цены покупки: в приговоре машина за $200 000 дала $80 000.'],
     },
-    lennyTitle: 'Долг Ленни', lennyCheck: 'Долг $1 000 000 оплачен',
+    lennyTitle: 'Долг Ленни', lennyCheck: 'Долг $1 000 000 оплачен',
     lennyText: 'Разовый бонус +10 лет сверх потолка в 40. Платится чистыми деньгами Ленни в мотеле.',
     curTitle: 'Срок на персонаже', curLabel: 'Сейчас лет:', curText: 'Покажу, сколько станет после рейда. Общий потолок на персонаже 1200 лет.',
     rulesTitle: 'Как считается срок',
     rules: [
       'Раз в 7 дней федералы проводят рейд: всё имущество в штате изымают и переводят в годы. То же самое будет, если сдаться федералам раньше.',
-      'Каждые полные $500 000 расчётной стоимости дают 1 год. Остаток меньше $500 000 не засчитывается.',
-      'За один штат можно получить не больше 40 лет, это $20 000 000 расчётной стоимости.',
+      'Каждые полные $500 000 расчётной стоимости дают 1 год. Остаток меньше $500 000 не засчитывается.',
+      'За один штат можно получить не больше 40 лет, это $20 000 000 расчётной стоимости.',
       'Купленное имущество идёт в расчёт на 40% цены покупки: недвижимость, земля, транспорт, установленные улучшения и предохранители. Такую «стоимость» игра показывает и у самого предмета. Деньги, исследования поставок, кусты и грузы считаются на 100%.',
-      'Оплата долга Ленни ($1 000 000) даёт разовый бонус +10 лет сверх этих 40.',
+      'Оплата долга Ленни ($1 000 000) даёт разовый бонус +10 лет сверх этих 40.',
       'С 17 ноября 2026 есть ещё два лимита: не больше 40 лет за сутки (бонусные годы не в счёт) и не больше 1200 лет на персонаже.',
       'Срок работает как авторитет: открывает тату, скрытые поставки и части тюрьмы.',
     ],
     exTitle: 'Примеры', exHead: ['Что изъяли', 'В расчёте', 'Срок'],
     toCatalog: 'Все поставки: цены и нужный срок', jailTitle: 'Сколько срока нужно для поставок', jailHead: ['Поставка', 'Ветка', 'Нужен срок'],
     jailLede: 'Эти поставки открываются, только когда общий срок на персонаже дорастёт до нужного числа лет. До этого в игре они серые или спрятаны за «?».',
-    exRows: [['Недвижимость $1 000 000', '$400 000', '0 лет, меньше $500 000'], ['$500 000 денег и недвижимость $1 000 000', '$900 000', '1 год'], ['$1 000 000 денег и недвижимость $2 000 000', '$1 800 000', '3 года']],
+    exRows: [['Недвижимость $1 000 000', '$400 000', '0 лет, меньше $500 000'], ['$500 000 денег и недвижимость $1 000 000', '$900 000', '1 год'], ['$1 000 000 денег и недвижимость $2 000 000', '$1 800 000', '3 года']],
     srcTitle: 'Откуда данные',
     sources: [
       ['Формула, потолок в 40 лет и лимиты с 17 ноября: ', 'robrun.info, раздел «Полиция и тюрьма»', 'https://robrun.info/mechanics/police/'],
@@ -809,12 +830,12 @@ const STR = {
       ['Цены поставок: подсказки в игре.', '', ''],
       ['Цены имущества, машин, тюнинга, кустов и грузов (сообщество, 16–21 ноября 2026) и сколько мест в доме: ', 'robrun-wiki.com', 'https://robrun-wiki.com/en/wiki/'],
       ['Поставки, скрытые в игре за «?» (цены и уровень поселения), и нужный общий срок: ', 'планировщик поставок robrun-wiki.com', 'https://robrun-wiki.com/en/tools/shipments-planner/'],
-      ['Доли 40% и 100% официально не опубликованы, но 40% для транспорта, недвижимости и земли подтверждает судебный приговор из игры от 22 ноября 2026. Машина за $200 000 дала в нём $80 000, трейлер с сетчатым забором ($25 000) дали $10 000, документ на участок за $100 000 дал $40 000.', '', ''],
+      ['Доли 40% и 100% официально не опубликованы, но 40% для транспорта, недвижимости и земли подтверждает судебный приговор из игры от 22 ноября 2026. Машина за $200 000 дала в нём $80 000, трейлер с сетчатым забором ($25 000) дали $10 000, документ на участок за $100 000 дал $40 000.', '', ''],
       ['Дерево поставок: со скриншотов игры, версии 0.7.0.4049–4052, 171 поставка.', '', ''],
       ['Картинки поставок, имущества, веток и Ленни, названия на английском, испанском и португальском: из файлов игры, сборка от 20 ноября 2026.', '', ''],
     ],
     foot1: 'Неофициальный фан-калькулятор, с KEFIR не связан. ROB RUN и изображения из игры принадлежат KEFIR и используются с их разрешения.',
-    foot2: 'Данные на 20 ноября 2026. Игра в раннем доступе, правила меняются.',
+    foot2: 'Данные на 22 ноября 2026. Игра в раннем доступе, правила меняются.',
     lennyName: 'Ленни', lennyRole: 'чёрный рынок', lennyOpen: 'Открыто', lennyOf: '{d} из {t}', lennySpent: 'Потрачено',
     supBtn: 'Поддержка', supTitle: 'Написать автору', supClose: 'Закрыть',
     supText: 'Нашёл ошибку, знаешь цену или название скрытой поставки, есть идея? Напиши здесь и приложи скриншот, если есть.',
@@ -834,6 +855,17 @@ const STR = {
     resetAll: 'Reset everything', armed: 'Click again', vTitle: 'Sentence for this state', vSplit: '{a} for assets and {b} for Lenny’s debt',
     sTotal: 'Counted assets', sNext: 'To the next year', sCap: 'To the 40-year cap', sCapOver: 'Above the cap, gives no years',
     sAfter: 'Character total', sAfterHint: 'enter your current sentence below', capReached: 'cap reached',
+    navLabel: 'Sections', navCalc: 'Calculator', navGuide: 'How jail time works', navPrices: 'Prices', navShips: 'Shipments',
+    faqTitle: 'Frequently asked questions', toGuide: 'In detail: how jail time is calculated', toPrices: 'All black-market prices',
+    faq: [
+      ['How many years do I get for $1,000,000?', 'If it’s money, shipment research or cargo, 2 years. If it’s the price of property you bought (a house, a car, land), $400,000 counts, which is less than a year.'],
+      ['How much do I need for 40 years?', '$20,000,000 counted. That’s $20,000,000 in money or $50,000,000 in the price of bought property, and usually a mix of both.'],
+      ['Does my car count toward the sentence?', 'Yes, at 40% of its purchase price, on the “Vehicles” line. A Fukurou Tensa bought for $200,000 shows up in the ruling as $80,000.'],
+      ['Does anything under $500,000 count?', 'No. $999,999 counted gives 1 year; $1,000,000 already gives 2.'],
+      ['What does Lenny’s debt give?', 'Paying the $1,000,000 debt in clean money gives a one-time +10 years above the 40-year cap.'],
+      ['What is the longest sentence?', '40 years per state plus 10 for Lenny’s debt. On top of that, no more than 40 years per 24 hours and no more than 1,200 years per character.'],
+      ['How do I calculate my sentence quickly?', 'Use the calculator at robruncalc.com: mark the shipments you’ve unlocked, choose your house, car and the rest in “Your base”, and enter your money. It counts by the same rules as the game.'],
+    ],
     baseTitle: 'Your base',
     baseLede: 'Mark what you own: house, buildings, furniture, upgrades, vehicles, security, documents, bushes and cargo. Prices fill in by themselves and go straight into the inventory below.',
     bItems: ['item', 'items', 'items'], bValue: 'value', bCounted: 'counts toward the sentence', bSearchPh: 'Find an item', clearBase: 'Clear the base',
@@ -880,10 +912,9 @@ const STR = {
     tipOpen: 'Click: unlocks {n} {w}, +{sum}', tipClose: 'Click: clears {n} {w}, −{sum}', tipPartial: 'not counting {n} without a price',
     tipOpenNoSum: 'Click: unlocks {n} {w}', tipCloseNoSum: 'Click: clears {n} {w}', tipNoPrices: 'no prices yet',
     tipJail: 'Needs a total jail time of at least {n} {w}', tipJailShort: 'You’re {n} {w} short', tipJailOk: 'Your character’s sentence is long enough', tipVerify: 'Price from public guides, check it in the game.', unnamed: '{type}: name to be confirmed',
-    invTitle: 'Seizure inventory', invLede: 'Everything marked in “Your base” is already here. Enter the rest: money and whatever isn’t on the list. Some property only partly counts toward the sentence, as the “Counts” column shows.',
-    hWhat: 'What gets seized', hValue: 'Value, $', hCoef: 'Counts', hCounted: 'Counted',
+    invTitle: 'Seizure inventory', invLede: 'Everything marked in “Your base” is already here. Enter the rest: money and whatever isn’t on the list. Property you bought counts at 40% of its purchase price; money, research, bushes and cargo count in full.',
+    hWhat: 'What gets seized', hValue: 'Value, $', hCounted: 'Counted',
     inputPh: 'e.g. 1.5m', manualResearch: 'enter manually', totalRow: 'Total counted', unconfirmed: 'share not confirmed',
-    coefTitle: 'Share of the value that turns into years. Change it if the rules change.', coefReset: 'back to {v}%',
     assets: {
       research: ['Research (shipments)', 'Calculated from the tree above. In the court ruling it is “Establishing criminal ties”.'],
       laundered: ['Laundered money', 'Clean money, “Bank Account” in the ruling. Whether dirty cash counts is not confirmed.'],
@@ -894,7 +925,6 @@ const STR = {
       upgrades: ['Installed upgrades', 'Upgrades already fitted to your property.'],
       fuses: ['Installed fuses', 'Fuses already fitted to your property.'],
       vehicles: ['Vehicles', 'Cars and the helicopter, 40% of the purchase price: in a court ruling a $200,000 car gave $80,000.'],
-      clan: ['Clan spending and bribes', 'Also listed by the developers as counting toward the sentence.'],
     },
     lennyTitle: 'Lenny’s debt', lennyCheck: 'The $1,000,000 debt is paid',
     lennyText: 'One-time bonus: +10 years on top of the 40 cap. Paid to Lenny at the motel in clean money.',
@@ -926,7 +956,7 @@ const STR = {
       ['Pictures of shipments, property, branches and Lenny, English, Spanish and Portuguese names: from the game files, 20 November 2026 build.', '', ''],
     ],
     foot1: 'Unofficial fan-made calculator, not affiliated with KEFIR. ROB RUN and the in-game images belong to KEFIR and are used with their permission.',
-    foot2: 'Data as of 20 November 2026. The game is in early access and the rules change.',
+    foot2: 'Data as of 22 November 2026. The game is in early access and the rules change.',
     lennyName: 'Lenny', lennyRole: 'black market', lennyOpen: 'Unlocked', lennyOf: '{d} of {t}', lennySpent: 'Spent',
     supBtn: 'Support', supTitle: 'Contact the author', supClose: 'Close',
     supText: 'Found a bug, know the price or name of a hidden shipment, or have an idea? Write here and attach a screenshot if you have one.',
@@ -945,6 +975,17 @@ const STR = {
     resetAll: 'Borrar todo', armed: 'Pulsa otra vez', vTitle: 'Condena por este estado', vSplit: '{a} por los bienes y {b} por la deuda con Lenny',
     sTotal: 'Bienes computados', sNext: 'Hasta el siguiente año', sCap: 'Hasta el tope de 40 años', sCapOver: 'Por encima del tope, no suma años',
     sAfter: 'Total del personaje', sAfterHint: 'introduce abajo tu condena actual', capReached: 'tope alcanzado',
+    navLabel: 'Secciones', navCalc: 'Calculadora', navGuide: 'Cómo se calcula la condena', navPrices: 'Precios', navShips: 'Envíos',
+    faqTitle: 'Preguntas frecuentes', toGuide: 'En detalle: cómo se calcula la condena', toPrices: 'Todos los precios del mercado negro',
+    faq: [
+      ['¿Cuántos años me caen por $1.000.000?', 'Si es dinero, investigación de envíos o cargas, 2 años. Si es el precio de algo que compraste (una casa, un coche, un terreno), cuentan $400.000, que es menos de un año.'],
+      ['¿Cuánto necesito para 40 años?', '$20.000.000 computados. Son $20.000.000 en dinero o $50.000.000 en precio de bienes comprados, y casi siempre una mezcla de ambos.'],
+      ['¿Cuenta mi coche para la condena?', 'Sí, al 40% de su precio de compra, en la línea «Vehículos». Un Fukurou Tensa comprado por $200.000 aparece en la sentencia como $80.000.'],
+      ['¿Cuenta lo que sobra por debajo de $500.000?', 'No. $999.999 computados dan 1 año; $1.000.000 ya dan 2.'],
+      ['¿Qué da la deuda con Lenny?', 'Pagar la deuda de $1.000.000 en dinero limpio da una sola vez +10 años por encima del tope de 40.'],
+      ['¿Cuál es la condena máxima?', '40 años por estado y 10 más por la deuda con Lenny. Además, no más de 40 años cada 24 horas y no más de 1200 años por personaje.'],
+      ['¿Cómo calculo mi condena rápido?', 'Con la calculadora de robruncalc.com: marca los envíos que tienes, elige tu casa, tu coche y lo demás en «Tu base» y escribe tu dinero. Calcula con las mismas reglas que el juego.'],
+    ],
     baseTitle: 'Tu base',
     baseLede: 'Marca lo que tienes: casa, edificios, muebles, mejoras, vehículos, seguridad, documentos, arbustos y cargas. Los precios se ponen solos y pasan directamente al inventario de abajo.',
     bItems: ['objeto', 'objetos', 'objetos'], bValue: 'valor', bCounted: 'cuenta para la condena', bSearchPh: 'Buscar un objeto', clearBase: 'Vaciar la base',
@@ -991,10 +1032,9 @@ const STR = {
     tipOpen: 'Pulsa: desbloquea {n} {w}, +{sum}', tipClose: 'Pulsa: quita {n} {w}, −{sum}', tipPartial: 'sin contar {n} sin precio',
     tipOpenNoSum: 'Pulsa: desbloquea {n} {w}', tipCloseNoSum: 'Pulsa: quita {n} {w}', tipNoPrices: 'aún sin precios',
     tipJail: 'Requiere un tiempo total en prisión de al menos {n} {w}', tipJailShort: 'Te faltan {n} {w}', tipJailOk: 'La condena de tu personaje ya es suficiente', tipVerify: 'Precio de guías públicas, compruébalo en el juego.', unnamed: '{type}: nombre por confirmar',
-    invTitle: 'Inventario de confiscación', invLede: 'Todo lo marcado en «Tu base» ya está aquí. Introduce el resto: el dinero y lo que no esté en la lista. Algunos bienes solo cuentan en parte para la condena, como indica la columna «Cuenta».',
-    hWhat: 'Qué se confisca', hValue: 'Valor, $', hCoef: 'Cuenta', hCounted: 'Computado',
+    invTitle: 'Inventario de confiscación', invLede: 'Todo lo marcado en «Tu base» ya está aquí. Introduce el resto: el dinero y lo que no esté en la lista. Lo que compraste cuenta al 40% de su precio de compra; el dinero, la investigación, los arbustos y las cargas cuentan enteros.',
+    hWhat: 'Qué se confisca', hValue: 'Valor, $', hCounted: 'Computado',
     inputPh: 'p. ej. 1,5m', manualResearch: 'introducir a mano', totalRow: 'Total computado', unconfirmed: 'proporción sin confirmar',
-    coefTitle: 'Parte del valor que se convierte en años. Cámbiala si cambian las reglas.', coefReset: 'volver a {v}%',
     assets: {
       research: ['Envíos desbloqueados', 'Se calcula con el árbol de arriba. En la sentencia judicial es «Establecimiento de vínculos criminales».'],
       laundered: ['Dinero blanqueado', 'Dinero limpio, «Cuenta bancaria» en la sentencia. No está confirmado si el efectivo sucio cuenta.'],
@@ -1005,7 +1045,6 @@ const STR = {
       upgrades: ['Mejoras instaladas', 'Mejoras ya colocadas en tu propiedad.'],
       fuses: ['Fusibles instalados', 'Fusibles ya colocados en tu propiedad.'],
       vehicles: ['Vehículos', 'Coches y helicóptero, el 40% del precio de compra: en una sentencia un coche de $200.000 dio $80.000.'],
-      clan: ['Gastos del clan y sobornos', 'Los desarrolladores también los cuentan para la condena.'],
     },
     lennyTitle: 'Deuda con Lenny', lennyCheck: 'La deuda de $1.000.000 está pagada',
     lennyText: 'Bonificación única: +10 años por encima del tope de 40. Se paga a Lenny en el motel con dinero limpio.',
@@ -1037,7 +1076,7 @@ const STR = {
       ['Imágenes de los envíos, los bienes, las ramas y Lenny, y nombres en inglés, español y portugués: archivos del juego, versión del 20 de noviembre de 2026.', '', ''],
     ],
     foot1: 'Calculadora no oficial hecha por fans, sin relación con KEFIR. ROB RUN y las imágenes del juego pertenecen a KEFIR y se usan con su permiso.',
-    foot2: 'Datos a 20 de noviembre de 2026. El juego está en acceso anticipado y las reglas cambian.',
+    foot2: 'Datos a 22 de noviembre de 2026. El juego está en acceso anticipado y las reglas cambian.',
     lennyName: 'Lenny', lennyRole: 'mercado negro', lennyOpen: 'Desbloqueados', lennyOf: '{d} de {t}', lennySpent: 'Gastado',
     supBtn: 'Soporte', supTitle: 'Escribir al autor', supClose: 'Cerrar',
     supText: '¿Has encontrado un error, sabes el precio o el nombre de un envío oculto o tienes una idea? Escribe aquí y adjunta una captura si tienes.',
@@ -1056,6 +1095,17 @@ const STR = {
     resetAll: 'Limpar tudo', armed: 'Clique de novo', vTitle: 'Pena por este estado', vSplit: '{a} pelos bens e {b} pela dívida com o Lenny',
     sTotal: 'Bens computados', sNext: 'Até o próximo ano', sCap: 'Até o limite de 40 anos', sCapOver: 'Acima do limite, não dá anos',
     sAfter: 'Total do personagem', sAfterHint: 'informe abaixo sua pena atual', capReached: 'limite atingido',
+    navLabel: 'Seções', navCalc: 'Calculadora', navGuide: 'Como a pena é calculada', navPrices: 'Preços', navShips: 'Remessas',
+    faqTitle: 'Perguntas frequentes', toGuide: 'Em detalhe: como a pena é calculada', toPrices: 'Todos os preços do mercado negro',
+    faq: [
+      ['Quantos anos eu pego por $1.000.000?', 'Se for dinheiro, pesquisa de remessas ou cargas, 2 anos. Se for o preço de algo que você comprou (uma casa, um carro, um terreno), contam $400.000, o que é menos de um ano.'],
+      ['Quanto eu preciso para 40 anos?', '$20.000.000 computados. São $20.000.000 em dinheiro ou $50.000.000 em preço de bens comprados, e quase sempre uma mistura dos dois.'],
+      ['Meu carro conta para a pena?', 'Sim, 40% do preço de compra, na linha “Veículos”. Um Fukurou Tensa comprado por $200.000 aparece na sentença como $80.000.'],
+      ['O que sobra abaixo de $500.000 conta?', 'Não. $999.999 computados dão 1 ano; $1.000.000 já dão 2.'],
+      ['O que a dívida com o Lenny dá?', 'Pagar a dívida de $1.000.000 em dinheiro limpo dá, uma única vez, +10 anos acima do limite de 40.'],
+      ['Qual é a pena máxima?', '40 anos por estado e mais 10 pela dívida com o Lenny. Além disso, no máximo 40 anos a cada 24 horas e no máximo 1.200 anos por personagem.'],
+      ['Como calculo minha pena rápido?', 'Com a calculadora do robruncalc.com: marque as remessas que você tem, escolha sua casa, seu carro e o resto em “Sua base” e digite seu dinheiro. Ela calcula pelas mesmas regras do jogo.'],
+    ],
     baseTitle: 'Sua base',
     baseLede: 'Marque o que você tem: casa, construções, móveis, melhorias, veículos, segurança, documentos, arbustos e cargas. Os preços entram sozinhos e vão direto para o inventário abaixo.',
     bItems: ['item', 'itens', 'itens'], bValue: 'valor', bCounted: 'conta para a pena', bSearchPh: 'Buscar um item', clearBase: 'Limpar a base',
@@ -1102,10 +1152,9 @@ const STR = {
     tipOpen: 'Clique: desbloqueia {n} {w}, +{sum}', tipClose: 'Clique: remove {n} {w}, −{sum}', tipPartial: 'sem contar {n} sem preço',
     tipOpenNoSum: 'Clique: desbloqueia {n} {w}', tipCloseNoSum: 'Clique: remove {n} {w}', tipNoPrices: 'ainda sem preços',
     tipJail: 'Requer pelo menos {n} {w} de tempo de prisão', tipJailShort: 'Faltam {n} {w}', tipJailOk: 'A pena do seu personagem já é suficiente', tipVerify: 'Preço de guias públicos, confira no jogo.', unnamed: '{type}: nome a confirmar',
-    invTitle: 'Inventário de confisco', invLede: 'Tudo o que foi marcado na “Sua base” já está aqui. Informe o resto: o dinheiro e o que não estiver na lista. Alguns bens contam só em parte para a pena, como mostra a coluna “Conta”.',
-    hWhat: 'O que é confiscado', hValue: 'Valor, $', hCoef: 'Conta', hCounted: 'Computado',
+    invTitle: 'Inventário de confisco', invLede: 'Tudo o que foi marcado na “Sua base” já está aqui. Informe o resto: o dinheiro e o que não estiver na lista. O que você comprou conta 40% do preço de compra; dinheiro, pesquisa, arbustos e cargas contam inteiros.',
+    hWhat: 'O que é confiscado', hValue: 'Valor, $', hCounted: 'Computado',
     inputPh: 'ex.: 1,5m', manualResearch: 'informar manualmente', totalRow: 'Total computado', unconfirmed: 'proporção não confirmada',
-    coefTitle: 'Parte do valor que vira anos. Altere se as regras mudarem.', coefReset: 'voltar para {v}%',
     assets: {
       research: ['Remessas desbloqueadas', 'Calculado pela árvore acima. Na sentença judicial é “Vínculos com criminosos”.'],
       laundered: ['Dinheiro lavado', 'Dinheiro limpo, “Conta bancária” na sentença. Não está confirmado se o dinheiro sujo conta.'],
@@ -1116,7 +1165,6 @@ const STR = {
       upgrades: ['Melhorias instaladas', 'Melhorias já instaladas na sua propriedade.'],
       fuses: ['Fusíveis instalados', 'Fusíveis já instalados na sua propriedade.'],
       vehicles: ['Veículos', 'Carros e helicóptero, 40% do preço de compra: numa sentença um carro de $200.000 deu $80.000.'],
-      clan: ['Gastos do clã e subornos', 'Os desenvolvedores também os contam para a pena.'],
     },
     lennyTitle: 'Dívida com o Lenny', lennyCheck: 'A dívida de $1.000.000 está paga',
     lennyText: 'Bônus único: +10 anos acima do limite de 40. Pago ao Lenny no motel, em dinheiro limpo.',
@@ -1148,7 +1196,7 @@ const STR = {
       ['Imagens das remessas, dos bens, dos ramos e do Lenny, e nomes em inglês, espanhol e português: arquivos do jogo, versão de 20 de novembro de 2026.', '', ''],
     ],
     foot1: 'Calculadora não oficial feita por fãs, sem ligação com a KEFIR. ROB RUN e as imagens do jogo pertencem à KEFIR e são usadas com permissão.',
-    foot2: 'Dados de 20 de novembro de 2026. O jogo está em acesso antecipado e as regras mudam.',
+    foot2: 'Dados de 22 de novembro de 2026. O jogo está em acesso antecipado e as regras mudam.',
     lennyName: 'Lenny', lennyRole: 'mercado clandestino', lennyOpen: 'Desbloqueadas', lennyOf: '{d} de {t}', lennySpent: 'Gasto',
     supBtn: 'Suporte', supTitle: 'Falar com o autor', supClose: 'Fechar',
     supText: 'Achou um erro, sabe o preço ou o nome de uma remessa oculta ou tem uma ideia? Escreva aqui e anexe uma captura de tela, se tiver.',
@@ -1290,8 +1338,7 @@ function compute(st) {
   const rows = ASSETS.map((a) => {
     const fromBase = a.k === 'research' ? 0 : (base.sums[a.k] || 0);
     const val = a.k === 'research' ? research : (st.vals[a.k] || 0) + fromBase;
-    const coef = st.coefs[a.k] != null ? st.coefs[a.k] : a.coef;
-    return {k: a.k, val, base: fromBase, coef, counted: Math.round(val * coef / 100)};
+    return {k: a.k, val, base: fromBase, coef: a.coef, counted: Math.round(val * a.coef / 100)};
   });
   const baseCounted = rows.reduce((s, r) => s + Math.round(r.base * r.coef / 100), 0);
   const total = rows.reduce((s, r) => s + r.counted, 0);
@@ -1310,7 +1357,7 @@ function compute(st) {
 }
 
 /* ---------- state ---------- */
-function emptyState() { return {done: new Set(), vals: {}, base: {}, bprice: {}, coefs: {...DEFAULT_COEFS}, manual: false, researchManual: 0, lenny: false, current: null, example: false}; }
+function emptyState() { return {done: new Set(), vals: {}, base: {}, bprice: {}, manual: false, researchManual: 0, lenny: false, current: null, example: false}; }
 function exampleState() {
   const s = emptyState();
   EXAMPLE_DONE.forEach((i) => s.done.add(i));
@@ -1321,17 +1368,15 @@ function exampleState() {
   return s;
 }
 function closeUp(s) { [...s.done].forEach((i) => ancestors(i).forEach((j) => s.done.add(j))); return s; }
-function toJSON(s) { return {cv: 2, done: [...s.done], vals: s.vals, base: s.base, bprice: s.bprice, coefs: s.coefs, manual: s.manual, researchManual: s.researchManual, lenny: s.lenny, current: s.current, example: s.example}; }
+function toJSON(s) { return {done: [...s.done], vals: s.vals, base: s.base, bprice: s.bprice, manual: s.manual, researchManual: s.researchManual, lenny: s.lenny, current: s.current, example: s.example}; }
 function fromJSON(o) {
   const s = emptyState();
   if (!o || typeof o !== 'object') return null;
   (o.done || []).forEach((i) => { if (Number.isInteger(i) && i >= 0 && i < N) s.done.add(i); });
   ASSETS.forEach((a) => {
     if (o.vals && isFinite(o.vals[a.k])) s.vals[a.k] = Math.max(0, +o.vals[a.k]);
-    if (o.coefs && isFinite(o.coefs[a.k])) s.coefs[a.k] = Math.max(0, Math.min(100, +o.coefs[a.k]));
   });
   readBase(s, o.base, o.bprice);
-  if (!(o.cv >= 2)) ['vehicles', 'land'].forEach((k) => { if (s.coefs[k] === 100) s.coefs[k] = 40; });
   s.manual = !!o.manual; s.researchManual = Math.max(0, +o.researchManual || 0); s.lenny = !!o.lenny;
   s.current = (o.current != null && isFinite(o.current)) ? Math.max(0, +o.current) : null;
   s.example = !!o.example;
@@ -1340,12 +1385,11 @@ function fromJSON(o) {
 function encodeState(s) {
   const nib = new Array(Math.ceil(N / 4)).fill(0);
   s.done.forEach((i) => { nib[i >> 2] |= 1 << (i & 3); });
-  const parts = ['calc', '1', nib.map((v) => v.toString(16)).join('').replace(/0+$/, '') || '0'];
+  const parts = ['calc', '2', nib.map((v) => v.toString(16)).join('').replace(/0+$/, '') || '0'];
   ASSETS.forEach((a) => { if (a.k !== 'research') parts.push(Math.round(s.vals[a.k] || 0).toString(36)); });
   parts.push(Math.round(s.researchManual || 0).toString(36));
   parts.push(((s.lenny ? 1 : 0) | (s.manual ? 2 : 0)).toString(36));
   parts.push(s.current == null ? 'x' : Math.round(s.current).toString(36));
-  if (ASSETS.some((a) => s.coefs[a.k] !== a.coef)) ASSETS.forEach((a) => parts.push(Math.round(s.coefs[a.k]).toString(36)));
   const base = Object.keys(s.base).filter((n) => s.base[n] > 0 && BASE_BY_N.has(+n)).map((n) => {
     let x = (+n).toString(36) + '.' + Math.round(s.base[n]).toString(36);
     if (BASE_BY_N.get(+n).p == null && s.bprice[n] > 0) x += '.' + Math.round(s.bprice[n]).toString(36);
@@ -1356,7 +1400,8 @@ function encodeState(s) {
 function decodeState(code) {
   const [main, extra] = String(code || '').replace(/^#/, '').split('~');
   const p = main.split('-');
-  if (p[0] !== 'calc' || p[1] !== '1') return null;
+  // v1 links (before 22 Nov 2026) also carried "clan spending" after the vehicles value and optional shares
+  if (p[0] !== 'calc' || (p[1] !== '1' && p[1] !== '2')) return null;
   const s = emptyState();
   let k = 2;
   const hex = p[k++] || '0';
@@ -1365,12 +1410,12 @@ function decodeState(code) {
     for (let b = 0; b < 4; b++) if (v & (1 << b)) { const i = c * 4 + b; if (i < N) s.done.add(i); }
   }
   ASSETS.forEach((a) => { if (a.k !== 'research') s.vals[a.k] = parseInt(p[k++] || '0', 36) || 0; });
+  if (p[1] === '1') k++;
   s.researchManual = parseInt(p[k++] || '0', 36) || 0;
   const fl = parseInt(p[k++] || '0', 36) || 0;
   s.lenny = !!(fl & 1); s.manual = !!(fl & 2);
   const cur = p[k++];
   s.current = (cur && cur !== 'x') ? (parseInt(cur, 36) || 0) : null;
-  if (p.length >= k + ASSETS.length) ASSETS.forEach((a) => { const v = parseInt(p[k++], 36); if (isFinite(v)) s.coefs[a.k] = Math.max(0, Math.min(100, v)); });
   if (extra) {
     const counts = {}, prices = {};
     extra.split('_').forEach((x) => {
@@ -1696,7 +1741,6 @@ function buildInventory() {
       `<div class="inv-label"><label class="lbl" for="in-${a.k}"></label><small></small></div>` +
       `<div class="money-cell"><input class="money-in" id="in-${a.k}" type="text" inputmode="decimal" autocomplete="off">` +
       (isR ? `<label class="switch"><input type="checkbox" id="manual"><span></span></label>` : `<small class="from-base" id="fb-${a.k}"></small>`) + `</div>` +
-      `<div class="coef"><input id="cf-${a.k}" type="number" min="0" max="100" step="5" inputmode="numeric"><span>%</span><button type="button" class="reset" id="cr-${a.k}" hidden></button></div>` +
       `<div class="counted"><b id="ct-${a.k}">$0</b><div class="bar"><i id="br-${a.k}"></i></div></div>`;
     inv.appendChild(row);
     const input = row.querySelector('.money-in');
@@ -1706,17 +1750,10 @@ function buildInventory() {
       update(true);
     });
     input.addEventListener('blur', () => { input.value = fmtPlain(isR ? (state.manual ? state.researchManual : researchOf(state.done).sum) : state.vals[a.k]); });
-    const cf = row.querySelector(`#cf-${a.k}`);
-    cf.addEventListener('input', () => {
-      const v = parseFloat(cf.value);
-      state.coefs[a.k] = isFinite(v) ? Math.max(0, Math.min(100, v)) : 0;
-      update(true);
-    });
-    row.querySelector(`#cr-${a.k}`).addEventListener('click', () => { state.coefs[a.k] = a.coef; update(); });
   });
   const total = document.createElement('div');
   total.className = 'inv-row inv-total';
-  total.innerHTML = `<div class="inv-label"><span class="lbl" id="totalLbl"></span></div><div class="money-cell"></div><div class="coef"></div><div class="counted"><b id="ct-total">$0</b></div>`;
+  total.innerHTML = `<div class="inv-label"><span class="lbl" id="totalLbl"></span></div><div class="money-cell"></div><div class="counted"><b id="ct-total">$0</b></div>`;
   inv.appendChild(total);
   $('manual').addEventListener('change', (e) => {
     state.manual = e.target.checked;
@@ -1745,14 +1782,6 @@ function updateInventory(r, keepInputs) {
     } else if (!keepInputs || document.activeElement !== input) {
       input.value = fmtPlain(state.vals[row.k]);
     }
-    const cf = $('cf-' + row.k);
-    if (document.activeElement !== cf) cf.value = row.coef;
-    cf.classList.toggle('changed', row.coef !== a.coef);
-    cf.title = t('coefTitle');
-    cf.setAttribute('aria-label', `${S0.assets[row.k][0]}: ${t('hCoef')}, %`);
-    const cr = $('cr-' + row.k);
-    cr.hidden = row.coef === a.coef;
-    cr.textContent = t('coefReset', {v: a.coef});
     $('ct-' + row.k).textContent = money(row.counted);
     const fb = $('fb-' + row.k);
     if (fb) fb.textContent = row.base ? t('bFromBase', {v: money(row.base)}) : '';
@@ -1895,7 +1924,7 @@ function updateBase(r, keepInputs) {
   document.querySelectorAll('#bPanel .bi').forEach((card) => {
     const it = BASE_BY_N.get(+card.dataset.n);
     const q = state.base[it.n] || 0;
-    const coef = state.coefs[it.k] != null ? state.coefs[it.k] : DEFAULT_COEFS[it.k];
+    const coef = DEFAULT_COEFS[it.k];
     card.classList.toggle('on', q > 0);
     card.querySelector('.bi-ct').textContent = q > 0 && basePrice(state, it) > 0
       ? t('bCountedLine', {v: money(Math.round(basePrice(state, it) * q * coef / 100))})
@@ -2026,6 +2055,7 @@ function applyLang() {
   document.documentElement.lang = lang;
   document.querySelectorAll('[data-i18n]').forEach((el) => { el.textContent = t(el.dataset.i18n); });
   document.querySelectorAll('[data-i18n-aria]').forEach((el) => { el.setAttribute('aria-label', t(el.dataset.i18nAria)); el.title = t(el.dataset.i18nAria); });
+  document.querySelectorAll('[data-i18n-label]').forEach((el) => el.setAttribute('aria-label', t(el.dataset.i18nLabel)));
   document.querySelectorAll('[data-i18n-ph]').forEach((el) => { el.placeholder = t(el.dataset.i18nPh); });
   document.querySelectorAll('.seg [data-lang]').forEach((b) => { if (b.dataset.lang === lang) b.setAttribute('aria-current', 'page'); else b.removeAttribute('aria-current'); });
   $('rulesList').innerHTML = S().rules.map((x) => `<li>${esc(x)}</li>`).join('');
@@ -2038,6 +2068,7 @@ function applyLang() {
     const nm = PAGE_LANG && NODES[i].s ? `<a href="shipments/${esc(NODES[i].s)}/">${esc(nodeTitle(i))}</a>` : esc(nodeTitle(i));
     return `<tr><td>${nm}</td><td>${esc(br[lang] || br.en)}</td><td>${esc(numf(0).format(y) + ' ' + plural(y, S().years))}</td></tr>`;
   }).join('');
+  $('faqList').innerHTML = S().faq.map(([q, a]) => `<div class="qa"><h3>${esc(q)}</h3><p>${esc(a)}</p></div>`).join('');
   $('srcList').innerHTML = S().sources.map(([a, label, url]) => `<li>${esc(a)}${url ? `<a href="${esc(url)}" target="_blank" rel="noopener">${esc(label)}</a>` : ''}</li>`).join('');
   $('tInfo').textContent = t('infoIdle');
   renderBaseTabs();
