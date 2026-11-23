@@ -4,7 +4,9 @@
    - Outside Europe analytics cookies are on by default.
    - In Europe (guessed from the browser time zone) analytics cookies stay off until the visitor presses "Allow";
      Google also keeps them off for visitors whose IP is in those countries, whatever the time zone says.
-   - The choice is kept in localStorage; a "Cookies" button in the footer lets a European visitor change it. */
+   - The choice is kept in localStorage; a "Cookies" button in the footer lets a European visitor change it.
+   - The site's owner opens any page with ?notrack once, and that browser is never counted again (no Google script at
+     all, no consent question); ?track undoes it. A short note confirms either switch. */
 (function () {
   'use strict';
   var ID = 'G-4PKS5FLNR5';
@@ -31,9 +33,47 @@
       'Permitir', 'Recusar', 'Saiba mais', 'Cookies']
   };
   var MORE = 'https://policies.google.com/technologies/partner-sites';
+  var OFF = 'rrcalc:notrack';
+  var SWITCHED = {
+    ru: ['Статистика для этого браузера выключена: твои заходы больше не считаются.', 'Статистика для этого браузера снова включена.'],
+    en: ['Analytics is off in this browser: your visits are no longer counted.', 'Analytics is on again in this browser.'],
+    es: ['Estadísticas desactivadas en este navegador: tus visitas ya no se cuentan.', 'Estadísticas activadas de nuevo en este navegador.'],
+    pt: ['Estatísticas desativadas neste navegador: suas visitas não são mais contadas.', 'Estatísticas ativadas de novo neste navegador.']
+  };
 
   function load(k) { try { return window.localStorage.getItem(k); } catch (e) { return null; } }
   function save(k, v) { try { window.localStorage.setItem(k, v); } catch (e) { /* storage unavailable */ } }
+  function drop(k) { try { window.localStorage.removeItem(k); } catch (e) { /* storage unavailable */ } }
+
+  // ?notrack / ?track: the owner's switch. The word leaves the address at once, so it never travels in a shared link.
+  var q = location.search, switched = -1;
+  if (/[?&]notrack(=[^&]*)?(&|$)/.test(q)) { save(OFF, '1'); switched = 0; }
+  else if (/[?&]track(=[^&]*)?(&|$)/.test(q)) { drop(OFF); switched = 1; }
+  if (switched >= 0) {
+    var rest = q.replace(/[?&](no)?track(=[^&]*)?(?=&|$)/g, '').replace(/^&/, '?');
+    try { history.replaceState(null, '', location.pathname + (rest === '?' ? '' : rest) + location.hash); } catch (e) { /* ignore */ }
+    var note = function () {
+      var lg = (document.documentElement.lang || 'en').slice(0, 2);
+      var d = document.createElement('div');
+      d.className = 'rr-switched';
+      d.setAttribute('role', 'status');
+      d.textContent = (SWITCHED[lg] || SWITCHED.en)[switched];
+      d.style.cssText = 'position:fixed;left:50%;bottom:16px;transform:translateX(-50%);z-index:2147483000;max-width:calc(100% - 24px);' +
+        'box-sizing:border-box;padding:10px 14px;background:#252a2f;color:#ece6da;border:1px solid #3e454d;border-radius:10px;' +
+        'box-shadow:0 8px 28px rgba(0,0,0,.45);font:14px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif';
+      document.body.appendChild(d);
+      setTimeout(function () { if (d.parentNode) d.parentNode.removeChild(d); }, 5000);
+    };
+    if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', note); else note();
+  }
+  // events the page tracked before this deferred script ran (see track() in the page)
+  var queued = window.rrEvents = window.rrEvents || [];
+  if (load(OFF) === '1') {
+    window.gtag = function () { /* the owner's browser: nothing is sent */ };
+    queued.length = 0;
+    queued.flushed = true;
+    return;
+  }
 
   var saved = load(KEY);
   if (saved !== 'granted' && saved !== 'denied') saved = null;
@@ -54,6 +94,9 @@
   if (saved) gtag('consent', 'update', consent(saved));
   gtag('js', new Date());
   gtag('config', ID);
+  for (var i = 0; i < queued.length; i++) gtag('event', queued[i][0], queued[i][1]);
+  queued.length = 0;
+  queued.flushed = true;
   var s = document.createElement('script');
   s.async = true;
   s.src = 'https://www.googletagmanager.com/gtag/js?id=' + encodeURIComponent(ID);

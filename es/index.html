@@ -29,7 +29,7 @@
 <link rel="apple-touch-icon" href="../apple-touch-icon.png">
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calculadora de condena de ROB RUN: cuántos años de cárcel te caen", "url": "https://robruncalc.com/es/", "description": "Calculadora de condena de ROB RUN: marca los envíos de Lenny, pon tu dinero y bienes y mira cuántos años te caen tras la redada. Los 171 envíos con precios.", "inLanguage": "es", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "¿Cuántos años me caen por $1.000.000?", "acceptedAnswer": {"@type": "Answer", "text": "Si es dinero, investigación de envíos o cargas, 2 años. Si es el precio de algo que compraste (una casa, un coche, un terreno), cuentan $400.000, que es menos de un año."}}, {"@type": "Question", "name": "¿Cuánto necesito para 40 años?", "acceptedAnswer": {"@type": "Answer", "text": "$20.000.000 computados. Son $20.000.000 en dinero o $50.000.000 en precio de bienes comprados, y casi siempre una mezcla de ambos."}}, {"@type": "Question", "name": "¿Cuenta mi coche para la condena?", "acceptedAnswer": {"@type": "Answer", "text": "Sí, al 40% de su precio de compra, en la línea «Vehículos». Un Fukurou Tensa comprado por $200.000 aparece en la sentencia como $80.000."}}, {"@type": "Question", "name": "¿Cuenta lo que sobra por debajo de $500.000?", "acceptedAnswer": {"@type": "Answer", "text": "No. $999.999 computados dan 1 año; $1.000.000 ya dan 2."}}, {"@type": "Question", "name": "¿Qué da la deuda con Lenny?", "acceptedAnswer": {"@type": "Answer", "text": "Pagar la deuda de $1.000.000 en dinero limpio da una sola vez +10 años por encima del tope de 40."}}, {"@type": "Question", "name": "¿Cuál es la condena máxima?", "acceptedAnswer": {"@type": "Answer", "text": "40 años por estado y 10 más por la deuda con Lenny. Además, no más de 40 años cada 24 horas y no más de 1200 años por personaje."}}, {"@type": "Question", "name": "¿Cómo calculo mi condena rápido?", "acceptedAnswer": {"@type": "Answer", "text": "Con la calculadora de robruncalc.com: marca los envíos que tienes, elige tu casa, tu coche y lo demás en «Tu base» y escribe tu dinero. Calcula con las mismas reglas que el juego."}}]}</script>
-<script src="/ga.9a42d2d2.js" defer></script>
+<script src="/ga.955170c4.js" defer></script>
 <meta name="theme-color" content="#1c2024">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -333,6 +333,9 @@ h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1;letter-spaci
 .sup-note{color:var(--dust);font-size:12.5px !important;margin:0 !important}
 .sup-x{position:absolute;top:10px;right:12px;width:32px;height:32px;border:0;border-radius:6px;background:none;color:var(--dust);font-size:22px;line-height:1;cursor:pointer}
 .sup-x:hover{color:var(--chalk);background:var(--seam)}
+.card-dlg{width:min(680px,calc(100vw - 24px))}
+.card-dlg img{display:block;width:100%;height:auto;margin:4px 0 2px;border-radius:8px;border:1px solid var(--seam)}
+.card-dlg a.btn{text-decoration:none}
 
 /* mobile verdict bar */
 .mini{position:fixed;left:12px;right:12px;bottom:12px;z-index:40;display:none;align-items:center;justify-content:space-between;gap:12px;padding:9px 14px;border-radius:12px;background:#121619;border:1px solid var(--seam);box-shadow:0 10px 30px rgba(0,0,0,.5)}
@@ -407,6 +410,7 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
       </div>
       <button type="button" class="btn" data-sup data-sup-open><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20.5 11.5a8 8 0 0 1-11.6 7.1L3.5 20l1.4-4.6A8 8 0 1 1 20.5 11.5z"/><path d="M8.5 10.5h7M8.5 13.5h4.5"/></svg><span data-i18n="supBtn">Soporte</span></button>
       <button type="button" class="btn" id="btnShare" data-i18n="share">Copiar enlace</button>
+      <button type="button" class="btn" id="btnCard" data-i18n="cardBtn">Imagen</button>
       <button type="button" class="btn" id="btnReset" data-i18n="resetAll">Borrar todo</button>
     </div>
   </header>
@@ -571,6 +575,19 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
     <button type="button" class="linkish" id="btnEditor" data-i18n="editorLink">Editor de datos</button></span>
   </div>
 </footer>
+
+<dialog class="sup card-dlg" id="cardDlg" aria-labelledby="cardTitle">
+  <button type="button" class="sup-x" id="cardClose" data-i18n-aria="supClose" aria-label="Cerrar" title="Cerrar">×</button>
+  <h2 id="cardTitle" data-i18n="cardTitle">Una imagen con tu condena</h2>
+  <p data-i18n="cardText">Cópiala y pégala en Discord, Telegram o Steam (Ctrl+V), o descárgala.</p>
+  <img id="cardImg" alt="" width="1200" height="630">
+  <div class="sup-actions">
+    <button type="button" class="btn primary" id="cardCopy" data-i18n="cardCopy">Copiar</button>
+    <a class="btn" id="cardSave" href="#" download data-i18n="cardSave">Descargar</a>
+    <button type="button" class="btn" id="cardShare" data-i18n="cardShare" hidden>Compartir</button>
+    <span class="sup-status" id="cardStatus" role="status"></span>
+  </div>
+</dialog>
 
 <dialog class="sup" id="support" aria-labelledby="supTitle">
   <button type="button" class="sup-x" id="supClose" data-i18n-aria="supClose" aria-label="Cerrar" title="Cerrar">×</button>
@@ -745,6 +762,9 @@ const STR = {
       ['Какой максимальный срок?', '40 лет за штат и ещё 10 за долг Ленни. Кроме того, не больше 40 лет за сутки и не больше 1200 лет на персонаже.'],
       ['Как быстро посчитать свой срок?', 'В калькуляторе robruncalc.com: отметь открытые поставки, выбери дом, машину и остальное в «Твоей базе» и впиши деньги. Он считает по тем же правилам, что и игра.'],
     ],
+    cardBtn: 'Картинка', cardTitle: 'Картинка с твоим сроком', cardText: 'Скопируй и вставь в Discord, Telegram или Steam (Ctrl+V) или скачай.',
+    cardCopy: 'Скопировать', cardSave: 'Скачать', cardShare: 'Поделиться', cardCopied: 'Картинка скопирована: вставь её в чат.',
+    cardNoCopy: 'Браузер не дал скопировать картинку: скачай её.', cardCta: 'Посчитай свой срок', cardFile: 'rob-run-srok', cardAlt: 'Срок за штат: {n} {w}',
     baseTitle: 'Твоя база',
     baseLede: 'Отметь, что у тебя есть: дом, постройки, мебель, улучшения, машины, защиту, документы, кусты и грузы. Цены подставятся сами и сразу уйдут в опись ниже.',
     bItems: ['предмет', 'предмета', 'предметов'], bValue: 'стоимость', bCounted: 'идёт в расчёт', bSearchPh: 'Найти предмет', clearBase: 'Очистить базу',
@@ -796,14 +816,14 @@ const STR = {
     inputPh: 'например 1.5m', manualResearch: 'вписать вручную', totalRow: 'Итого в расчёте', unconfirmed: 'доля не подтверждена',
     assets: {
       research: ['Исследования (поставки)', 'Считается по дереву выше. В судебном приговоре это «Установление преступных связей».'],
-      laundered: ['Отмытые деньги', 'Чистые деньги, в приговоре «Банковский счёт». Учитывается ли грязный кэш, не подтверждено.'],
+      laundered: ['Деньги: чистые и грязные', 'Чистые деньги в приговоре идут строкой «Банковский счёт». Грязный кэш тоже считается, где бы он ни лежал: при тебе, в ящиках или на столе для отмывки.'],
       containers: ['Предметы в контейнерах', 'Оценка вещей в ящиках и хранилищах.'],
       land: ['Земля и поселения', 'Документы на участки и поселения, 40% цены покупки. В приговоре «Землевладение».'],
       bushes: ['Кусты', 'Посаженные кусты по оценочной стоимости.'],
-      realty: ['Недвижимость и постройки', 'Идёт в расчёт на 40%: дом за $1 000 000 даст $400 000. В приговоре «Недвижимость».'],
+      realty: ['Недвижимость и постройки', 'Дом, постройки, забор и мебель, 40% цены покупки. В приговоре «Недвижимость».'],
       upgrades: ['Установленные улучшения', 'Улучшения, уже поставленные на объекты.'],
       fuses: ['Установленные предохранители', 'Предохранители, уже поставленные на объекты.'],
-      vehicles: ['Транспорт', 'Машины и вертолёт, 40% цены покупки: в приговоре машина за $200 000 дала $80 000.'],
+      vehicles: ['Транспорт', 'Машины и вертолёт, 40% цены покупки. В приговоре «Транспорт».'],
     },
     lennyTitle: 'Долг Ленни', lennyCheck: 'Долг $1 000 000 оплачен',
     lennyText: 'Разовый бонус +10 лет сверх потолка в 40. Платится чистыми деньгами Ленни в мотеле.',
@@ -866,6 +886,9 @@ const STR = {
       ['What is the longest sentence?', '40 years per state plus 10 for Lenny’s debt. On top of that, no more than 40 years per 24 hours and no more than 1,200 years per character.'],
       ['How do I calculate my sentence quickly?', 'Use the calculator at robruncalc.com: mark the shipments you’ve unlocked, choose your house, car and the rest in “Your base”, and enter your money. It counts by the same rules as the game.'],
     ],
+    cardBtn: 'Picture', cardTitle: 'A picture of your sentence', cardText: 'Copy it and paste into Discord, Telegram or Steam (Ctrl+V), or download it.',
+    cardCopy: 'Copy', cardSave: 'Download', cardShare: 'Share', cardCopied: 'Picture copied: paste it into the chat.',
+    cardNoCopy: 'The browser didn’t let me copy the picture: download it instead.', cardCta: 'Calculate yours', cardFile: 'rob-run-sentence', cardAlt: 'Sentence for the state: {n} {w}',
     baseTitle: 'Your base',
     baseLede: 'Mark what you own: house, buildings, furniture, upgrades, vehicles, security, documents, bushes and cargo. Prices fill in by themselves and go straight into the inventory below.',
     bItems: ['item', 'items', 'items'], bValue: 'value', bCounted: 'counts toward the sentence', bSearchPh: 'Find an item', clearBase: 'Clear the base',
@@ -917,14 +940,14 @@ const STR = {
     inputPh: 'e.g. 1.5m', manualResearch: 'enter manually', totalRow: 'Total counted', unconfirmed: 'share not confirmed',
     assets: {
       research: ['Research (shipments)', 'Calculated from the tree above. In the court ruling it is “Establishing criminal ties”.'],
-      laundered: ['Laundered money', 'Clean money, “Bank Account” in the ruling. Whether dirty cash counts is not confirmed.'],
+      laundered: ['Money: clean and dirty', 'Clean money is the “Bank Account” line in the ruling. Dirty cash counts too, wherever it is: on you, in boxes or on the laundering table.'],
       containers: ['Items in containers', 'Estimated value of what sits in crates and storage.'],
       land: ['Land and settlements', 'Plot and settlement titles, 40% of the purchase price. “Land ownership” in the ruling.'],
       bushes: ['Bushes', 'Planted bushes at their estimated value.'],
-      realty: ['Real estate and buildings', 'Counts at 40%: a $1,000,000 house gives $400,000. “Properties” in the ruling.'],
+      realty: ['Real estate and buildings', 'House, buildings, fence and furniture, 40% of the purchase price. “Properties” in the ruling.'],
       upgrades: ['Installed upgrades', 'Upgrades already fitted to your property.'],
       fuses: ['Installed fuses', 'Fuses already fitted to your property.'],
-      vehicles: ['Vehicles', 'Cars and the helicopter, 40% of the purchase price: in a court ruling a $200,000 car gave $80,000.'],
+      vehicles: ['Vehicles', 'Cars and the helicopter, 40% of the purchase price. “Vehicles” in the ruling.'],
     },
     lennyTitle: 'Lenny’s debt', lennyCheck: 'The $1,000,000 debt is paid',
     lennyText: 'One-time bonus: +10 years on top of the 40 cap. Paid to Lenny at the motel in clean money.',
@@ -986,6 +1009,9 @@ const STR = {
       ['¿Cuál es la condena máxima?', '40 años por estado y 10 más por la deuda con Lenny. Además, no más de 40 años cada 24 horas y no más de 1200 años por personaje.'],
       ['¿Cómo calculo mi condena rápido?', 'Con la calculadora de robruncalc.com: marca los envíos que tienes, elige tu casa, tu coche y lo demás en «Tu base» y escribe tu dinero. Calcula con las mismas reglas que el juego.'],
     ],
+    cardBtn: 'Imagen', cardTitle: 'Una imagen con tu condena', cardText: 'Cópiala y pégala en Discord, Telegram o Steam (Ctrl+V), o descárgala.',
+    cardCopy: 'Copiar', cardSave: 'Descargar', cardShare: 'Compartir', cardCopied: 'Imagen copiada: pégala en el chat.',
+    cardNoCopy: 'El navegador no dejó copiar la imagen: descárgala.', cardCta: 'Calcula la tuya', cardFile: 'rob-run-condena', cardAlt: 'Condena por el estado: {n} {w}',
     baseTitle: 'Tu base',
     baseLede: 'Marca lo que tienes: casa, edificios, muebles, mejoras, vehículos, seguridad, documentos, arbustos y cargas. Los precios se ponen solos y pasan directamente al inventario de abajo.',
     bItems: ['objeto', 'objetos', 'objetos'], bValue: 'valor', bCounted: 'cuenta para la condena', bSearchPh: 'Buscar un objeto', clearBase: 'Vaciar la base',
@@ -1037,14 +1063,14 @@ const STR = {
     inputPh: 'p. ej. 1,5m', manualResearch: 'introducir a mano', totalRow: 'Total computado', unconfirmed: 'proporción sin confirmar',
     assets: {
       research: ['Envíos desbloqueados', 'Se calcula con el árbol de arriba. En la sentencia judicial es «Establecimiento de vínculos criminales».'],
-      laundered: ['Dinero blanqueado', 'Dinero limpio, «Cuenta bancaria» en la sentencia. No está confirmado si el efectivo sucio cuenta.'],
+      laundered: ['Dinero: limpio y sucio', 'El dinero limpio es la línea «Cuenta bancaria» de la sentencia. El efectivo sucio también cuenta, esté donde esté: encima, en cajas o en la mesa de lavado.'],
       containers: ['Objetos en contenedores', 'Valor estimado de lo que hay en cajas y almacenes.'],
       land: ['Terrenos y asentamientos', 'Títulos de parcela y de asentamiento, el 40% del precio de compra. «Propiedad de la tierra» en la sentencia.'],
       bushes: ['Arbustos', 'Arbustos plantados, a su valor estimado.'],
-      realty: ['Inmuebles y edificios', 'Cuentan al 40%: una casa de $1.000.000 da $400.000. «Propiedades» en la sentencia.'],
+      realty: ['Inmuebles y edificios', 'Casa, edificios, valla y muebles, el 40% del precio de compra. «Propiedades» en la sentencia.'],
       upgrades: ['Mejoras instaladas', 'Mejoras ya colocadas en tu propiedad.'],
       fuses: ['Fusibles instalados', 'Fusibles ya colocados en tu propiedad.'],
-      vehicles: ['Vehículos', 'Coches y helicóptero, el 40% del precio de compra: en una sentencia un coche de $200.000 dio $80.000.'],
+      vehicles: ['Vehículos', 'Coches y helicóptero, el 40% del precio de compra. «Vehículos» en la sentencia.'],
     },
     lennyTitle: 'Deuda con Lenny', lennyCheck: 'La deuda de $1.000.000 está pagada',
     lennyText: 'Bonificación única: +10 años por encima del tope de 40. Se paga a Lenny en el motel con dinero limpio.',
@@ -1106,6 +1132,9 @@ const STR = {
       ['Qual é a pena máxima?', '40 anos por estado e mais 10 pela dívida com o Lenny. Além disso, no máximo 40 anos a cada 24 horas e no máximo 1.200 anos por personagem.'],
       ['Como calculo minha pena rápido?', 'Com a calculadora do robruncalc.com: marque as remessas que você tem, escolha sua casa, seu carro e o resto em “Sua base” e digite seu dinheiro. Ela calcula pelas mesmas regras do jogo.'],
     ],
+    cardBtn: 'Imagem', cardTitle: 'Uma imagem com a sua pena', cardText: 'Copie e cole no Discord, Telegram ou Steam (Ctrl+V), ou baixe.',
+    cardCopy: 'Copiar', cardSave: 'Baixar', cardShare: 'Compartilhar', cardCopied: 'Imagem copiada: cole no chat.',
+    cardNoCopy: 'O navegador não deixou copiar a imagem: baixe-a.', cardCta: 'Calcule a sua', cardFile: 'rob-run-pena', cardAlt: 'Pena pelo estado: {n} {w}',
     baseTitle: 'Sua base',
     baseLede: 'Marque o que você tem: casa, construções, móveis, melhorias, veículos, segurança, documentos, arbustos e cargas. Os preços entram sozinhos e vão direto para o inventário abaixo.',
     bItems: ['item', 'itens', 'itens'], bValue: 'valor', bCounted: 'conta para a pena', bSearchPh: 'Buscar um item', clearBase: 'Limpar a base',
@@ -1157,14 +1186,14 @@ const STR = {
     inputPh: 'ex.: 1,5m', manualResearch: 'informar manualmente', totalRow: 'Total computado', unconfirmed: 'proporção não confirmada',
     assets: {
       research: ['Remessas desbloqueadas', 'Calculado pela árvore acima. Na sentença judicial é “Vínculos com criminosos”.'],
-      laundered: ['Dinheiro lavado', 'Dinheiro limpo, “Conta bancária” na sentença. Não está confirmado se o dinheiro sujo conta.'],
+      laundered: ['Dinheiro: limpo e sujo', 'O dinheiro limpo é a linha “Conta bancária” da sentença. O dinheiro sujo também conta, esteja onde estiver: com você, em caixas ou na mesa de lavagem.'],
       containers: ['Itens em contêineres', 'Valor estimado do que está em caixas e depósitos.'],
       land: ['Terrenos e assentamentos', 'Títulos de terreno e de assentamento, 40% do preço de compra. “Posse de terra” na sentença.'],
       bushes: ['Arbustos', 'Arbustos plantados, pelo valor estimado.'],
-      realty: ['Imóveis e construções', 'Contam 40%: uma casa de $1.000.000 dá $400.000. “Imóveis” na sentença.'],
+      realty: ['Imóveis e construções', 'Casa, construções, cerca e móveis, 40% do preço de compra. “Imóveis” na sentença.'],
       upgrades: ['Melhorias instaladas', 'Melhorias já instaladas na sua propriedade.'],
       fuses: ['Fusíveis instalados', 'Fusíveis já instalados na sua propriedade.'],
-      vehicles: ['Veículos', 'Carros e helicóptero, 40% do preço de compra: numa sentença um carro de $200.000 deu $80.000.'],
+      vehicles: ['Veículos', 'Carros e helicóptero, 40% do preço de compra. “Veículos” na sentença.'],
     },
     lennyTitle: 'Dívida com o Lenny', lennyCheck: 'A dívida de $1.000.000 está paga',
     lennyText: 'Bônus único: +10 anos acima do limite de 40. Pago ao Lenny no motel, em dinheiro limpo.',
@@ -1843,6 +1872,7 @@ function baseTotals(st) {
 }
 function setBaseCount(it, q) {
   q = Math.max(0, Math.min(BASE_MAX, Math.floor(q) || 0));
+  if (q > 0 && !(state.base[it.n] > 0)) track('base_add', {item: it.id});
   if (it.one && q > 0) {
     BASE.forEach((o) => { if (o.one === it.one) delete state.base[o.n]; });
     q = 1;
@@ -2001,11 +2031,13 @@ function buildBase() {
 
 /* ---------- verdict ---------- */
 function seeded(i) { const x = Math.sin(i * 127.1 + 311.7) * 43758.5453; return x - Math.floor(x); }
-function tallySvg(r) {
+// Chalk tally marks: 8 groups of five for the 40 years of a state, two more for Lenny's debt. The strip draws them
+// as SVG, the picture of the sentence on a canvas; both take the lines and labels from here.
+function tallyMarks(r) {
   const GW = 32, GAP = 12, EXTRA = 22;
   const groups = 10;
   const width = 8 * (GW + GAP) + EXTRA + 2 * (GW + GAP);
-  let s = '';
+  const lines = [], labels = [];
   for (let g = 0; g < groups; g++) {
     const bonusGroup = g >= 8;
     const gx = g * (GW + GAP) + (bonusGroup ? EXTRA : 0) + 6;
@@ -2020,16 +2052,21 @@ function tallySvg(r) {
       if (m < 4) { x1 = gx + m * 7; y1 = 30; x2 = gx + m * 7 + j; y2 = 5 + Math.abs(j); }
       else { x1 = gx - 4; y1 = 24 + j * 0.6; x2 = gx + 26; y2 = 9 - j * 0.6; }
       if (cls === 'tp') {
-        s += `<line class="te" x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`;
+        lines.push({cls: 'te', x1, y1, x2, y2});
         x2 = x1 + (x2 - x1) * frac; y2 = y1 + (y2 - y1) * frac;
       }
-      s += `<line class="${cls}" x1="${x1.toFixed(1)}" y1="${y1.toFixed(1)}" x2="${x2.toFixed(1)}" y2="${y2.toFixed(1)}"/>`;
+      lines.push({cls, x1, y1, x2, y2});
     }
-    if (!bonusGroup && g % 2 === 1) s += `<text class="tl" x="${gx + GW - 4}" y="45" text-anchor="middle">${(g + 1) * 5}</text>`;
+    if (!bonusGroup && g % 2 === 1) labels.push({x: gx + GW - 4, y: 45, text: String((g + 1) * 5), mid: true});
   }
-  const bx = 8 * (GW + GAP) + EXTRA + 6;
-  s += `<text class="tl" x="${bx}" y="45">+10 ${esc(t('tallyBonus'))}</text>`;
-  return `<svg viewBox="0 0 ${width} 48" role="img" aria-label="${r.final} ${esc(plural(r.final, S().years))}" stroke-linecap="round">${s}</svg>`;
+  labels.push({x: 8 * (GW + GAP) + EXTRA + 6, y: 45, text: '+10 ' + t('tallyBonus'), mid: false});
+  return {width, height: 48, lines, labels};
+}
+function tallySvg(r) {
+  const m = tallyMarks(r);
+  const s = m.lines.map((l) => `<line class="${l.cls}" x1="${l.x1.toFixed(1)}" y1="${l.y1.toFixed(1)}" x2="${l.x2.toFixed(1)}" y2="${l.y2.toFixed(1)}"/>`).join('') +
+    m.labels.map((l) => `<text class="tl" x="${l.x}" y="${l.y}"${l.mid ? ' text-anchor="middle"' : ''}>${esc(l.text)}</text>`).join('');
+  return `<svg viewBox="0 0 ${m.width} ${m.height}" role="img" aria-label="${r.final} ${esc(plural(r.final, S().years))}" stroke-linecap="round">${s}</svg>`;
 }
 function updateVerdict(r) {
   $('vYears').textContent = r.final;
@@ -2079,6 +2116,29 @@ function applyLang() {
   if (md) md.content = PAGE_META[lang][1];
 }
 
+/* ---------- visit statistics ----------
+   Events for Google Analytics, which ga.<hash>.js loads on the real site; without it (the preview) they just wait in
+   a list, and in the owner's browser after ?notrack they go nowhere.
+   calc_use: once per visit, the first time the visitor changes the calculation they arrived with to something
+   that isn't empty; share: link or picture; base_add: an item put in the base; calc_from_shipment / calc_from_link:
+   the calculator opened from a shipment page or from someone's link; support_open: the support form. */
+// ga.<hash>.js is deferred, so it runs after this script: until it has set up consent and the measurement id,
+// events wait in window.rrEvents, and it sends them right after its config.
+function track(name, params) {
+  try {
+    const q = window.rrEvents = window.rrEvents || [];
+    if (q.flushed && typeof window.gtag === 'function') window.gtag('event', name, params || {});
+    else q.push([name, params || {}]);
+  } catch (e) { /* analytics unavailable */ }
+}
+let usageBase = null, usageSeen = false, emptyCode = '';
+function noteUsage() {
+  if (usageSeen || usageBase === null) return;
+  const code = encodeState(state);
+  if (code !== usageBase && code !== emptyCode) { usageSeen = true; track('calc_use'); }
+}
+function startUsage() { emptyCode = emptyCode || encodeState(emptyState()); usageBase = encodeState(state); }
+
 /* ---------- update cycle ---------- */
 function update(keepInputs) {
   const r = compute(state);
@@ -2087,6 +2147,7 @@ function update(keepInputs) {
   updateBase(r, keepInputs);
   updateVerdict(r);
   save();
+  noteUsage();
   return r;
 }
 
@@ -2110,9 +2171,125 @@ $('btnShare').addEventListener('click', async (e) => {
   try { history.replaceState(null, '', lastSharedHash); } catch (err) { try { location.hash = code; } catch (err2) { /* ignore */ } }
   let msg = t('shareManual');
   try { await navigator.clipboard.writeText(location.href); msg = t('shareCopied'); } catch (err) { /* clipboard refused */ }
+  track('share', {method: 'link', content_type: 'calculation'});
   btn.textContent = msg;
   setTimeout(() => { btn.textContent = t('share'); }, 2200);
 });
+/* ---------- picture of the sentence ----------
+   A 1200×630 PNG for Discord, Telegram or Steam, in the site's look: the cell wall, the number in chalk, the tally
+   marks, robruncalc.com in orange. Drawn on a canvas with the page's own fonts. */
+const PIC_W = 1200, PIC_H = 630;
+const cardDlg = $('cardDlg');
+let cardBlob = null, cardUrl = '';
+async function drawCard(r) {
+  const DISP = '"Sofia Sans Extra Condensed","Arial Narrow","Roboto Condensed",sans-serif';
+  const BODY = '"Golos Text",system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif';
+  try {
+    await Promise.all(['800 300px', '700 40px'].map((f) => document.fonts.load(`${f} "Sofia Sans Extra Condensed"`))
+      .concat(['600 30px', '500 24px'].map((f) => document.fonts.load(`${f} "Golos Text"`))));
+  } catch (e) { /* the fallback fonts will do */ }
+  const css = getComputedStyle(document.documentElement);
+  const C = (v) => css.getPropertyValue(v).trim();
+  const wall = C('--wall') || '#1c2024', chalk = C('--chalk') || '#ece6da', dust = C('--dust') || '#9ca3ab', orange = C('--jumpsuit') || '#f47d30';
+  const cv = document.createElement('canvas');
+  cv.width = PIC_W; cv.height = PIC_H;
+  const g = cv.getContext('2d');
+  g.fillStyle = wall;
+  g.fillRect(0, 0, PIC_W, PIC_H);
+  g.strokeStyle = 'rgba(255,255,255,.035)';  // cinder blocks of the cell wall
+  g.lineWidth = 2;
+  for (let y = 0, row = 0; y < PIC_H; y += 70, row++) {
+    g.beginPath(); g.moveTo(0, y); g.lineTo(PIC_W, y);
+    for (let x = (row % 2) * 70; x < PIC_W; x += 140) { g.moveTo(x, y); g.lineTo(x, y + 70); }
+    g.stroke();
+  }
+  const text = (s, x, y, font, color, max) => { g.font = font; g.fillStyle = color; g.fillText(s, x, y, max); };
+  g.textBaseline = 'alphabetic';
+  g.textAlign = 'left';
+  text('ROB RUN', 64, 94, `800 50px ${DISP}`, chalk);
+  const bw = g.measureText('ROB RUN').width;
+  text(t('brandSub'), 64 + bw + 16, 94, `700 34px ${DISP}`, dust, 560 - bw);
+  g.textAlign = 'right';
+  text(t('cardCta'), PIC_W - 64, 62, `500 22px ${BODY}`, dust);
+  text('robruncalc.com', PIC_W - 64, 100, `800 40px ${DISP}`, orange);
+  g.textAlign = 'left';
+
+  const capped = r.years >= STATE_CAP;
+  text(t('vTitle'), 64, 172, `600 30px ${BODY}`, dust, 600);
+  const sub = r.bonus ? t('vSplit', {a: r.years, b: r.bonus}) : (capped ? t('capReached') : '');
+  if (sub) text(sub, 64, 208, `500 24px ${BODY}`, orange, 600);
+  const num = String(r.final);
+  text(num, 56, 436, `800 300px ${DISP}`, chalk);
+  const nw = g.measureText(num).width;
+  text(plural(r.final, S().years), 56 + nw + 18, 436, `700 84px ${DISP}`, dust, 640 - nw - 74);
+
+  const rows = [[t('sTotal'), money(r.total)], capped ? [t('sCapOver'), money(r.over)] : [t('sNext'), money(r.toNext)]];
+  if (r.after != null) rows.push([t('sAfter'), r.after + ' ' + plural(r.after, S().years)]);
+  const step = rows.length > 2 ? 88 : 112;
+  rows.forEach(([label, value], k) => {
+    const y = 196 + k * step;
+    text(label, 720, y, `500 24px ${BODY}`, dust, PIC_W - 64 - 720);
+    text(value, 720, y + 48, `600 44px ${BODY}`, chalk, PIC_W - 64 - 720);
+  });
+
+  const m = tallyMarks(r), k = (PIC_W - 128) / m.width, ox = 64, oy = 472;
+  const STYLE = {tf: [chalk, 2.6, 1], te: ['#4a525b', 2, 1], tp: [chalk, 2.6, 0.55], tb: [orange, 2.6, 1]};
+  g.lineCap = 'round';
+  m.lines.forEach((l) => {
+    const [color, w, a] = STYLE[l.cls];
+    g.strokeStyle = color; g.lineWidth = w * k; g.globalAlpha = a;
+    g.beginPath(); g.moveTo(ox + l.x1 * k, oy + l.y1 * k); g.lineTo(ox + l.x2 * k, oy + l.y2 * k); g.stroke();
+  });
+  g.globalAlpha = 1;
+  m.labels.forEach((l) => {
+    g.textAlign = l.mid ? 'center' : 'left';
+    text(l.text, ox + l.x * k, oy + l.y * k, `500 ${Math.round(10 * k)}px ${BODY}`, dust);
+  });
+  g.textAlign = 'left';
+  g.fillStyle = orange;
+  g.fillRect(0, PIC_H - 10, PIC_W, 10);
+  return cv;
+}
+async function openCard() {
+  const r = compute(state);
+  const cv = await drawCard(r);
+  cardBlob = await new Promise((res) => cv.toBlob(res, 'image/png'));
+  if (!cardBlob) return;
+  if (cardUrl) URL.revokeObjectURL(cardUrl);
+  cardUrl = URL.createObjectURL(cardBlob);
+  const img = $('cardImg');
+  img.src = cardUrl;
+  img.alt = t('cardAlt', {n: r.final, w: plural(r.final, S().years)});
+  const dl = $('cardSave');
+  dl.href = cardUrl;
+  dl.download = `${t('cardFile')}-${r.final}.png`;
+  let canShare = false;
+  try { canShare = !!(navigator.canShare && navigator.canShare({files: [new File([cardBlob], dl.download, {type: 'image/png'})]})); } catch (e) { /* no file sharing */ }
+  $('cardShare').hidden = !canShare;
+  $('cardStatus').textContent = '';
+  try { cardDlg.showModal(); } catch (err) { cardDlg.setAttribute('open', ''); }
+}
+$('btnCard').addEventListener('click', openCard);
+$('cardClose').addEventListener('click', () => cardDlg.close());
+cardDlg.addEventListener('click', (e) => { if (e.target === cardDlg) cardDlg.close(); });
+$('cardCopy').addEventListener('click', async () => {
+  const st = $('cardStatus');
+  st.className = 'sup-status';
+  try {
+    await navigator.clipboard.write([new ClipboardItem({'image/png': cardBlob})]);
+    st.textContent = t('cardCopied');
+    st.classList.add('ok');
+    track('share', {method: 'image_copy', content_type: 'calculation'});
+  } catch (err) { st.textContent = t('cardNoCopy'); st.classList.add('err'); }
+});
+$('cardSave').addEventListener('click', () => track('share', {method: 'image_download', content_type: 'calculation'}));
+$('cardShare').addEventListener('click', async () => {
+  try {
+    await navigator.share({files: [new File([cardBlob], $('cardSave').download, {type: 'image/png'})], text: t('cardCta') + ': ' + location.origin + location.pathname});
+    track('share', {method: 'image_share', content_type: 'calculation'});
+  } catch (err) { /* the visitor closed the share sheet */ }
+});
+
 /* ---------- support ---------- */
 // The form posts JSON as text/plain (no CORS preflight) to a Google Apps Script web app, which emails it to the
 // author. Screenshots are shrunk in the browser first, so a phone photo of the screen doesn't weigh 10 MB.
@@ -2128,6 +2305,7 @@ function supStatus(msg, kind) {
   el.className = 'sup-status' + (kind ? ' ' + kind : '');
 }
 function openSupport() {
+  track('support_open');
   tip.classList.remove('show');
   supOpenedAt = Date.now();
   supStatus('');
@@ -2402,19 +2580,22 @@ function init() {
     ancestors(ship).forEach((j) => state.done.add(j));
     state.done.add(ship);
     try { history.replaceState(null, '', location.pathname + location.search); } catch (err) { /* ignore */ }
+    track('calc_from_shipment', {shipment: shipSlug});
   }
+  if (fromHash) track('calc_from_link');
   buildTree();
   buildInventory();
   buildBase();
   applyLang();
   update();
+  startUsage();
   initZoom();
   if (h === '#edit') enterEdit(true);
 }
 window.addEventListener('hashchange', () => {
   const h = readHash();
   if (h === lastSharedHash) return;
-  if (h.startsWith('#calc-')) { const s = decodeState(h); if (s) { state = s; update(); } }
+  if (h.startsWith('#calc-')) { const s = decodeState(h); if (s) { state = s; startUsage(); update(); track('calc_from_link'); } }
   else if (h === '#edit') enterEdit(true);
 });
 init();

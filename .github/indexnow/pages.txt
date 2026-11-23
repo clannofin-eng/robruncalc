@@ -1,9 +1,9 @@
 # Every page of the site with its fingerprint, written by the site build. After a push,
 # .github/indexnow/ping.py sends the pages whose line changed to IndexNow.
-d7e72641582b55d0 https://robruncalc.com/ru/
-b74cbc42bf2f5c82 https://robruncalc.com/en/
-e438dd0762daf2e2 https://robruncalc.com/es/
-ff3146678ddffe7b https://robruncalc.com/pt/
+6788e073f47c968b https://robruncalc.com/ru/
+8b237cf847ef920c https://robruncalc.com/en/
+6e518ccfa2d41b7e https://robruncalc.com/es/
+7d7777d132aac4aa https://robruncalc.com/pt/
 fc1304bf582f1815 https://robruncalc.com/ru/shipments/
 6898ab4a57c14bea https://robruncalc.com/en/shipments/
 afe938d229a3ddfc https://robruncalc.com/es/shipments/
@@ -692,10 +692,10 @@ aeee2dd13c2b5d42 https://robruncalc.com/es/shipments/usb-hacking-tool/
 31bd355f5967e797 https://robruncalc.com/en/shipments/deposit-box-keys/
 02dd5772edb9a120 https://robruncalc.com/es/shipments/deposit-box-keys/
 6314f8507f63c87e https://robruncalc.com/pt/shipments/deposit-box-keys/
-9b58ed1a5461fffb https://robruncalc.com/ru/jail-time/
-5d1eb73bf368a1ff https://robruncalc.com/en/jail-time/
-22875821f592adc0 https://robruncalc.com/es/jail-time/
-55d59b382a324e14 https://robruncalc.com/pt/jail-time/
+fff763ff3ad886db https://robruncalc.com/ru/jail-time/
+54949c263b95a6ab https://robruncalc.com/en/jail-time/
+4b8174799c340177 https://robruncalc.com/es/jail-time/
+0fabff306c0bc186 https://robruncalc.com/pt/jail-time/
 2d8ee94ffe93474d https://robruncalc.com/ru/prices/
 18a1a9bb4f76c939 https://robruncalc.com/en/prices/
 43a93ea479879ee6 https://robruncalc.com/es/prices/
