@@ -399,7 +399,7 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
 <div class="wrap">
   <header class="site-head">
     <h1 class="brand"><span class="brand-name">ROB RUN</span> <span class="brand-sub" data-i18n="brandSub">calculadora de condena</span></h1>
-    <nav class="head-nav" data-pages data-i18n-label="navLabel" aria-label="Secciones"><a href="./" aria-current="page" data-i18n="navCalc">Calculadora</a><a href="jail-time/" data-i18n="navGuide">Cómo se calcula la condena</a><a href="prices/" data-i18n="navPrices">Precios</a><a href="shipments/" data-i18n="navShips">Envíos</a></nav>
+    <nav class="head-nav" data-pages data-i18n-label="navLabel" aria-label="Secciones"><a href="./" aria-current="page" data-i18n="navCalc">Calculadora</a><a href="jail-time/" data-i18n="navGuide">Cómo se calcula la condena</a><a href="prices/" data-i18n="navPrices">Precios</a><a href="shipments/" data-i18n="navShips">Envíos</a><a href="guides/" data-i18n="navGuides">Guías</a></nav>
     <div class="head-actions">
       <div class="seg" role="group" aria-label="Язык / Language / Idioma" title="Язык / Language / Idioma" translate="no">
         <span class="seg-ic" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.6 2.6 3.9 5.6 3.9 9s-1.3 6.4-3.9 9c-2.6-2.6-3.9-5.6-3.9-9S9.4 5.6 12 3z"/></svg></span>
@@ -564,7 +564,10 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
     <div class="block-head"><h2 id="faqTitle" data-i18n="faqTitle">Preguntas frecuentes</h2></div>
     <div class="faq" id="faqList"><div class="qa"><h3>¿Cuántos años me caen por $1.000.000?</h3><p>Si es dinero, investigación de envíos o cargas, 2 años. Si es el precio de algo que compraste (una casa, un coche, un terreno), cuentan $400.000, que es menos de un año.</p></div><div class="qa"><h3>¿Cuánto necesito para 40 años?</h3><p>$20.000.000 computados. Son $20.000.000 en dinero o $50.000.000 en precio de bienes comprados, y casi siempre una mezcla de ambos.</p></div><div class="qa"><h3>¿Cuenta mi coche para la condena?</h3><p>Sí, al 40% de su precio de compra, en la línea «Vehículos». Un Fukurou Tensa comprado por $200.000 aparece en la sentencia como $80.000.</p></div><div class="qa"><h3>¿Cuenta lo que sobra por debajo de $500.000?</h3><p>No. $999.999 computados dan 1 año; $1.000.000 ya dan 2.</p></div><div class="qa"><h3>¿Qué da la deuda con Lenny?</h3><p>Pagar la deuda de $1.000.000 en dinero limpio da una sola vez +10 años por encima del tope de 40.</p></div><div class="qa"><h3>¿Cuál es la condena máxima?</h3><p>40 años por estado y 10 más por la deuda con Lenny. Además, no más de 40 años cada 24 horas y no más de 1200 años por personaje.</p></div><div class="qa"><h3>¿Cómo calculo mi condena rápido?</h3><p>Con la calculadora de robruncalc.com: marca los envíos que tienes, elige tu casa, tu coche y lo demás en «Tu base» y escribe tu dinero. Calcula con las mismas reglas que el juego.</p></div></div>
     <p class="more" data-pages><a href="jail-time/" data-i18n="toGuide">En detalle: cómo se calcula la condena</a></p>
+    <p class="more" data-pages><a href="tattoos/" data-i18n="toTattoos">Tatuajes por condena: los años que pide cada uno</a></p>
     <p class="more" data-pages><a href="prices/" data-i18n="toPrices">Todos los precios del mercado negro</a></p>
+    <p class="more" data-pages><a href="wipe/" data-i18n="toWipe">Cuándo es la redada federal: temporizador del wipe</a></p>
+    <p class="more" data-pages><a href="guides/" data-i18n="toGuides">Todas las guías y calculadoras</a></p>
   </section>
 </main>
 
@@ -751,7 +754,8 @@ const STR = {
     resetAll: 'Сбросить всё', armed: 'Нажми ещё раз', vTitle: 'Срок за этот штат', vSplit: '{a} за имущество и {b} за долг Ленни',
     sTotal: 'Имущество в расчёте', sNext: 'До следующего года', sCap: 'До потолка в 40 лет', sCapOver: 'Сверх потолка, лет не даст',
     sAfter: 'Всего на персонаже', sAfterHint: 'впиши текущий срок ниже', capReached: 'потолок взят',
-    navLabel: 'Разделы', navCalc: 'Калькулятор', navGuide: 'Как считается срок', navPrices: 'Цены', navShips: 'Поставки',
+    navLabel: 'Разделы', navCalc: 'Калькулятор', navGuide: 'Как считается срок', navPrices: 'Цены', navShips: 'Поставки', navGuides: 'Гайды',
+    toWipe: 'Когда облава федералов: таймер вайпа', toGuides: 'Все гайды и калькуляторы', toTattoos: 'Наколки за срок: сколько лет нужно на каждую',
     faqTitle: 'Частые вопросы', toGuide: 'Подробно: как считается срок', toPrices: 'Все цены чёрного рынка',
     faq: [
       ['Сколько лет дадут за $1 000 000?', 'Если это деньги, исследования поставок или грузы, то 2 года. Если это цена купленного имущества (дом, машина, земля), в расчёт пойдёт $400 000, а это меньше года.'],
@@ -875,7 +879,8 @@ const STR = {
     resetAll: 'Reset everything', armed: 'Click again', vTitle: 'Sentence for this state', vSplit: '{a} for assets and {b} for Lenny’s debt',
     sTotal: 'Counted assets', sNext: 'To the next year', sCap: 'To the 40-year cap', sCapOver: 'Above the cap, gives no years',
     sAfter: 'Character total', sAfterHint: 'enter your current sentence below', capReached: 'cap reached',
-    navLabel: 'Sections', navCalc: 'Calculator', navGuide: 'How jail time works', navPrices: 'Prices', navShips: 'Shipments',
+    navLabel: 'Sections', navCalc: 'Calculator', navGuide: 'How jail time works', navPrices: 'Prices', navShips: 'Shipments', navGuides: 'Guides',
+    toWipe: 'When is the federal raid: wipe timer', toGuides: 'All guides and calculators', toTattoos: 'Tattoos for jail time: the years each one needs',
     faqTitle: 'Frequently asked questions', toGuide: 'In detail: how jail time is calculated', toPrices: 'All black-market prices',
     faq: [
       ['How many years do I get for $1,000,000?', 'If it’s money, shipment research or cargo, 2 years. If it’s the price of property you bought (a house, a car, land), $400,000 counts, which is less than a year.'],
@@ -998,7 +1003,8 @@ const STR = {
     resetAll: 'Borrar todo', armed: 'Pulsa otra vez', vTitle: 'Condena por este estado', vSplit: '{a} por los bienes y {b} por la deuda con Lenny',
     sTotal: 'Bienes computados', sNext: 'Hasta el siguiente año', sCap: 'Hasta el tope de 40 años', sCapOver: 'Por encima del tope, no suma años',
     sAfter: 'Total del personaje', sAfterHint: 'introduce abajo tu condena actual', capReached: 'tope alcanzado',
-    navLabel: 'Secciones', navCalc: 'Calculadora', navGuide: 'Cómo se calcula la condena', navPrices: 'Precios', navShips: 'Envíos',
+    navLabel: 'Secciones', navCalc: 'Calculadora', navGuide: 'Cómo se calcula la condena', navPrices: 'Precios', navShips: 'Envíos', navGuides: 'Guías',
+    toWipe: 'Cuándo es la redada federal: temporizador del wipe', toGuides: 'Todas las guías y calculadoras', toTattoos: 'Tatuajes por condena: los años que pide cada uno',
     faqTitle: 'Preguntas frecuentes', toGuide: 'En detalle: cómo se calcula la condena', toPrices: 'Todos los precios del mercado negro',
     faq: [
       ['¿Cuántos años me caen por $1.000.000?', 'Si es dinero, investigación de envíos o cargas, 2 años. Si es el precio de algo que compraste (una casa, un coche, un terreno), cuentan $400.000, que es menos de un año.'],
@@ -1121,7 +1127,8 @@ const STR = {
     resetAll: 'Limpar tudo', armed: 'Clique de novo', vTitle: 'Pena por este estado', vSplit: '{a} pelos bens e {b} pela dívida com o Lenny',
     sTotal: 'Bens computados', sNext: 'Até o próximo ano', sCap: 'Até o limite de 40 anos', sCapOver: 'Acima do limite, não dá anos',
     sAfter: 'Total do personagem', sAfterHint: 'informe abaixo sua pena atual', capReached: 'limite atingido',
-    navLabel: 'Seções', navCalc: 'Calculadora', navGuide: 'Como a pena é calculada', navPrices: 'Preços', navShips: 'Remessas',
+    navLabel: 'Seções', navCalc: 'Calculadora', navGuide: 'Como a pena é calculada', navPrices: 'Preços', navShips: 'Remessas', navGuides: 'Guias',
+    toWipe: 'Quando é a operação policial: timer do wipe', toGuides: 'Todos os guias e calculadoras', toTattoos: 'Tatuagens pela pena: os anos que cada uma exige',
     faqTitle: 'Perguntas frequentes', toGuide: 'Em detalhe: como a pena é calculada', toPrices: 'Todos os preços do mercado negro',
     faq: [
       ['Quantos anos eu pego por $1.000.000?', 'Se for dinheiro, pesquisa de remessas ou cargas, 2 anos. Se for o preço de algo que você comprou (uma casa, um carro, um terreno), contam $400.000, o que é menos de um ano.'],
