@@ -1,0 +1,48 @@
+# robruncalc.com
+
+> Calculators and guides for ROB RUN, the multiplayer crime sandbox by Kefir (free to play, in Early Access on Steam since 4 November 2026). Every page exists in Russian, English, Spanish and Portuguese. Numbers come from the game files and in-game screenshots, and names are the game's own.
+
+Updated: 2026-11-24
+
+## Key facts
+
+- Jail time: in the federal raid, every full $500,000 of what you own in the state becomes 1 year, up to 40 years per state. Bought property counts at 40% of its price; money, shipment research, bushes and cargo count in full.
+- Every state (server) lives 7 days, then the federal raid confiscates everything in it. Jail time, cosmetics and name carry over.
+- Looty Bay has 4 Fences ($ on the map, they buy items) and 2 Smuggler's Vans (green box, they buy cargo). Looty Bay Bank is in the north of Downtown, the Police Station in Palmside.
+- A bank account costs $5,000 at Looty Bay Bank, and you need one to launder cash.
+- The Tattoo Artist in prison gives 23 tattoos for total jail time from 1 to 800 years, and the Silence mask at 800 years.
+- Keys: 14 Safe Keys, 13 Room Keys and 6 special keys and cards; only Criminals can use keys. The Bank Vault opens only with a Drill.
+
+## Calculators
+
+- [Jail time calculator](https://robruncalc.com/en/): How many years the federal raid gives for your house, cars, money and shipments.
+- [Decoder calculator](https://robruncalc.com/en/decoders/): How many decoders a building needs, with or without fuses.
+- [Wipe timer](https://robruncalc.com/en/wipe/): The date and time of the federal raid on your state, in your time zone.
+- [Roulette calculator](https://robruncalc.com/en/roulette/): Payouts, odds and what each number pays at Lenny's table.
+
+## Guides
+
+- [Beginner guide](https://robruncalc.com/en/start/): Where to start: the tutorial, roles, first money and how not to lose everything.
+- [How jail time works](https://robruncalc.com/en/jail-time/): The formula, the 40% rule and a real court ruling line by line.
+- [Tattoos](https://robruncalc.com/en/tattoos/): All 23 Tattoo Artist tattoos and the jail time each one needs.
+- [Change server and play with friends](https://robruncalc.com/en/servers/): Change state, find your friends and party up.
+- [Looty Bay map](https://robruncalc.com/en/map/): Where the Fences, Smuggler's Vans, bank and police are.
+- [Keys](https://robruncalc.com/en/keys/): What every Safe Key, Room Key and Keycard opens, plus the Drill and lockpicks.
+- [How to become a cop](https://robruncalc.com/en/police/): Starting duty, badges, pay and the rules on shift.
+- [Bank account and laundering](https://robruncalc.com/en/bank/): Open an account, launder cash and keep it safe.
+- [What to do with cargo](https://robruncalc.com/en/cargo/): Where to sell cargo, how to open it and what it's worth.
+
+## Lists
+
+- [Black Market prices](https://robruncalc.com/en/prices/): Prices of houses, furniture, cars and fuses.
+- [All shipments](https://robruncalc.com/en/shipments/): All of Lenny's shipments with research cost and jail time needed.
+
+## Other languages
+
+- [Русский](https://robruncalc.com/ru/guides/): все гайды на русском
+- [Español](https://robruncalc.com/es/guides/): todas las guías en español
+- [Português](https://robruncalc.com/pt/guides/): todos os guias em português
+
+## Optional
+
+- [Sitemap](https://robruncalc.com/sitemap.xml): every page in all four languages
