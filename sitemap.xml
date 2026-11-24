@@ -6481,6 +6481,42 @@
     <xhtml:link rel="alternate" hreflang="x-default" href="https://robruncalc.com/en/servers/"/>
   </url>
   <url>
+    <loc>https://robruncalc.com/ru/map/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://robruncalc.com/ru/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robruncalc.com/en/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robruncalc.com/es/map/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://robruncalc.com/pt/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robruncalc.com/en/map/"/>
+  </url>
+  <url>
+    <loc>https://robruncalc.com/en/map/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://robruncalc.com/ru/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robruncalc.com/en/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robruncalc.com/es/map/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://robruncalc.com/pt/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robruncalc.com/en/map/"/>
+  </url>
+  <url>
+    <loc>https://robruncalc.com/es/map/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://robruncalc.com/ru/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robruncalc.com/en/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robruncalc.com/es/map/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://robruncalc.com/pt/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robruncalc.com/en/map/"/>
+  </url>
+  <url>
+    <loc>https://robruncalc.com/pt/map/</loc>
+    <lastmod>2026-11-24</lastmod>
+    <xhtml:link rel="alternate" hreflang="ru" href="https://robruncalc.com/ru/map/"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://robruncalc.com/en/map/"/>
+    <xhtml:link rel="alternate" hreflang="es" href="https://robruncalc.com/es/map/"/>
+    <xhtml:link rel="alternate" hreflang="pt" href="https://robruncalc.com/pt/map/"/>
+    <xhtml:link rel="alternate" hreflang="x-default" href="https://robruncalc.com/en/map/"/>
+  </url>
+  <url>
     <loc>https://robruncalc.com/ru/police/</loc>
     <lastmod>2026-11-24</lastmod>
     <xhtml:link rel="alternate" hreflang="ru" href="https://robruncalc.com/ru/police/"/>
