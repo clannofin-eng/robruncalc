@@ -1,6 +1,6 @@
 # robruncalc.com
 
-> Calculators and guides for ROB RUN, the multiplayer crime sandbox by Kefir (free to play, in Early Access on Steam since 4 November 2026). Every page exists in Russian, English, Spanish and Portuguese. Numbers come from the game files and in-game screenshots, and names are the game's own.
+> Calculators and guides for ROB RUN, the multiplayer crime sandbox by Kefir (free to play, in Early Access on Steam since 4 November 2026). Every page exists in Russian, English, Spanish, Portuguese, German and French. Numbers come from the game files and in-game screenshots, and names are the game's own.
 
 Updated: 2026-11-25
 
@@ -42,7 +42,9 @@ Updated: 2026-11-25
 - [Русский](https://robruncalc.com/ru/guides/): все гайды на русском
 - [Español](https://robruncalc.com/es/guides/): todas las guías en español
 - [Português](https://robruncalc.com/pt/guides/): todos os guias em português
+- [Deutsch](https://robruncalc.com/de/guides/): alle Guides auf Deutsch
+- [Français](https://robruncalc.com/fr/guides/): tous les guides en français
 
 ## Optional
 
-- [Sitemap](https://robruncalc.com/sitemap.xml): every page in all four languages
+- [Sitemap](https://robruncalc.com/sitemap.xml): every page in all six languages
