@@ -211,6 +211,8 @@ h3{font-size:17px;margin:22px 0 8px}
 .tstage{position:relative;touch-action:pan-y;cursor:grab;-webkit-user-select:none;user-select:none}
 .tstage img,.tstage canvas{display:block;width:100%;height:auto;max-height:76vh;object-fit:contain;margin:0 auto}
 .tstage [hidden]{display:none}
+.tstage.turning{cursor:grabbing}
+#tGl:focus-visible{outline:2px solid var(--jumpsuit);outline-offset:4px;border-radius:8px}
 .gfig{margin:18px 0 8px;max-width:880px}
 .gfig img{display:block;width:100%;height:auto;border-radius:12px;border:1px solid var(--seam)}
 .gfig figcaption{margin-top:8px;font-size:14px;color:var(--dust)}

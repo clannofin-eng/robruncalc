@@ -1,9 +1,9 @@
 # Every page of the site with its fingerprint, written by the site build. After a push,
 # .github/indexnow/ping.py sends the pages whose line changed to IndexNow.
-02f9fd5e6164dc23 https://robruncalc.com/ru/
-9e00c97833bd02e3 https://robruncalc.com/en/
-2c57faf2dd84b184 https://robruncalc.com/es/
-33584648d5077616 https://robruncalc.com/pt/
+dc1d9e1fb30762c0 https://robruncalc.com/ru/
+790789994b798592 https://robruncalc.com/en/
+173843f91bde42cd https://robruncalc.com/es/
+9e5c815cff28e1d8 https://robruncalc.com/pt/
 52831403f5870d96 https://robruncalc.com/ru/shipments/
 8d8e7800cce045ea https://robruncalc.com/en/shipments/
 81191a436cb2410c https://robruncalc.com/es/shipments/
@@ -716,10 +716,10 @@ b23e3e9840c9ba48 https://robruncalc.com/en/wipe/
 6e7a2fb39d6faf5f https://robruncalc.com/en/roulette/
 097891114bc6b490 https://robruncalc.com/es/roulette/
 233230887bde53c1 https://robruncalc.com/pt/roulette/
-7445a9a28c90998d https://robruncalc.com/ru/tattoos/
-81ea630a6e5f0cf3 https://robruncalc.com/en/tattoos/
-8b79d7a183aceec0 https://robruncalc.com/es/tattoos/
-73923210910970bf https://robruncalc.com/pt/tattoos/
+cc90a43dfff0c384 https://robruncalc.com/ru/tattoos/
+59181408f3a0aab6 https://robruncalc.com/en/tattoos/
+d05d6c7309c5ba3d https://robruncalc.com/es/tattoos/
+b7ca9e6ae034bdc7 https://robruncalc.com/pt/tattoos/
 c7069680de3b6d4c https://robruncalc.com/ru/servers/
 72870bce269fbb1c https://robruncalc.com/en/servers/
 385b0f876c116150 https://robruncalc.com/es/servers/

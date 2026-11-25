@@ -131,6 +131,9 @@ h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1;letter-spaci
 /* board */
 .viewport{position:relative;overflow:auto;background:var(--board);border:1px solid var(--seam);border-radius:12px;height:min(74vh,800px);min-height:340px;touch-action:pan-x pan-y;overscroll-behavior:contain;cursor:grab}
 .viewport.dragging{cursor:grabbing;user-select:none}
+/* With a mouse the wheel always scrolls the page, also over the tree: the tree pans by dragging (and sideways with a
+   tilt wheel or a touchpad), zooms with Ctrl+wheel and the +/- buttons. Touch screens keep scrolling inside it. */
+@media (hover:hover) and (pointer:fine){.viewport{overflow-y:hidden;overscroll-behavior-y:auto}}
 .stage{position:relative}
 .world{position:absolute;left:0;top:0;width:2500px;height:1335px;transform-origin:0 0}
 .world.zooming{will-change:transform}
@@ -446,7 +449,7 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
   <section class="block" id="shipments" aria-labelledby="treeTitle">
     <div class="block-head">
       <h2 id="treeTitle" data-i18n="treeTitle">Lenny’s shipments</h2>
-      <p class="lede" data-i18n="treeLede">Click a shipment you have unlocked and the whole chain before it gets marked too. Click it again to clear it and everything after it. The layout matches the game.</p>
+      <p class="lede" data-i18n="treeLede">Click a shipment you have unlocked and the whole chain before it gets marked too. Click it again to clear it and everything after it. The layout matches the game. Drag the tree to move around it; zoom with the + and − buttons.</p>
       <p class="more" data-pages><a href="shipments/" data-i18n="toCatalog">All shipments: prices and jail time</a></p>
     </div>
     <div class="tree-bar">
@@ -804,7 +807,7 @@ const STR = {
     exampleNote: 'Это пример расчёта: дерево, база и суммы заполнены для наглядности.', exampleReset: 'Начать с нуля', exampleKeep: 'Оставить и править',
     lennyTip: 'Долг Ленни не оплачен. $1 000 000 чистыми Ленни дадут +10 лет, а при изъятии эти же деньги дадут только 2 года.',
     tallyBonus: 'Ленни', treeTitle: 'Поставки Ленни',
-    treeLede: 'Нажми на поставку, которая у тебя открыта, и вместе с ней отметится вся цепочка до неё. Ещё одно нажатие снимет её и всё, что идёт после. Дерево расположено так же, как в игре.',
+    treeLede: 'Нажми на поставку, которая у тебя открыта, и вместе с ней отметится вся цепочка до неё. Ещё одно нажатие снимет её и всё, что идёт после. Дерево расположено так же, как в игре. Дерево двигается перетаскиванием, масштаб — кнопками + и −.',
     tOpen: 'открыто из {n}', tSum: 'стоимость исследований', tUnknown: 'без цены',
     tUnknownHint: 'У части отмеченных поставок цена ещё не внесена, поэтому настоящая сумма может быть больше. Если знаешь её точно, впиши вручную в описи.',
     zoomOut: 'Отдалить', zoomIn: 'Приблизить', zoomFit: 'Показать всё дерево', clearTree: 'Снять отметки',
@@ -929,7 +932,7 @@ const STR = {
     exampleNote: 'This is an example: the tree, the base and the amounts are filled in to show how it works.', exampleReset: 'Start from zero', exampleKeep: 'Keep and edit',
     lennyTip: 'Lenny’s debt is unpaid. Paying him $1,000,000 in clean money gives +10 years, while the same money seized gives only 2.',
     tallyBonus: 'Lenny', treeTitle: 'Lenny’s shipments',
-    treeLede: 'Click a shipment you have unlocked and the whole chain before it gets marked too. Click it again to clear it and everything after it. The layout matches the game.',
+    treeLede: 'Click a shipment you have unlocked and the whole chain before it gets marked too. Click it again to clear it and everything after it. The layout matches the game. Drag the tree to move around it; zoom with the + and − buttons.',
     tOpen: 'unlocked of {n}', tSum: 'research cost', tUnknown: 'without a price',
     tUnknownHint: 'Some marked shipments have no price yet, so the real total can be higher. If you know it exactly, enter it manually in the inventory.',
     zoomOut: 'Zoom out', zoomIn: 'Zoom in', zoomFit: 'Show the whole tree', clearTree: 'Clear marks',
@@ -1053,7 +1056,7 @@ const STR = {
     exampleNote: 'Esto es un ejemplo: el árbol, la base y las cantidades están rellenados para mostrar cómo funciona.', exampleReset: 'Empezar de cero', exampleKeep: 'Mantener y editar',
     lennyTip: 'La deuda con Lenny no está pagada. Pagarle $1.000.000 en dinero limpio da +10 años, mientras que ese mismo dinero confiscado da solo 2.',
     tallyBonus: 'Lenny', treeTitle: 'Envíos de Lenny',
-    treeLede: 'Pulsa un envío que ya hayas desbloqueado y se marcará también toda la cadena anterior. Púlsalo otra vez para quitarlo junto con todo lo que va después. La disposición es la misma que en el juego.',
+    treeLede: 'Pulsa un envío que ya hayas desbloqueado y se marcará también toda la cadena anterior. Púlsalo otra vez para quitarlo junto con todo lo que va después. La disposición es la misma que en el juego. Arrastra el árbol para moverte por él; amplía con los botones + y −.',
     tOpen: 'desbloqueados de {n}', tSum: 'coste de desbloqueo', tUnknown: 'sin precio',
     tUnknownHint: 'Algunos envíos marcados aún no tienen precio, así que el total real puede ser mayor. Si lo sabes con exactitud, introdúcelo a mano en el inventario.',
     zoomOut: 'Alejar', zoomIn: 'Acercar', zoomFit: 'Ver todo el árbol', clearTree: 'Quitar marcas',
@@ -1177,7 +1180,7 @@ const STR = {
     exampleNote: 'Isto é um exemplo: a árvore, a base e os valores estão preenchidos para mostrar como funciona.', exampleReset: 'Começar do zero', exampleKeep: 'Manter e editar',
     lennyTip: 'A dívida com o Lenny não está paga. Pagar $1.000.000 em dinheiro limpo dá +10 anos, enquanto o mesmo dinheiro confiscado dá só 2.',
     tallyBonus: 'Lenny', treeTitle: 'Remessas do Lenny',
-    treeLede: 'Clique numa remessa que você já desbloqueou e toda a cadeia anterior também será marcada. Clique de novo para tirá-la junto com tudo o que vem depois. O layout é o mesmo do jogo.',
+    treeLede: 'Clique numa remessa que você já desbloqueou e toda a cadeia anterior também será marcada. Clique de novo para tirá-la junto com tudo o que vem depois. O layout é o mesmo do jogo. Arraste a árvore para se mover por ela; aproxime com os botões + e −.',
     tOpen: 'desbloqueadas de {n}', tSum: 'custo de desbloqueio', tUnknown: 'sem preço',
     tUnknownHint: 'Algumas remessas marcadas ainda não têm preço, então o total real pode ser maior. Se você souber o valor exato, informe manualmente no inventário.',
     zoomOut: 'Afastar', zoomIn: 'Aproximar', zoomFit: 'Mostrar a árvore inteira', clearTree: 'Limpar marcações',
