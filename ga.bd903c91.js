@@ -25,19 +25,20 @@
     'Europe/Oslo', 'Arctic/Longyearbyen', 'Europe/London', 'Europe/Belfast', 'Europe/Guernsey', 'Europe/Jersey',
     'Europe/Isle_of_Man', 'Europe/Gibraltar', 'Europe/Zurich', 'America/Guadeloupe', 'America/Martinique',
     'America/Cayenne', 'Indian/Reunion', 'Indian/Mayotte', 'America/Marigot', 'Europe/Monaco', 'Europe/San_Marino'];
+  // [text, allow, decline, details, footer button, title]
   var TEXT = {
-    ru: ['Мы считаем посещения через Google Analytics и показываем рекламу A-ADS, чтобы сайт окупал себя. Разрешить cookie для статистики и рекламы?',
-      'Разрешить', 'Не разрешать', 'Подробнее', 'Cookie'],
-    en: ['We count visits with Google Analytics to see where players come from. Allow analytics cookies?',
-      'Allow', 'Decline', 'Details', 'Cookies'],
-    es: ['Contamos las visitas con Google Analytics para saber de dónde vienen los jugadores. ¿Permites las cookies de estadística?',
-      'Permitir', 'Rechazar', 'Más información', 'Cookies'],
-    pt: ['Contamos as visitas com o Google Analytics para saber de onde vêm os jogadores. Você permite cookies de estatística?',
-      'Permitir', 'Recusar', 'Saiba mais', 'Cookies'],
-    de: ['Wir zählen Besuche mit Google Analytics, um zu sehen, woher die Spieler kommen. Cookies für die Statistik erlauben?',
-      'Erlauben', 'Ablehnen', 'Details', 'Cookies'],
-    fr: ['Nous comptons les visites avec Google Analytics pour savoir d\u2019où viennent les joueurs. Autoriser les cookies de statistiques\u00a0?',
-      'Autoriser', 'Refuser', 'En savoir plus', 'Cookies']
+    ru: ['Для статистики посещений (Google Analytics): по ней видно, какие гайды и калькуляторы нужнее игрокам. И для рекламы A-ADS, ' +
+      'благодаря которой сайт остаётся бесплатным.', 'Разрешить', 'Не разрешать', 'Подробнее', 'Cookie', 'Мы используем cookie'],
+    en: ['For visit statistics (Google Analytics): they show which guides and calculators players need most, so we know what to improve.',
+      'Allow', 'Decline', 'Details', 'Cookies', 'We use cookies'],
+    es: ['Para las estadísticas de visitas (Google Analytics): muestran qué guías y calculadoras necesitan más los jugadores, para saber qué mejorar.',
+      'Permitir', 'Rechazar', 'Más información', 'Cookies', 'Usamos cookies'],
+    pt: ['Para as estatísticas de visitas (Google Analytics): mostram quais guias e calculadoras os jogadores mais usam, para sabermos o que melhorar.',
+      'Permitir', 'Recusar', 'Saiba mais', 'Cookies', 'Usamos cookies'],
+    de: ['Für die Besuchsstatistik (Google Analytics): Sie zeigt, welche Guides und Rechner die Spieler am meisten brauchen, damit wir wissen, ' +
+      'was wir verbessern sollen.', 'Erlauben', 'Ablehnen', 'Details', 'Cookies', 'Wir verwenden Cookies'],
+    fr: ['Pour les statistiques de visite (Google Analytics) : elles montrent quels guides et calculateurs servent le plus aux joueurs, ' +
+      'pour savoir quoi améliorer.', 'Autoriser', 'Refuser', 'En savoir plus', 'Cookies', 'Nous utilisons des cookies']
   };
   var MORE = '/' + (document.documentElement.lang || 'en').slice(0, 2) + '/privacy/';
   var OFF = 'rrcalc:notrack';
@@ -157,34 +158,55 @@
     hide();
   }
   function hide() {
-    if (box && box.parentNode) box.parentNode.removeChild(box);
+    if (!box) return;
+    var b = box;
     box = null;
+    document.documentElement.classList.remove('rr-lock');
+    if (b.open && b.close) b.close();
+    if (b.parentNode) b.parentNode.removeChild(b);
   }
   function style() {
     if (document.getElementById('rr-consent-css')) return;
     var st = document.createElement('style');
     st.id = 'rr-consent-css';
     st.textContent =
-      '.rr-consent{position:fixed;left:12px;right:12px;bottom:12px;z-index:2147483000;max-width:640px;margin:0 auto;' +
-      'box-sizing:border-box;padding:14px 16px;background:#252a2f;color:#ece6da;border:1px solid #3e454d;' +
-      'border-radius:12px;box-shadow:0 8px 28px rgba(0,0,0,.45);font:14px/1.45 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}' +
-      '.rr-consent p{margin:0 0 12px}' +
-      '.rr-consent a{color:#9ca3ab}' +
-      '.rr-consent .rr-row{display:flex;gap:8px;flex-wrap:wrap}' +
-      '.rr-consent button{flex:1 1 140px;min-height:40px;padding:8px 14px;border-radius:8px;border:1px solid #3e454d;' +
+      '.rr-consent{box-sizing:border-box;width:min(460px,calc(100% - 24px));max-width:none;max-height:calc(100% - 24px);overflow:auto;' +
+      'margin:auto;padding:22px 22px 20px;background:#252a2f;color:#ece6da;border:1px solid #3e454d;border-radius:14px;' +
+      'box-shadow:0 18px 60px rgba(0,0,0,.6);font:15px/1.5 system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif}' +
+      '.rr-consent::backdrop{background:rgba(12,14,16,.74)}' +
+      '.rr-consent:focus{outline:none}' +
+      '.rr-consent h2{margin:0 0 8px;font-family:inherit;font-size:19px;line-height:1.25;font-weight:700;color:#ece6da}' +
+      '.rr-consent p{margin:0 0 18px;color:#c9ced4}' +
+      '.rr-consent a{color:#ece6da;text-decoration-color:#f47d30;text-underline-offset:3px}' +
+      '.rr-consent .rr-row{display:flex;gap:10px;flex-wrap:wrap}' +
+      '.rr-consent button{flex:1 1 150px;min-height:44px;padding:10px 16px;border-radius:10px;border:1px solid #3e454d;' +
       'background:#30363d;color:#ece6da;font:inherit;font-weight:600;cursor:pointer}' +
+      '.rr-consent .rr-yes{background:#ece6da;border-color:#ece6da;color:#1c2024}' +
       '.rr-consent button:hover{border-color:#f47d30}' +
       '.rr-consent button:focus-visible{outline:2px solid #f47d30;outline-offset:2px}' +
+      // the page with the details (the privacy page) keeps a small box at the bottom, so it can be read
+      '.rr-consent.rr-bar{position:fixed;left:12px;right:12px;bottom:12px;top:auto;z-index:2147483000;width:auto;max-width:640px;' +
+      'margin:0 auto;padding:14px 16px;font-size:14px}' +
+      '.rr-bar h2{font-size:15px;margin:0 0 4px}.rr-bar p{margin:0 0 12px}.rr-bar button{min-height:40px}' +
+      'html.rr-lock{overflow:hidden;scrollbar-gutter:stable}' +
       '.rr-cookies{background:none;border:0;padding:0;color:inherit;font:inherit;text-decoration:underline;cursor:pointer}';
     document.head.appendChild(st);
   }
+  // A window in the middle of the page that has to be answered before the site can be used: "Allow" or "Decline", side by
+  // side on the first screen, as EU rules ask (no cookie wall, refusing as easy as allowing). On the privacy page it is a
+  // small box at the bottom instead, so the details can be read; browsers without <dialog> get that box too.
   function show() {
     if (box) return;
     style();
-    box = document.createElement('div');
-    box.className = 'rr-consent';
-    box.setAttribute('role', 'region');
-    box.setAttribute('aria-label', T[4]);
+    var modal = !/\/privacy\/$/.test(location.pathname) && typeof HTMLDialogElement === 'function' &&
+      typeof HTMLDialogElement.prototype.showModal === 'function';
+    box = document.createElement(modal ? 'dialog' : 'div');
+    box.className = modal ? 'rr-consent' : 'rr-consent rr-bar';
+    box.setAttribute('aria-labelledby', 'rr-consent-h');
+    if (!modal) box.setAttribute('role', 'region');
+    var h = document.createElement('h2');
+    h.id = 'rr-consent-h';
+    h.textContent = T[5];
     var p = document.createElement('p');
     p.appendChild(document.createTextNode(T[0] + ' '));
     var a = document.createElement('a');
@@ -207,9 +229,22 @@
     no.addEventListener('click', function () { choose('denied'); });
     row.appendChild(yes);
     row.appendChild(no);
+    box.appendChild(h);
     box.appendChild(p);
     box.appendChild(row);
     document.body.appendChild(box);
+    if (!modal) return;
+    var dlg = box;
+    // Esc does not close it: one of the two answers is needed (if the browser closes it anyway, nothing is allowed and
+    // the question comes back on the next page)
+    dlg.addEventListener('cancel', function (e) { e.preventDefault(); });
+    dlg.addEventListener('close', function () { if (box === dlg) hide(); });
+    // focus on the window itself, not on its first link (no ring around "Details" when it opens)
+    dlg.setAttribute('autofocus', '');
+    dlg.tabIndex = -1;
+    document.documentElement.classList.add('rr-lock');
+    dlg.showModal();
+    if (document.activeElement !== dlg) dlg.focus({ preventScroll: true });
   }
   function footerButton() {
     var spot = document.querySelector('.foot-links') || document.querySelector('p.src');
