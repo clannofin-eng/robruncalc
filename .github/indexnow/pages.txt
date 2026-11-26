@@ -1,7 +1,7 @@
 # Every page of the site with its fingerprint, written by the site build. After a push,
 # .github/indexnow/ping.py sends the pages whose line changed to IndexNow.
-dc1d9e1fb30762c0 https://robruncalc.com/ru/
-790789994b798592 https://robruncalc.com/en/
+2a965127cf6570e5 https://robruncalc.com/ru/
+a9289e838c5d19b9 https://robruncalc.com/en/
 173843f91bde42cd https://robruncalc.com/es/
 9e5c815cff28e1d8 https://robruncalc.com/pt/
 293a2f522a7ca86a https://robruncalc.com/de/
