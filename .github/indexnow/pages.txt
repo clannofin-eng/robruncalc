@@ -1122,9 +1122,9 @@ ee29d66211d870d4 https://robruncalc.com/es/guides/
 b104250d4ef5ae31 https://robruncalc.com/pt/guides/
 9697dee16af64cb1 https://robruncalc.com/de/guides/
 3756888c301658bb https://robruncalc.com/fr/guides/
-d77b0fa13b1bffe3 https://robruncalc.com/ru/privacy/
-a8e2b6e008cf0738 https://robruncalc.com/en/privacy/
-b05ac00b44a87560 https://robruncalc.com/es/privacy/
-64eb976d25042733 https://robruncalc.com/pt/privacy/
-3c79fad537e0fc0b https://robruncalc.com/de/privacy/
-0182de0fd02cf814 https://robruncalc.com/fr/privacy/
+e4d7745b80d729b6 https://robruncalc.com/ru/privacy/
+101680d6e3bc94d3 https://robruncalc.com/en/privacy/
+3cdf29d428c404b6 https://robruncalc.com/es/privacy/
+720facedf595bdbb https://robruncalc.com/pt/privacy/
+2b5e48ef40fa8f5b https://robruncalc.com/de/privacy/
+92ff74dca26587f5 https://robruncalc.com/fr/privacy/

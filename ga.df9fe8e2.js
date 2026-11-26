@@ -1,6 +1,9 @@
 /* Visit counter (Google Analytics 4) with a consent question for visitors from the EU/EEA, the UK and Switzerland.
    build_site.py copies this file to the site root as ga.<hash>.js and replaces G-4PKS5FLNR5.
    - Ads (Google AdSense): ad cookies are allowed outside Europe; in Europe they stay off here (AdSense asks itself).
+   - The Russian pages show A-ADS banners instead (Google serves no ads in Russia). In Europe their frames wait inside
+     <template class="aa-hold"> (a small script in the page puts them there) until the visitor presses "Allow" on a
+     Russian page, where the question also names the ads; that answer is kept apart, under rrcalc:ads.
    - Outside Europe analytics cookies are on by default.
    - In Europe (guessed from the browser time zone) analytics cookies stay off until the visitor presses "Allow";
      Google also keeps them off for visitors whose IP is in those countries, whatever the time zone says.
@@ -23,7 +26,7 @@
     'Europe/Isle_of_Man', 'Europe/Gibraltar', 'Europe/Zurich', 'America/Guadeloupe', 'America/Martinique',
     'America/Cayenne', 'Indian/Reunion', 'Indian/Mayotte', 'America/Marigot', 'Europe/Monaco', 'Europe/San_Marino'];
   var TEXT = {
-    ru: ['Мы считаем посещения через Google Analytics, чтобы понимать, откуда приходят игроки. Разрешить cookie для статистики?',
+    ru: ['Мы считаем посещения через Google Analytics и показываем рекламу A-ADS, чтобы сайт окупал себя. Разрешить cookie для статистики и рекламы?',
       'Разрешить', 'Не разрешать', 'Подробнее', 'Cookie'],
     en: ['We count visits with Google Analytics to see where players come from. Allow analytics cookies?',
       'Allow', 'Decline', 'Details', 'Cookies'],
@@ -114,6 +117,21 @@
   var lang = (document.documentElement.lang || 'en').slice(0, 2);
   var T = TEXT[lang] || TEXT.en;
   var box = null;
+  // the A-ADS banners (Russian pages only): asked about together with the statistics, kept under their own key
+  var ADS = 'rrcalc:ads';
+  var adPage = !!document.querySelector('.aa-row');
+  var savedAds = load(ADS);
+
+  function releaseAds() {
+    var held = document.querySelectorAll('template.aa-hold');
+    for (var i = 0; i < held.length; i++) {
+      var t = held[i], spot = t.parentNode;
+      if (!t.content) continue;
+      spot.insertBefore(document.importNode(t.content, true), t);
+      spot.removeChild(t);
+      spot.className = spot.className.replace(/(^|\s)aa-off(?=\s|$)/g, '');
+    }
+  }
 
   function dropCookies() {
     var host = location.hostname;
@@ -129,6 +147,11 @@
   }
   function choose(v) {
     save(KEY, v);
+    if (adPage) {
+      save(ADS, v);
+      savedAds = v;
+      if (v === 'granted') releaseAds();
+    }
     gtag('consent', 'update', consent(v));
     if (v === 'denied') dropCookies();
     hide();
@@ -202,7 +225,7 @@
   }
   function ready() {
     footerButton();
-    if (!saved) show();
+    if (!saved || (adPage && savedAds !== 'granted' && savedAds !== 'denied')) show();
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', ready);
   else ready();
