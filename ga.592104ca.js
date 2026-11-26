@@ -1,6 +1,6 @@
 /* Visit counter (Google Analytics 4) with a consent question for visitors from the EU/EEA, the UK and Switzerland.
    build_site.py copies this file to the site root as ga.<hash>.js and replaces G-4PKS5FLNR5.
-   - Ads storage stays off for everyone (no ads on the site yet).
+   - Ads (Google AdSense): ad cookies are allowed outside Europe; in Europe they stay off here (AdSense asks itself).
    - Outside Europe analytics cookies are on by default.
    - In Europe (guessed from the browser time zone) analytics cookies stay off until the visitor presses "Allow";
      Google also keeps them off for visitors whose IP is in those countries, whatever the time zone says.
@@ -36,7 +36,7 @@
     fr: ['Nous comptons les visites avec Google Analytics pour savoir d\u2019où viennent les joueurs. Autoriser les cookies de statistiques\u00a0?',
       'Autoriser', 'Refuser', 'En savoir plus', 'Cookies']
   };
-  var MORE = 'https://policies.google.com/technologies/partner-sites';
+  var MORE = '/' + (document.documentElement.lang || 'en').slice(0, 2) + '/privacy/';
   var OFF = 'rrcalc:notrack';
   var SWITCHED = {
     ru: ['Статистика для этого браузера выключена: твои заходы больше не считаются.', 'Статистика для этого браузера снова включена.'],
@@ -90,13 +90,14 @@
   window.dataLayer = window.dataLayer || [];
   function gtag() { window.dataLayer.push(arguments); }
   window.gtag = gtag;
-  function consent(a) {
-    return {analytics_storage: a, ad_storage: 'denied', ad_user_data: 'denied', ad_personalization: 'denied'};
+  function consent(a, ads) {
+    ads = ads || 'denied';
+    return {analytics_storage: a, ad_storage: ads, ad_user_data: ads, ad_personalization: ads};
   }
   var c = consent('denied');
   c.region = REGIONS;
   gtag('consent', 'default', c);
-  gtag('consent', 'default', consent(ask ? 'denied' : 'granted'));
+  gtag('consent', 'default', ask ? consent('denied') : consent('granted', 'granted'));
   if (saved) gtag('consent', 'update', consent(saved));
   gtag('js', new Date());
   gtag('config', ID);

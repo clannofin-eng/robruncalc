@@ -35,7 +35,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Калькулятор срока ROB RUN (Роб Ран): сколько лет дадут после рейда", "url": "https://robruncalc.com/ru/", "description": "Калькулятор срока ROB RUN (Роб Ран): отметь поставки Ленни, впиши деньги и имущество и узнай, сколько лет дадут после рейда. Все 171 поставка с ценами.", "inLanguage": "ru", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "datePublished": "2026-11-21", "dateModified": "2026-11-24", "about": {"@type": "VideoGame", "name": "ROB RUN", "url": "https://store.steampowered.com/app/4262460/ROB_RUN/", "sameAs": ["https://store.steampowered.com/app/4262460/ROB_RUN/"], "gamePlatform": "PC", "operatingSystem": "Windows", "applicationCategory": "Game", "genre": ["Action", "Massively Multiplayer", "RPG", "Simulation"], "datePublished": "2026-11-04", "author": {"@type": "Organization", "name": "Kefir"}, "publisher": {"@type": "Organization", "name": "Kefir"}}, "publisher": {"@type": "Organization", "name": "robruncalc.com", "url": "https://robruncalc.com/", "logo": {"@type": "ImageObject", "url": "https://robruncalc.com/apple-touch-icon.png", "width": 180, "height": 180}}, "isPartOf": {"@type": "WebSite", "name": "robruncalc.com", "url": "https://robruncalc.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "robruncalc.com", "alternateName": ["RobRunCalc", "ROB RUN калькулятор срока", "ROB RUN jail time calculator"], "url": "https://robruncalc.com/", "inLanguage": "ru", "publisher": {"@type": "Organization", "name": "robruncalc.com", "url": "https://robruncalc.com/", "logo": {"@type": "ImageObject", "url": "https://robruncalc.com/apple-touch-icon.png", "width": 180, "height": 180}}, "about": {"@type": "VideoGame", "name": "ROB RUN", "url": "https://store.steampowered.com/app/4262460/ROB_RUN/", "sameAs": ["https://store.steampowered.com/app/4262460/ROB_RUN/"], "gamePlatform": "PC", "operatingSystem": "Windows", "applicationCategory": "Game", "genre": ["Action", "Massively Multiplayer", "RPG", "Simulation"], "datePublished": "2026-11-04", "author": {"@type": "Organization", "name": "Kefir"}, "publisher": {"@type": "Organization", "name": "Kefir"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Сколько лет дадут за $1 000 000?", "acceptedAnswer": {"@type": "Answer", "text": "Если это деньги, исследования поставок или грузы, то 2 года. Если это цена купленного имущества (дом, машина, земля), в расчёт пойдёт $400 000, а это меньше года."}}, {"@type": "Question", "name": "Сколько нужно имущества на 40 лет?", "acceptedAnswer": {"@type": "Answer", "text": "$20 000 000 в расчёте. Это $20 000 000 денег или $50 000 000 в цене купленного имущества, а чаще всего смесь того и другого."}}, {"@type": "Question", "name": "Считается ли машина в срок?", "acceptedAnswer": {"@type": "Answer", "text": "Да, на 40% цены покупки, строкой «Транспорт». Fukurou Tensa за $200 000 даёт в приговоре $80 000."}}, {"@type": "Question", "name": "Засчитывается ли остаток меньше $500 000?", "acceptedAnswer": {"@type": "Answer", "text": "Нет. $999 999 в расчёте дают 1 год, а $1 000 000 дают уже 2."}}, {"@type": "Question", "name": "Что даёт долг Ленни?", "acceptedAnswer": {"@type": "Answer", "text": "Оплата долга $1 000 000 чистыми деньгами разово даёт +10 лет сверх потолка в 40."}}, {"@type": "Question", "name": "Какой максимальный срок?", "acceptedAnswer": {"@type": "Answer", "text": "40 лет за штат и ещё 10 за долг Ленни. Кроме того, не больше 40 лет за сутки и не больше 1200 лет на персонаже."}}, {"@type": "Question", "name": "Как быстро посчитать свой срок?", "acceptedAnswer": {"@type": "Answer", "text": "В калькуляторе robruncalc.com: отметь открытые поставки, выбери дом, машину и остальное в «Твоей базе» и впиши деньги. Он считает по тем же правилам, что и игра."}}]}</script>
-<script src="/ga.fd1611a6.js" defer></script>
+<script src="/ga.592104ca.js" defer></script>
 <meta name="theme-color" content="#1c2024">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,6 +64,8 @@ a{color:var(--chalk);text-decoration-color:var(--jumpsuit);text-underline-offset
 button,input,select,textarea{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--jumpsuit);outline-offset:2px}
 .wrap{max-width:1640px;margin:0 auto;padding:0 20px}
+/* wide screens: free 200px on each side for the side-rail ads (AdSense places them in empty margins) */
+@media (min-width:1700px){.wrap{max-width:min(1640px,calc(100vw - 400px))}}
 h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1;letter-spacing:.01em;text-wrap:balance;margin:0;overflow-wrap:break-word}
 :lang(de) h1,:lang(de) h2,:lang(de) h3{hyphens:auto}
 
@@ -402,6 +404,8 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
+<meta name="google-adsense-account" content="ca-pub-5726300621020847">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5726300621020847" crossorigin="anonymous"></script>
 </head>
 <body>
 <noscript><p style="padding:20px">Калькулятору нужен JavaScript. Включи его в браузере и обнови страницу.</p></noscript>
@@ -588,7 +592,8 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
 <footer class="wrap">
   <div class="site-foot">
     <p><span data-i18n="foot1">Неофициальный фан-калькулятор, с KEFIR не связан. ROB RUN и изображения из игры принадлежат KEFIR и используются с их разрешения.</span> <span data-i18n="foot2">Данные на 22 ноября 2026. Игра в раннем доступе, правила меняются.</span></p>
-    <span class="foot-links"><button type="button" class="linkish" data-sup data-sup-open data-i18n="supBtn">Поддержка</button>
+    <span class="foot-links"><a class="linkish" href="/ru/privacy/">Конфиденциальность</a>
+<button type="button" class="linkish" data-sup data-sup-open data-i18n="supBtn">Поддержка</button>
     <button type="button" class="linkish" id="btnEditor" data-i18n="editorLink">Редактор данных</button></span>
   </div>
 </footer>

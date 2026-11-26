@@ -35,7 +35,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calculadora de pena do ROB RUN: quantos anos de prisão você pega", "url": "https://robruncalc.com/pt/", "description": "Calculadora de pena do ROB RUN: marque as remessas do Lenny, informe dinheiro e bens e veja quantos anos você pega após a operação. As 171 remessas com preços.", "inLanguage": "pt", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "datePublished": "2026-11-21", "dateModified": "2026-11-24", "about": {"@type": "VideoGame", "name": "ROB RUN", "url": "https://store.steampowered.com/app/4262460/ROB_RUN/", "sameAs": ["https://store.steampowered.com/app/4262460/ROB_RUN/"], "gamePlatform": "PC", "operatingSystem": "Windows", "applicationCategory": "Game", "genre": ["Action", "Massively Multiplayer", "RPG", "Simulation"], "datePublished": "2026-11-04", "author": {"@type": "Organization", "name": "Kefir"}, "publisher": {"@type": "Organization", "name": "Kefir"}}, "publisher": {"@type": "Organization", "name": "robruncalc.com", "url": "https://robruncalc.com/", "logo": {"@type": "ImageObject", "url": "https://robruncalc.com/apple-touch-icon.png", "width": 180, "height": 180}}, "isPartOf": {"@type": "WebSite", "name": "robruncalc.com", "url": "https://robruncalc.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "robruncalc.com", "alternateName": ["RobRunCalc", "ROB RUN калькулятор срока", "ROB RUN jail time calculator"], "url": "https://robruncalc.com/", "inLanguage": "pt", "publisher": {"@type": "Organization", "name": "robruncalc.com", "url": "https://robruncalc.com/", "logo": {"@type": "ImageObject", "url": "https://robruncalc.com/apple-touch-icon.png", "width": 180, "height": 180}}, "about": {"@type": "VideoGame", "name": "ROB RUN", "url": "https://store.steampowered.com/app/4262460/ROB_RUN/", "sameAs": ["https://store.steampowered.com/app/4262460/ROB_RUN/"], "gamePlatform": "PC", "operatingSystem": "Windows", "applicationCategory": "Game", "genre": ["Action", "Massively Multiplayer", "RPG", "Simulation"], "datePublished": "2026-11-04", "author": {"@type": "Organization", "name": "Kefir"}, "publisher": {"@type": "Organization", "name": "Kefir"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quantos anos eu pego por $1.000.000?", "acceptedAnswer": {"@type": "Answer", "text": "Se for dinheiro, pesquisa de remessas ou cargas, 2 anos. Se for o preço de algo que você comprou (uma casa, um carro, um terreno), contam $400.000, o que é menos de um ano."}}, {"@type": "Question", "name": "Quanto eu preciso para 40 anos?", "acceptedAnswer": {"@type": "Answer", "text": "$20.000.000 computados. São $20.000.000 em dinheiro ou $50.000.000 em preço de bens comprados, e quase sempre uma mistura dos dois."}}, {"@type": "Question", "name": "Meu carro conta para a pena?", "acceptedAnswer": {"@type": "Answer", "text": "Sim, 40% do preço de compra, na linha “Veículos”. Um Fukurou Tensa comprado por $200.000 aparece na sentença como $80.000."}}, {"@type": "Question", "name": "O que sobra abaixo de $500.000 conta?", "acceptedAnswer": {"@type": "Answer", "text": "Não. $999.999 computados dão 1 ano; $1.000.000 já dão 2."}}, {"@type": "Question", "name": "O que a dívida com o Lenny dá?", "acceptedAnswer": {"@type": "Answer", "text": "Pagar a dívida de $1.000.000 em dinheiro limpo dá, uma única vez, +10 anos acima do limite de 40."}}, {"@type": "Question", "name": "Qual é a pena máxima?", "acceptedAnswer": {"@type": "Answer", "text": "40 anos por estado e mais 10 pela dívida com o Lenny. Além disso, no máximo 40 anos a cada 24 horas e no máximo 1.200 anos por personagem."}}, {"@type": "Question", "name": "Como calculo minha pena rápido?", "acceptedAnswer": {"@type": "Answer", "text": "Com a calculadora do robruncalc.com: marque as remessas que você tem, escolha sua casa, seu carro e o resto em “Sua base” e digite seu dinheiro. Ela calcula pelas mesmas regras do jogo."}}]}</script>
-<script src="/ga.fd1611a6.js" defer></script>
+<script src="/ga.592104ca.js" defer></script>
 <meta name="theme-color" content="#1c2024">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,6 +64,8 @@ a{color:var(--chalk);text-decoration-color:var(--jumpsuit);text-underline-offset
 button,input,select,textarea{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--jumpsuit);outline-offset:2px}
 .wrap{max-width:1640px;margin:0 auto;padding:0 20px}
+/* wide screens: free 200px on each side for the side-rail ads (AdSense places them in empty margins) */
+@media (min-width:1700px){.wrap{max-width:min(1640px,calc(100vw - 400px))}}
 h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1;letter-spacing:.01em;text-wrap:balance;margin:0;overflow-wrap:break-word}
 :lang(de) h1,:lang(de) h2,:lang(de) h3{hyphens:auto}
 
@@ -402,6 +404,8 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
+<meta name="google-adsense-account" content="ca-pub-5726300621020847">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5726300621020847" crossorigin="anonymous"></script>
 </head>
 <body>
 <noscript><p style="padding:20px">A calculadora precisa de JavaScript. Ative-o no navegador e recarregue a página.</p></noscript>
@@ -588,7 +592,8 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
 <footer class="wrap">
   <div class="site-foot">
     <p><span data-i18n="foot1">Calculadora não oficial feita por fãs, sem ligação com a KEFIR. ROB RUN e as imagens do jogo pertencem à KEFIR e são usadas com permissão.</span> <span data-i18n="foot2">Dados de 22 de novembro de 2026. O jogo está em acesso antecipado e as regras mudam.</span></p>
-    <span class="foot-links"><button type="button" class="linkish" data-sup data-sup-open data-i18n="supBtn">Suporte</button>
+    <span class="foot-links"><a class="linkish" href="/pt/privacy/">Privacidade</a>
+<button type="button" class="linkish" data-sup data-sup-open data-i18n="supBtn">Suporte</button>
     <button type="button" class="linkish" id="btnEditor" data-i18n="editorLink">Editor de dados</button></span>
   </div>
 </footer>

@@ -19,6 +19,7 @@ h2{font-size:30px;margin:38px 0 12px}
 .langs a:hover{color:var(--chalk)}
 .langs a[aria-current="page"]{background:var(--slab);color:var(--chalk)}
 main{max-width:1040px;margin:0 auto;padding:8px 20px 56px}
+.site-end{max-width:1040px;margin:0 auto;padding:0 20px 40px;font-size:14px}.site-end .foot-links{display:flex;gap:18px;flex-wrap:wrap}
 .crumbs{font-size:14px;color:var(--dust);margin:0 0 22px}
 .crumbs a{color:var(--dust)}
 .hero{display:grid;grid-template-columns:160px minmax(0,1fr);gap:24px;align-items:center}

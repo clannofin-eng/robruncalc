@@ -35,7 +35,7 @@
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebApplication", "name": "Calculateur de peine ROB RUN : combien d’années de prison après la descente", "url": "https://robruncalc.com/fr/", "description": "Calculateur de peine ROB RUN : cochez les livraisons de Lenny, entrez votre argent et vos biens, et voyez combien d’années vous prendrez. Les 171 livraisons.", "inLanguage": "fr", "applicationCategory": "UtilitiesApplication", "operatingSystem": "Any", "isAccessibleForFree": true, "offers": {"@type": "Offer", "price": "0", "priceCurrency": "USD"}, "datePublished": "2026-11-25", "dateModified": "2026-11-25", "about": {"@type": "VideoGame", "name": "ROB RUN", "url": "https://store.steampowered.com/app/4262460/ROB_RUN/", "sameAs": ["https://store.steampowered.com/app/4262460/ROB_RUN/"], "gamePlatform": "PC", "operatingSystem": "Windows", "applicationCategory": "Game", "genre": ["Action", "Massively Multiplayer", "RPG", "Simulation"], "datePublished": "2026-11-04", "author": {"@type": "Organization", "name": "Kefir"}, "publisher": {"@type": "Organization", "name": "Kefir"}}, "publisher": {"@type": "Organization", "name": "robruncalc.com", "url": "https://robruncalc.com/", "logo": {"@type": "ImageObject", "url": "https://robruncalc.com/apple-touch-icon.png", "width": 180, "height": 180}}, "isPartOf": {"@type": "WebSite", "name": "robruncalc.com", "url": "https://robruncalc.com/"}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "WebSite", "name": "robruncalc.com", "alternateName": ["RobRunCalc", "ROB RUN калькулятор срока", "ROB RUN jail time calculator"], "url": "https://robruncalc.com/", "inLanguage": "fr", "publisher": {"@type": "Organization", "name": "robruncalc.com", "url": "https://robruncalc.com/", "logo": {"@type": "ImageObject", "url": "https://robruncalc.com/apple-touch-icon.png", "width": 180, "height": 180}}, "about": {"@type": "VideoGame", "name": "ROB RUN", "url": "https://store.steampowered.com/app/4262460/ROB_RUN/", "sameAs": ["https://store.steampowered.com/app/4262460/ROB_RUN/"], "gamePlatform": "PC", "operatingSystem": "Windows", "applicationCategory": "Game", "genre": ["Action", "Massively Multiplayer", "RPG", "Simulation"], "datePublished": "2026-11-04", "author": {"@type": "Organization", "name": "Kefir"}, "publisher": {"@type": "Organization", "name": "Kefir"}}}</script>
 <script type="application/ld+json">{"@context": "https://schema.org", "@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Combien d’années pour $1 000 000 ?", "acceptedAnswer": {"@type": "Answer", "text": "Si c’est de l’argent, des livraisons recherchées ou des cargaisons, 2 ans. Si c’est le prix de biens achetés (maison, voiture, terrain), $400 000 sont comptés, soit moins d’un an."}}, {"@type": "Question", "name": "Combien faut-il pour 40 ans ?", "acceptedAnswer": {"@type": "Answer", "text": "$20 000 000 comptés. Soit $20 000 000 en argent, soit $50 000 000 en prix de biens achetés, et le plus souvent un mélange des deux."}}, {"@type": "Question", "name": "Ma voiture compte-t-elle dans la peine ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui, à 40 % de son prix d’achat, sur la ligne « Véhicules ». Une Fukurou Tensa achetée $200 000 apparaît dans le jugement pour $80 000."}}, {"@type": "Question", "name": "Ce qui est sous $500 000 compte-t-il ?", "acceptedAnswer": {"@type": "Answer", "text": "Non. $999 999 comptés donnent 1 an ; $1 000 000 en donnent déjà 2."}}, {"@type": "Question", "name": "Que rapporte la dette de Lenny ?", "acceptedAnswer": {"@type": "Answer", "text": "Rembourser la dette de $1 000 000 en argent propre donne une seule fois +10 ans au-dessus du plafond de 40 ans."}}, {"@type": "Question", "name": "Quelle est la peine maximale ?", "acceptedAnswer": {"@type": "Answer", "text": "40 ans par État, plus 10 pour la dette de Lenny. S’y ajoutent deux limites : 40 ans maximum par 24 heures et 1 200 ans maximum par personnage."}}, {"@type": "Question", "name": "Comment calculer ma peine rapidement ?", "acceptedAnswer": {"@type": "Answer", "text": "Avec le calculateur de robruncalc.com : cochez les livraisons débloquées, choisissez votre maison, votre voiture et le reste dans « Votre base », puis entrez votre argent. Il compte selon les mêmes règles que le jeu."}}]}</script>
-<script src="/ga.fd1611a6.js" defer></script>
+<script src="/ga.592104ca.js" defer></script>
 <meta name="theme-color" content="#1c2024">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -64,6 +64,8 @@ a{color:var(--chalk);text-decoration-color:var(--jumpsuit);text-underline-offset
 button,input,select,textarea{font:inherit;color:inherit}
 :focus-visible{outline:2px solid var(--jumpsuit);outline-offset:2px}
 .wrap{max-width:1640px;margin:0 auto;padding:0 20px}
+/* wide screens: free 200px on each side for the side-rail ads (AdSense places them in empty margins) */
+@media (min-width:1700px){.wrap{max-width:min(1640px,calc(100vw - 400px))}}
 h1,h2,h3{font-family:var(--f-display);font-weight:800;line-height:1;letter-spacing:.01em;text-wrap:balance;margin:0;overflow-wrap:break-word}
 :lang(de) h1,:lang(de) h2,:lang(de) h3{hyphens:auto}
 
@@ -402,6 +404,8 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important;scroll-behavior:auto!important}}
 </style>
+<meta name="google-adsense-account" content="ca-pub-5726300621020847">
+<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5726300621020847" crossorigin="anonymous"></script>
 </head>
 <body>
 <noscript><p style="padding:20px">Le calculateur a besoin de JavaScript. Activez-le dans votre navigateur et rechargez la page.</p></noscript>
@@ -588,7 +592,8 @@ body.edit .node.nocost::after{content:"";position:absolute;right:4px;top:4px;z-i
 <footer class="wrap">
   <div class="site-foot">
     <p><span data-i18n="foot1">Calculateur non officiel fait par un fan, sans lien avec KEFIR. ROB RUN et les images du jeu appartiennent à KEFIR et sont utilisés avec son autorisation.</span> <span data-i18n="foot2">Données au 22 novembre 2026. Le jeu est en accès anticipé et les règles changent.</span></p>
-    <span class="foot-links"><button type="button" class="linkish" data-sup data-sup-open data-i18n="supBtn">Assistance</button>
+    <span class="foot-links"><a class="linkish" href="/fr/privacy/">Confidentialité</a>
+<button type="button" class="linkish" data-sup data-sup-open data-i18n="supBtn">Assistance</button>
     <button type="button" class="linkish" id="btnEditor" data-i18n="editorLink">Éditeur de données</button></span>
   </div>
 </footer>
